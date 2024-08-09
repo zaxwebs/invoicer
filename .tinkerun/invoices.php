@@ -2,4 +2,6 @@
 
 use App\Models\Invoice;
 
-Invoice::with('customer')->limit(4)->get();
+$invoices = Invoice::with('customer')->limit(4)->get();
+
+$invoices->first()->customer;
