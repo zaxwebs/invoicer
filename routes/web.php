@@ -1,8 +1,9 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\ProfileController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CustomerController;
 
 Route::get('/', function () {
 	return view('welcome');
@@ -20,6 +21,7 @@ Route::middleware('auth')->group(function () {
 
 Route::middleware('auth')->group(function () {
 	Route::get('/invoices', [InvoiceController::class, 'index'])->name('invoices.index');
+	Route::get('/customers', [CustomerController::class, 'index'])->name('customers.index');
 });
 
 require __DIR__ . '/auth.php';
