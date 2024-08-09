@@ -2,4 +2,6 @@
 
 use App\Models\Customer;
 
-Customer::take(4)->get();
+Customer::count();
+
+Customer::limit(4)->get();
