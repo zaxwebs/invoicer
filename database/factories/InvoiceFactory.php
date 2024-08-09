@@ -20,7 +20,7 @@ class InvoiceFactory extends Factory
 	{
 		return [
 			'customer_id' => Customer::factory(),
-			'invoice_number' => $this->faker->unique()->word,
+			'invoice_number' => $this->faker->unique()->numerify('######'),
 			'invoice_date' => $this->faker->date(),
 			'due_date' => $this->faker->date(),
 			'total' => $this->faker->randomFloat(2, 100, 1000),
