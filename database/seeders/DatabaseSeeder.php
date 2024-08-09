@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\Customer;
+use App\Models\Invoice;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -21,6 +22,7 @@ class DatabaseSeeder extends Seeder
 			'email' => 'test@example.com',
 		]);
 
-		Customer::factory()->count(50)->create();
+		Customer::factory()->count(10)->create();
+		Invoice::factory()->count(10)->create();
 	}
 }
