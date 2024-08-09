@@ -25,6 +25,7 @@ Route::middleware('auth')->group(function () {
 	Route::get('/invoices/{invoice:invoice_number}', [InvoiceController::class, 'show'])->name('invoices.show');
 	Route::get('/customers', [CustomerController::class, 'index'])->name('customers.index');
 	Route::get('/settings', [SettingController::class, 'edit'])->name('settings.edit');
+	Route::patch('/settings', [SettingController::class, 'update'])->name('settings.update');
 });
 
 require __DIR__ . '/auth.php';

@@ -22,7 +22,8 @@
 										class="fill-blue-600 dark:fill-white" />
 								</svg> -->
 
-								<h1 class="mt-2 text-lg font-semibold text-blue-600 md:text-xl dark:text-white">Invoicer
+								<h1 class="mt-2 text-lg font-semibold text-indigo-700 dark:text-indigo-300 md:text-xl">
+									Invoicer
 									Inc.
 								</h1>
 							</div>

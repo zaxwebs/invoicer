@@ -2,11 +2,12 @@
 
 namespace Database\Seeders;
 
-use App\Models\Comment;
 use App\Models\User;
+use App\Models\Comment;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-use App\Models\Customer;
 use App\Models\Invoice;
+use App\Models\Setting;
+use App\Models\Customer;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -23,8 +24,11 @@ class DatabaseSeeder extends Seeder
 			'email' => 'test@example.com',
 		]);
 
+		Setting::factory()->create();
+
 		Customer::factory()->count(10)->create();
 		Invoice::factory()->count(10)->create();
 		Comment::factory()->count(10)->create();
+
 	}
 }
