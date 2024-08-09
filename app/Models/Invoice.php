@@ -19,4 +19,9 @@ class Invoice extends Model
 	{
 		return $this->belongsTo(Customer::class);
 	}
+
+	public function comments()
+	{
+		return $this->hasMany(Comment::class);
+	}
 }

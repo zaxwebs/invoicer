@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Comment;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\Customer;
@@ -24,5 +25,6 @@ class DatabaseSeeder extends Seeder
 
 		Customer::factory()->count(10)->create();
 		Invoice::factory()->count(10)->create();
+		Comment::factory()->count(10)->create();
 	}
 }
