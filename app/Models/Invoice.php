@@ -11,6 +11,8 @@ class Invoice extends Model
 {
 	use HasFactory;
 
+	protected $guarded = [];
+
 	protected $casts = [
 		'status' => InvoiceStatus::class,
 		'customer_details' => 'object',
@@ -30,26 +32,23 @@ class Invoice extends Model
 		return $this->hasMany(Comment::class);
 	}
 
-	public function processItems()
-	{
-		$total = 0;
-		$items = $this->items;
-
-		foreach ($items as $item) {
-			$item['total'] = $item['quantity'] * $item['price'];
-			$total += $item['total'];
-		}
-
-		$this->items = $items;
-		$this->total = $total;
-	}
-
-	public static function boot()
+	protected static function boot()
 	{
 		parent::boot();
 
-		static::saving(function ($model) {
-			$model->processItems();
+		static::saving(function (self $invoice) {
+			$invoice->calculateTotals();
 		});
+	}
+
+	protected function calculateTotals()
+	{
+		$items = collect($this->items)->map(function ($item) {
+			$item['total'] = $item['price'] * $item['quantity'];
+			return $item;
+		});
+
+		$this->items = $items;
+		$this->total = $items->sum('total');
 	}
 }
