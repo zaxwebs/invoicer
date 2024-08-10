@@ -11,7 +11,17 @@ class Invoice extends Model
 {
 	use HasFactory;
 
-	protected $guarded = [];
+	protected $fillable = [
+		'customer_id',
+		'customer_details',
+		'issuer_details',
+		'invoice_number',
+		'invoice_date',
+		'due_date',
+		'total',
+		'status',
+		'items',
+	];
 
 	protected $casts = [
 		'status' => InvoiceStatus::class,

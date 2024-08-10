@@ -44,14 +44,14 @@ class InvoiceFactory extends Factory
 			'status' => $this->faker->randomElement(InvoiceStatus::cases()),
 			'items' => [
 				[
-					'name' => $this->faker->sentence(3),
+					'name' => $this->faker->sentence(2),
 					'quantity' => $this->faker->numberBetween(1, 10),
-					'rate' => $this->faker->randomFloat(2, 10, 100),
+					'rate' => $this->faker->randomFloat(2, 100, 2000),
 				],
 				[
-					'name' => $this->faker->sentence(3),
+					'name' => $this->faker->sentence(2),
 					'quantity' => $this->faker->numberBetween(1, 10),
-					'rate' => $this->faker->randomFloat(2, 10, 100),
+					'rate' => $this->faker->randomFloat(2, 100, 2000),
 				]
 			],
 		];
