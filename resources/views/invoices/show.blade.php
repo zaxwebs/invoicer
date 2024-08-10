@@ -23,8 +23,7 @@
 								</svg> -->
 
 								<h1 class="mt-2 text-lg font-semibold text-indigo-700 dark:text-indigo-300 md:text-xl">
-									Invoicer
-									Inc.
+									{{ $invoice->issuer_details->name }}
 								</h1>
 							</div>
 							<!-- Col -->
@@ -36,11 +35,9 @@
 								<span
 									class="block mt-1 text-gray-500 dark:text-neutral-500">{{ $invoice->invoice_number}}</span>
 
-								<address class="mt-4 not-italic text-gray-800 dark:text-neutral-200">
-									4220 San Mateo Blvd NE<br>
-									Roswell<br>
-									87110, New York<br>
-									United States<br>
+								<address
+									class="mt-4 not-italic text-gray-800 whitespace-pre-line dark:text-neutral-200">
+									{{ $invoice->issuer_details->address }}
 								</address>
 							</div>
 							<!-- Col -->
@@ -52,11 +49,11 @@
 							<div>
 								<h3 class="text-lg font-semibold text-gray-800 dark:text-neutral-200">Bill to:</h3>
 								<h3 class="text-lg font-semibold text-gray-800 dark:text-neutral-200">
-									{{$invoice->customer->name}}
+									{{ $invoice->customer_details->name }}
 								</h3>
 								<address
 									class="mt-2 not-italic text-gray-500 whitespace-pre-line dark:text-neutral-500">
-									{{ $invoice->customer->address }}
+									{{ $invoice->customer_details->address }}
 								</address>
 							</div>
 							<!-- Col -->
@@ -256,13 +253,17 @@
 								the following contact information:</p>
 							<div class="mt-2">
 								<p class="block text-sm font-medium text-gray-800 dark:text-neutral-200">
-									example@site.com</p>
-								<p class="block text-sm font-medium text-gray-800 dark:text-neutral-200">+1 (212)
-									204-1797</p>
+									{{ $invoice->issuer_details->email }}
+								</p>
+								<p class="block text-sm font-medium text-gray-800 dark:text-neutral-200">
+									{{ $invoice->issuer_details->phone }}
+								</p>
 							</div>
 						</div>
 
-						<p class="mt-5 text-sm text-gray-500 dark:text-neutral-500">© 2024 Invoicer.</p>
+						<p class="mt-5 text-sm text-gray-500 dark:text-neutral-500">© 2024
+							{{ $invoice->issuer_details->name }}.
+						</p>
 					</div>
 					<!-- End Card -->
 

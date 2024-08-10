@@ -13,6 +13,9 @@ class Invoice extends Model
 
 	protected $casts = [
 		'status' => InvoiceStatus::class,
+		'customer_details' => 'object',
+		'issuer_details' => 'object',
+		'items' => 'object',
 	];
 
 	public function customer()
