@@ -129,7 +129,7 @@
 												class="text-xs font-medium text-gray-500 uppercase sm:hidden dark:text-neutral-500">
 												Rate
 											</h5>
-											<p class="text-gray-800 dark:text-neutral-200">{{ $item['price'] }}</p>
+											<p class="text-gray-800 dark:text-neutral-200">{{ $item['rate'] }}</p>
 										</div>
 										<div>
 											<h5
@@ -139,101 +139,10 @@
 											</p>
 										</div>
 									</div>
+									@if (!$loop->last)
+										<div class="border-b border-gray-200 sm:hidden dark:border-neutral-700"></div>
+									@endif
 								@endforeach
-
-								<div class="grid grid-cols-3 gap-2 sm:grid-cols-5">
-									<div class="col-span-full sm:col-span-2">
-										<h5
-											class="text-xs font-medium text-gray-500 uppercase sm:hidden dark:text-neutral-500">
-											Item
-										</h5>
-										<p class="font-medium text-gray-800 dark:text-neutral-200">Design UX and UI</p>
-									</div>
-									<div>
-										<h5
-											class="text-xs font-medium text-gray-500 uppercase sm:hidden dark:text-neutral-500">
-											Qty
-										</h5>
-										<p class="text-gray-800 dark:text-neutral-200">1</p>
-									</div>
-									<div>
-										<h5
-											class="text-xs font-medium text-gray-500 uppercase sm:hidden dark:text-neutral-500">
-											Rate
-										</h5>
-										<p class="text-gray-800 dark:text-neutral-200">5</p>
-									</div>
-									<div>
-										<h5
-											class="text-xs font-medium text-gray-500 uppercase sm:hidden dark:text-neutral-500">
-											Amount</h5>
-										<p class="text-gray-800 sm:text-end dark:text-neutral-200">$500</p>
-									</div>
-								</div>
-
-								<div class="border-b border-gray-200 sm:hidden dark:border-neutral-700"></div>
-
-								<div class="grid grid-cols-3 gap-2 sm:grid-cols-5">
-									<div class="col-span-full sm:col-span-2">
-										<h5
-											class="text-xs font-medium text-gray-500 uppercase sm:hidden dark:text-neutral-500">
-											Item
-										</h5>
-										<p class="font-medium text-gray-800 dark:text-neutral-200">Web project</p>
-									</div>
-									<div>
-										<h5
-											class="text-xs font-medium text-gray-500 uppercase sm:hidden dark:text-neutral-500">
-											Qty
-										</h5>
-										<p class="text-gray-800 dark:text-neutral-200">1</p>
-									</div>
-									<div>
-										<h5
-											class="text-xs font-medium text-gray-500 uppercase sm:hidden dark:text-neutral-500">
-											Rate
-										</h5>
-										<p class="text-gray-800 dark:text-neutral-200">24</p>
-									</div>
-									<div>
-										<h5
-											class="text-xs font-medium text-gray-500 uppercase sm:hidden dark:text-neutral-500">
-											Amount</h5>
-										<p class="text-gray-800 sm:text-end dark:text-neutral-200">$1250</p>
-									</div>
-								</div>
-
-								<div class="border-b border-gray-200 sm:hidden dark:border-neutral-700"></div>
-
-								<div class="grid grid-cols-3 gap-2 sm:grid-cols-5">
-									<div class="col-span-full sm:col-span-2">
-										<h5
-											class="text-xs font-medium text-gray-500 uppercase sm:hidden dark:text-neutral-500">
-											Item
-										</h5>
-										<p class="font-medium text-gray-800 dark:text-neutral-200">SEO</p>
-									</div>
-									<div>
-										<h5
-											class="text-xs font-medium text-gray-500 uppercase sm:hidden dark:text-neutral-500">
-											Qty
-										</h5>
-										<p class="text-gray-800 dark:text-neutral-200">1</p>
-									</div>
-									<div>
-										<h5
-											class="text-xs font-medium text-gray-500 uppercase sm:hidden dark:text-neutral-500">
-											Rate
-										</h5>
-										<p class="text-gray-800 dark:text-neutral-200">6</p>
-									</div>
-									<div>
-										<h5
-											class="text-xs font-medium text-gray-500 uppercase sm:hidden dark:text-neutral-500">
-											Amount</h5>
-										<p class="text-gray-800 sm:text-end dark:text-neutral-200">$2000</p>
-									</div>
-								</div>
 							</div>
 						</div>
 						<!-- End Table -->
@@ -243,37 +152,20 @@
 							<div class="w-full max-w-2xl space-y-2 sm:text-end">
 								<!-- Grid -->
 								<div class="grid grid-cols-2 gap-3 sm:grid-cols-1 sm:gap-2">
-									<dl class="grid sm:grid-cols-5 gap-x-3">
-										<dt class="col-span-3 font-semibold text-gray-800 dark:text-neutral-200">
-											Subtotal:</dt>
-										<dd class="col-span-2 text-gray-500 dark:text-neutral-500">$2750.00</dd>
-									</dl>
 
 									<dl class="grid sm:grid-cols-5 gap-x-3">
 										<dt class="col-span-3 font-semibold text-gray-800 dark:text-neutral-200">Total:
 										</dt>
-										<dd class="col-span-2 text-gray-500 dark:text-neutral-500">$2750.00</dd>
+										<dd class="col-span-2 text-gray-500 dark:text-neutral-500">
+											${{ $invoice->total }}</dd>
 									</dl>
 
-									<dl class="grid sm:grid-cols-5 gap-x-3">
+									<!-- <dl class="grid sm:grid-cols-5 gap-x-3">
 										<dt class="col-span-3 font-semibold text-gray-800 dark:text-neutral-200">Tax:
 										</dt>
 										<dd class="col-span-2 text-gray-500 dark:text-neutral-500">$39.00</dd>
-									</dl>
+									</dl> -->
 
-									<dl class="grid sm:grid-cols-5 gap-x-3">
-										<dt class="col-span-3 font-semibold text-gray-800 dark:text-neutral-200">Amount
-											paid:
-										</dt>
-										<dd class="col-span-2 text-gray-500 dark:text-neutral-500">$2789.00</dd>
-									</dl>
-
-									<dl class="grid sm:grid-cols-5 gap-x-3">
-										<dt class="col-span-3 font-semibold text-gray-800 dark:text-neutral-200">Due
-											balance:
-										</dt>
-										<dd class="col-span-2 text-gray-500 dark:text-neutral-500">$0.00</dd>
-									</dl>
 								</div>
 								<!-- End Grid -->
 							</div>

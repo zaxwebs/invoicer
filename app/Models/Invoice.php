@@ -44,7 +44,7 @@ class Invoice extends Model
 	protected function calculateTotals()
 	{
 		$items = collect($this->items)->map(function ($item) {
-			$item['total'] = $item['price'] * $item['quantity'];
+			$item['total'] = $item['rate'] * $item['quantity'];
 			return $item;
 		});
 
