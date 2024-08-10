@@ -107,6 +107,40 @@
 
 								<div class="hidden border-b border-gray-200 sm:block dark:border-neutral-700"></div>
 
+								@foreach ($invoice->items as $item)
+									<div class="grid grid-cols-3 gap-2 sm:grid-cols-5">
+										<div class="col-span-full sm:col-span-2">
+											<h5
+												class="text-xs font-medium text-gray-500 uppercase sm:hidden dark:text-neutral-500">
+												Item
+											</h5>
+											<p class="font-medium text-gray-800 dark:text-neutral-200">{{ $item['name'] }}
+											</p>
+										</div>
+										<div>
+											<h5
+												class="text-xs font-medium text-gray-500 uppercase sm:hidden dark:text-neutral-500">
+												Qty
+											</h5>
+											<p class="text-gray-800 dark:text-neutral-200">{{ $item['quantity'] }}</p>
+										</div>
+										<div>
+											<h5
+												class="text-xs font-medium text-gray-500 uppercase sm:hidden dark:text-neutral-500">
+												Rate
+											</h5>
+											<p class="text-gray-800 dark:text-neutral-200">{{ $item['price'] }}</p>
+										</div>
+										<div>
+											<h5
+												class="text-xs font-medium text-gray-500 uppercase sm:hidden dark:text-neutral-500">
+												Amount</h5>
+											<p class="text-gray-800 sm:text-end dark:text-neutral-200">{{ $item['total'] }}
+											</p>
+										</div>
+									</div>
+								@endforeach
+
 								<div class="grid grid-cols-3 gap-2 sm:grid-cols-5">
 									<div class="col-span-full sm:col-span-2">
 										<h5
