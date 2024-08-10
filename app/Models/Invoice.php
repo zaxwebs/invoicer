@@ -15,8 +15,10 @@ class Invoice extends Model
 		'status' => InvoiceStatus::class,
 		'customer_details' => 'object',
 		'issuer_details' => 'object',
-		'items' => 'object',
+		'items' => 'array',
 	];
+
+
 
 	public function customer()
 	{
@@ -26,5 +28,28 @@ class Invoice extends Model
 	public function comments()
 	{
 		return $this->hasMany(Comment::class);
+	}
+
+	public function processItems()
+	{
+		$total = 0;
+		$items = $this->items;
+
+		foreach ($items as $item) {
+			$item['total'] = $item['quantity'] * $item['price'];
+			$total += $item['total'];
+		}
+
+		$this->items = $items;
+		$this->total = $total;
+	}
+
+	public static function boot()
+	{
+		parent::boot();
+
+		static::saving(function ($model) {
+			$model->processItems();
+		});
 	}
 }

@@ -1,10 +1,15 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TinkerController;
 use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\SettingController;
+use App\Http\Controllers\CustomerController;
+
+if (app()->environment('local')) {
+	Route::get('/tinker', [TinkerController::class, 'index'])->name('tinker');
+}
 
 Route::get('/', function () {
 	return view('welcome');
