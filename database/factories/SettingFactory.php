@@ -18,7 +18,7 @@ class SettingFactory extends Factory
 	{
 		return [
 			'name' => 'Invoicer Inc.',
-			'email' => 'contact@example.com',
+			'email' => 'billing@example.com',
 			'phone' => $this->faker->phoneNumber,
 			'website' => $this->faker->domainName,
 			'address' => $this->faker->address,
