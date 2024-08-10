@@ -25,6 +25,7 @@
 								<h1 class="mt-2 text-lg font-semibold text-indigo-700 dark:text-indigo-300 md:text-xl">
 									{{ $invoice->issuer_details->name }}
 								</h1>
+								<div>{{ $invoice->issuer_details->website }}</div>
 							</div>
 							<!-- Col -->
 

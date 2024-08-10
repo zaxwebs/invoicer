@@ -35,6 +35,7 @@ class InvoiceFactory extends Factory
 				'email' => $settings->email,
 				'phone' => $settings->phone,
 				'address' => $settings->address,
+				'website' => $settings->website,
 			],
 			'invoice_number' => $this->faker->unique()->numerify('######'),
 			'invoice_date' => $this->faker->date(),
