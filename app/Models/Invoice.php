@@ -35,13 +35,18 @@ class Invoice extends Model
 
 	private function calculateStatuses(): array
 	{
-		$statuses = [$this->status];
+		$status = $this->status;
 
-		if ($this->isOverdue() && $this->isPendingPayment()) {
-			array_unshift($statuses, InvoiceStatus::OVERDUE);
+		if ($status === InvoiceStatus::ISSUED && $this->isOverdue()) {
+			return [InvoiceStatus::OVERDUE];
 		}
 
-		return $statuses;
+
+		if ($this->isOverdue() && $this->isPendingPayment()) {
+			return [$status, InvoiceStatus::OVERDUE];
+		}
+
+		return [$status];
 	}
 
 	protected function statuses(): Attribute
