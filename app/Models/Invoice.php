@@ -4,7 +4,9 @@ namespace App\Models;
 
 use App\Models\Customer;
 use App\Enums\InvoiceStatus;
+use Illuminate\Support\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Invoice extends Model
@@ -20,7 +22,34 @@ class Invoice extends Model
 		'items' => 'array',
 	];
 
+	private function isOverdue(): bool
+	{
+		$dueDate = Carbon::parse($this->due_date);
+		return Carbon::now()->greaterThan($dueDate);
+	}
 
+	private function isPendingPayment(): bool
+	{
+		return $this->status === InvoiceStatus::ISSUED || $this->status === InvoiceStatus::PARTIALLY_PAID;
+	}
+
+	private function calculateStatuses(): array
+	{
+		$statuses = [$this->status];
+
+		if ($this->isOverdue() && $this->isPendingPayment()) {
+			array_unshift($statuses, InvoiceStatus::OVERDUE);
+		}
+
+		return $statuses;
+	}
+
+	protected function statuses(): Attribute
+	{
+		return Attribute::make(
+			get: fn() => $this->calculateStatuses(),
+		);
+	}
 
 	public function customer()
 	{
