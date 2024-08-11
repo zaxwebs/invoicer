@@ -129,13 +129,14 @@
 												class="text-xs font-medium text-gray-500 uppercase sm:hidden dark:text-neutral-500">
 												Rate
 											</h5>
-											<p class="text-gray-800 dark:text-neutral-200">${{ $item['rate'] }}</p>
+											<p class="text-gray-800 dark:text-neutral-200">{{ $item['rate'] }}</p>
 										</div>
 										<div>
 											<h5
 												class="text-xs font-medium text-gray-500 uppercase sm:hidden dark:text-neutral-500">
 												Amount</h5>
-											<p class="text-gray-800 sm:text-end dark:text-neutral-200">${{ $item['total'] }}
+											<p class="text-gray-800 sm:text-end dark:text-neutral-200">
+												<x-money :value="$item['total']" />
 											</p>
 										</div>
 									</div>
@@ -157,7 +158,8 @@
 										<dt class="col-span-3 font-semibold text-gray-800 dark:text-neutral-200">Total:
 										</dt>
 										<dd class="col-span-2 text-gray-500 dark:text-neutral-500">
-											${{ $invoice->total }}</dd>
+											<x-money value="{{ $invoice->total }}" />
+										</dd>
 									</dl>
 
 									<!-- <dl class="grid sm:grid-cols-5 gap-x-3">
