@@ -1,7 +1,7 @@
 <?php
 if (!function_exists('alertify')) {
-	function alertify($message)
+	function alertify($message, $type = 'success')
 	{
-		return $message;
+		return compact('message', 'type');
 	}
 }
