@@ -10,22 +10,25 @@
 
 			<div class="space-y-3">
 				@foreach ($customers as $customer)
-					<div class="p-4 bg-white shadow sm:p-8 dark:bg-gray-800 sm:rounded-lg">
-						<div class="grid gap-4 md:grid-cols-3">
-							<div class="flex flex-col flex-1 gap-2">
-								<div class="text-sm text-gray-500">Name</div>
-								<div>{{ $customer->name }}</div>
-							</div>
-							<div class="flex flex-col flex-1 gap-2">
-								<div class="text-sm text-gray-500">Email</div>
-								<div>{{ $customer->email }}</div>
-							</div>
-							<div class="flex flex-col flex-1 gap-2">
-								<div class="text-sm text-gray-500">Phone</div>
-								<div>{{ $customer->phone }}</div>
+					<a class="block" href="{{ route('customers.edit', $customer) }}">
+						<div class="p-4 bg-white shadow sm:p-8 dark:bg-gray-800 sm:rounded-lg">
+							<div class="grid gap-4 md:grid-cols-3">
+								<div class="flex flex-col flex-1 gap-2">
+									<div class="text-sm text-gray-500">Name</div>
+									<div>{{ $customer->name }}</div>
+								</div>
+								<div class="flex flex-col flex-1 gap-2">
+									<div class="text-sm text-gray-500">Email</div>
+									<div>{{ $customer->email }}</div>
+								</div>
+								<div class="flex flex-col flex-1 gap-2">
+									<div class="text-sm text-gray-500">Phone</div>
+									<div>{{ $customer->phone }}</div>
+								</div>
 							</div>
 						</div>
-					</div>
+					</a>
+
 				@endforeach
 			</div>
 
