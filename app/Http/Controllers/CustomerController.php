@@ -29,6 +29,6 @@ class CustomerController extends Controller
 
 		$customer->update($validated);
 
-		return redirect()->route('customers.edit', $customer);
+		return redirect()->route('customers.edit', $customer)->with('alert', alertify('All set! Everything is up to date.'));
 	}
 }
