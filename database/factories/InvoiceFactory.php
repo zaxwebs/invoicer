@@ -6,6 +6,7 @@ use App\Models\Setting;
 use App\Models\Customer;
 use App\Enums\InvoiceStatus;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Carbon;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Invoice>
@@ -19,41 +20,93 @@ class InvoiceFactory extends Factory
 	 */
 	public function definition(): array
 	{
+		// Retrieve related models
 		$customer = Customer::factory()->create();
 		$settings = Setting::first();
 
+		// Generate invoice and due dates
+		$invoiceDate = $this->faker->dateTimeBetween('-2 years', 'now');
+		$dueDate = Carbon::instance($invoiceDate)->addDays($this->faker->numberBetween(3, 5));
+
+		// Generate invoice items
+		$itemCount = $this->faker->numberBetween(2, 4);
+		$items = array_map(fn() => $this->generateInvoiceItem(), range(1, $itemCount));
+
 		return [
 			'customer_id' => $customer->id,
-			'customer_details' => [
-				'name' => $customer->name,
-				'email' => $customer->email,
-				'phone' => $customer->phone,
-				'address' => $customer->address,
-			],
-			'issuer_details' => [
-				'name' => $settings->name,
-				'email' => $settings->email,
-				'phone' => $settings->phone,
-				'address' => $settings->address,
-				'website' => $settings->website,
-			],
+			'customer_details' => $this->generateCustomerDetails($customer),
+			'issuer_details' => $this->generateIssuerDetails($settings),
 			'invoice_number' => $this->faker->unique()->numerify('######'),
-			'invoice_date' => $this->faker->date(),
-			'due_date' => $this->faker->date(),
+			'invoice_date' => $invoiceDate,
+			'due_date' => $dueDate,
 			'total' => $this->faker->randomFloat(2, 100, 1000),
 			'status' => $this->faker->randomElement(InvoiceStatus::cases()),
-			'items' => [
-				[
-					'name' => $this->faker->sentence(2),
-					'quantity' => $this->faker->numberBetween(1, 10),
-					'rate' => $this->faker->randomFloat(2, 100, 2000),
-				],
-				[
-					'name' => $this->faker->sentence(2),
-					'quantity' => $this->faker->numberBetween(1, 10),
-					'rate' => $this->faker->randomFloat(2, 100, 2000),
-				]
-			],
+			'items' => $items,
+		];
+	}
+
+	/**
+	 * Generate customer details array.
+	 *
+	 * @param \App\Models\Customer $customer
+	 * @return array<string, mixed>
+	 */
+	private function generateCustomerDetails(Customer $customer): array
+	{
+		return [
+			'name' => $customer->name,
+			'email' => $customer->email,
+			'phone' => $customer->phone,
+			'address' => $customer->address,
+		];
+	}
+
+	/**
+	 * Generate issuer details array.
+	 *
+	 * @param \App\Models\Setting $settings
+	 * @return array<string, mixed>
+	 */
+	private function generateIssuerDetails(Setting $settings): array
+	{
+		return [
+			'name' => $settings->name,
+			'email' => $settings->email,
+			'phone' => $settings->phone,
+			'address' => $settings->address,
+			'website' => $settings->website,
+		];
+	}
+
+	/**
+	 * Generate a single invoice item.
+	 *
+	 * @return array<string, mixed>
+	 */
+	private function generateInvoiceItem(): array
+	{
+		$tasks = [
+			'UI/UX Design',
+			'Frontend Development',
+			'Backend Development',
+			'Responsive Design',
+			'Website Maintenance',
+			'SEO Optimization',
+			'Content Creation',
+			'Database Design',
+			'API Integration',
+			'E-commerce Setup',
+			'Performance Optimization',
+			'Code Review',
+			'Bug Fixing',
+			'Website Testing',
+			'Deployment & Hosting',
+		];
+
+		return [
+			'name' => $this->faker->randomElement($tasks),
+			'quantity' => $this->faker->numberBetween(1, 10),
+			'rate' => $this->faker->randomFloat(2, 100, 2000),
 		];
 	}
 }
