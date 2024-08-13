@@ -5,8 +5,19 @@
 		</h2>
 	</x-slot>
 
+
+
 	<div class="py-12">
 		<div class="mx-auto space-y-6 max-w-7xl sm:px-6 lg:px-8">
+			@if ($errors->any())
+				<div class="alert alert-danger">
+					<ul>
+						@foreach ($errors->all() as $error)
+							<li>{{ $error }}</li>
+						@endforeach
+					</ul>
+				</div>
+			@endif
 			<div class="p-4 bg-white shadow sm:p-8 dark:bg-gray-800 sm:rounded-lg">
 				<div>
 					<section>

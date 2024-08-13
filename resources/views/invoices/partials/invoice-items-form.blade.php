@@ -1,5 +1,5 @@
 <div class="mt-6" x-data="itemsManager()">
-	<input name="items" type="hidden" x-bind:value="JSON.stringify(items)">
+	<input name="items" type="hidden" x-bind:value="() => normalizeItems()">
 	<div class="p-4 space-y-4 border border-gray-200 rounded-lg dark:border-neutral-700">
 		<div class="hidden sm:grid sm:grid-cols-5">
 			<div class="text-xs font-medium text-gray-500 uppercase sm:col-span-2 dark:text-neutral-500">
@@ -79,7 +79,15 @@
 				this.items = this.items.filter((item, i) => {
 					return (i === this.items.length - 1) || (item.name || item.quantity || item.rate);
 				});
-			}
+			},
+
+			normalizeItems() {
+				const items = this.items.filter((item) => {
+					return item.name || item.rate;
+				});
+
+				return JSON.stringify(items);
+			},
 		};
 	}
 </script>

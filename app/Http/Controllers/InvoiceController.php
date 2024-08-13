@@ -32,6 +32,19 @@ class InvoiceController extends Controller
 
 	public function store(Request $request)
 	{
-		dd($request->all());
+		$request->merge(['items' => json_decode($request->input('items'), true)]);
+
+		$validated = $request->validate([
+			'customer_id' => 'required|exists:customers,id',
+			'due_date' => 'required|date|after:today',
+			'items' => 'required|array|min:1',
+			'items.*.name' => 'required|string|max:255',
+			'items.*.quantity' => 'required|integer|min:1',
+			'items.*.rate' => 'required|numeric|min:0',
+		]);
+
+		return redirect()->route('invoices.create');
+
 	}
+
 }
