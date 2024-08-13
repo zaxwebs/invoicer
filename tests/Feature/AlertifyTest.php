@@ -1,0 +1,51 @@
+<?php
+
+namespace Tests\Feature;
+
+use Tests\TestCase;
+use InvalidArgumentException;
+use Illuminate\Foundation\Testing\WithFaker;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+
+class AlertifyTest extends TestCase
+{
+	/** @test */
+	public function it_returns_an_array_with_message_and_type()
+	{
+		$result = alertify('Test message', 'info');
+
+		$this->assertIsArray($result);
+		$this->assertArrayHasKey('message', $result);
+		$this->assertArrayHasKey('type', $result);
+		$this->assertEquals('Test message', $result['message']);
+		$this->assertEquals('info', $result['type']);
+	}
+
+	/** @test */
+	public function it_defaults_type_to_success()
+	{
+		$result = alertify('Default type message');
+
+		$this->assertEquals('success', $result['type']);
+	}
+
+	/** @test */
+	public function it_throws_exception_for_invalid_type()
+	{
+		$this->expectException(InvalidArgumentException::class);
+		$this->expectExceptionMessage('Invalid alert type: x. Allowed types are: success, info, danger, warning');
+
+		alertify('Invalid type message', 'x');
+	}
+
+	/** @test */
+	public function it_allows_valid_types()
+	{
+		$types = ['success', 'info', 'danger', 'warning'];
+
+		foreach ($types as $type) {
+			$result = alertify('Valid type message', $type);
+			$this->assertEquals($type, $result['type']);
+		}
+	}
+}
