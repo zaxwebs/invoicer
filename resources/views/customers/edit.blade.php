@@ -23,7 +23,6 @@
 						<form method="post" action="{{ route('customers.update', $customer) }}" class="mt-6 space-y-6">
 							@csrf
 							@method('put')
-
 							<div>
 								<x-input-label for="name" :value="__('Name')" />
 								<x-text-input id="name" name="name" type="text" class="block w-full mt-1"

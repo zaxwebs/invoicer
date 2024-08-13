@@ -10,7 +10,7 @@ if (!function_exists('alertify')) {
 	{
 		$types = ['success', 'info', 'danger', 'warning'];
 
-		if (Arr::has($types, $type)) {
+		if (!in_array($type, $types, true)) {
 			throw new InvalidArgumentException("Invalid alert type: $type. Allowed types are: " . implode(', ', $types));
 		}
 
