@@ -20,7 +20,7 @@
 							</p>
 						</header>
 
-						<form method="post" action="#" class="mt-6 space-y-6">
+						<form method="post" action="{{ route('invoices.store') }}" class="mt-6 space-y-6">
 							@csrf
 							<div>
 								<x-input-label for="customer_id" :value="__('Customer')" />
@@ -35,7 +35,7 @@
 							<div>
 								<x-input-label for="due_date" :value="__('Due Date')" />
 								<x-text-input id="due_date" name="due_date" type="date" class="block w-full mt-1"
-									:value="old('due_date')" required />
+									:value="old('due_date', $due_date)" required />
 								<x-input-error class="mt-2" :messages="$errors->get('due_date')" />
 							</div>
 

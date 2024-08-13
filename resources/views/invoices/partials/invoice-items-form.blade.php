@@ -23,7 +23,8 @@
 						Item
 					</h5>
 					<p class="font-medium text-gray-800 dark:text-neutral-200">
-						<x-text-input type="text" x-model="item.name" @input="checkAndAddNewItem(index)" />
+						<x-text-input class="w-full" type="text" x-model="item.name"
+							@input="checkAndAddNewItem(index)" />
 					</p>
 				</div>
 				<div>
@@ -31,7 +32,8 @@
 						Rate
 					</h5>
 					<p class="text-gray-800 dark:text-neutral-200">
-						<x-text-input type="number" x-model="item.rate" @input="checkAndAddNewItem(index)" />
+						<x-text-input class="w-full" type="number" min="0" x-model="item.rate"
+							@input="checkAndAddNewItem(index)" />
 					</p>
 				</div>
 				<div>
@@ -39,7 +41,8 @@
 						Qty
 					</h5>
 					<p class="text-gray-800 dark:text-neutral-200">
-						<x-text-input type="number" x-model="item.quantity" @input="checkAndAddNewItem(index)" />
+						<x-text-input class="w-full" type="number" min="1" x-model="item.quantity"
+							@input="checkAndAddNewItem(index)" />
 					</p>
 				</div>
 				<div>
