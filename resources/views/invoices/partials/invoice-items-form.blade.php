@@ -1,4 +1,5 @@
-<div class="mt-6" x-data="itemManager()">
+<div class="mt-6" x-data="itemsManager()">
+	<input name="items" type="hidden" x-bind:value="JSON.stringify(items)">
 	<div class="p-4 space-y-4 border border-gray-200 rounded-lg dark:border-neutral-700">
 		<div class="hidden sm:grid sm:grid-cols-5">
 			<div class="text-xs font-medium text-gray-500 uppercase sm:col-span-2 dark:text-neutral-500">
@@ -59,7 +60,7 @@
 </div>
 
 <script>
-	function itemManager() {
+	function itemsManager() {
 		return {
 			items: [{ name: '', quantity: 1, rate: '' }],
 
