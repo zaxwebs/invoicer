@@ -46,12 +46,13 @@
 							@input="checkAndAddNewItem(index)" />
 					</p>
 				</div>
-				<div>
+				<div class="flex flex-col items-end justify-center">
 					<h5 class="text-xs font-medium text-gray-500 uppercase sm:hidden dark:text-neutral-500">
-						Total</h5>
-					<p class="text-gray-800 sm:text-end dark:text-neutral-200">
+						Total
+					</h5>
+					<span class="flex items-center flex-1 text-gray-800 sm:text-end dark:text-neutral-200">
 						$<span x-text="item.rate * item.quantity"></span>
-					</p>
+					</span>
 				</div>
 			</div>
 		</template>
