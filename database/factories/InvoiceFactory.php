@@ -36,7 +36,6 @@ class InvoiceFactory extends Factory
 			'customer_id' => $customer->id,
 			'customer_details' => $this->generateCustomerDetails($customer),
 			'issuer_details' => $this->generateIssuerDetails($settings),
-			'invoice_number' => $this->faker->unique()->numerify('######'),
 			'invoice_date' => $invoiceDate,
 			'due_date' => $dueDate,
 			'total' => $this->faker->randomFloat(2, 100, 1000),

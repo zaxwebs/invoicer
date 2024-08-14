@@ -6,6 +6,7 @@ use App\Models\Invoice;
 use App\Models\Setting;
 use App\Models\Customer;
 use App\Enums\InvoiceStatus;
+use App\Services\InvoiceService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 
@@ -52,36 +53,20 @@ class InvoiceController extends Controller
 
 		// Compose customer and issuer details
 
-		$customerDetails = [
-			'name' => $customer->name,
-			'email' => $customer->email,
-			'phone' => $customer->phone,
-			'address' => $customer->address,
-		];
+		$customerDetails = InvoiceService::composeCustomerDetails($customer);
+		$issuerDetails = InvoiceService::composeIssuerDetails($settings);
 
-		$issuerDetails = [
-			'name' => $settings->name,
-			'email' => $settings->email,
-			'phone' => $settings->phone,
-			'address' => $settings->address,
-			'website' => $settings->website,
-		];
-
-		// TODO: Improve
-		$invoiceNumber = rand(100000, 999999);
-
-		Invoice::create([
+		$invoice = Invoice::create([
 			'customer_id' => $customer->id,
 			'customer_details' => $customerDetails,
 			'issuer_details' => $issuerDetails,
-			'invoice_number' => $invoiceNumber,
 			'invoice_date' => Carbon::now()->format('Y-m-d'),
 			'due_date' => $request->input('due_date'),
 			'status' => InvoiceStatus::ISSUED,
 			'items' => $request->input('items'),
 		]);
 
-		return redirect()->route('invoices.show', $invoiceNumber)->with('alert', alertify('Invoice created successfully!'));
+		return redirect()->route('invoices.show', $invoice->invoice_number)->with('alert', alertify('Invoice created successfully!'));
 
 	}
 

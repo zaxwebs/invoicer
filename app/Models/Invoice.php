@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Models\Customer;
 use App\Enums\InvoiceStatus;
+use App\Services\InvoiceService;
 use Illuminate\Support\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Casts\Attribute;
@@ -72,6 +73,7 @@ class Invoice extends Model
 
 		static::saving(function (self $invoice) {
 			$invoice->calculateTotals();
+			$invoice->invoice_number = InvoiceService::generateUniqueInvoiceNumber();
 		});
 	}
 
