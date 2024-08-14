@@ -90,14 +90,15 @@
 								<div class="hidden sm:grid sm:grid-cols-5">
 									<div
 										class="text-xs font-medium text-gray-500 uppercase sm:col-span-2 dark:text-neutral-500">
-										Item</div>
-									<div
-										class="text-xs font-medium text-gray-500 uppercase text-start dark:text-neutral-500">
-										Qty
+										Item
 									</div>
 									<div
 										class="text-xs font-medium text-gray-500 uppercase text-start dark:text-neutral-500">
 										Rate
+									</div>
+									<div
+										class="text-xs font-medium text-gray-500 uppercase text-start dark:text-neutral-500">
+										Qty
 									</div>
 									<div
 										class="text-xs font-medium text-gray-500 uppercase text-end dark:text-neutral-500">
@@ -120,16 +121,16 @@
 										<div>
 											<h5
 												class="text-xs font-medium text-gray-500 uppercase sm:hidden dark:text-neutral-500">
-												Qty
+												Rate
 											</h5>
-											<p class="text-gray-800 dark:text-neutral-200">{{ $item['quantity'] }}</p>
+											<p class="text-gray-800 dark:text-neutral-200">{{ $item['rate'] }}</p>
 										</div>
 										<div>
 											<h5
 												class="text-xs font-medium text-gray-500 uppercase sm:hidden dark:text-neutral-500">
-												Rate
+												Qty
 											</h5>
-											<p class="text-gray-800 dark:text-neutral-200">{{ $item['rate'] }}</p>
+											<p class="text-gray-800 dark:text-neutral-200">{{ $item['quantity'] }}</p>
 										</div>
 										<div>
 											<h5
