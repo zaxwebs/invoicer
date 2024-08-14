@@ -38,16 +38,9 @@ class InvoiceService
 
 	protected static function generateInvoiceNumber()
 	{
-		$characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-		$randomString = '';
-
-		for ($i = 0; $i < 2; $i++) {
-			$randomIndex = rand(0, strlen($characters) - 1);
-			$randomString .= $characters[$randomIndex];
-		}
-
-		$numbers = str_pad(random_int(0, 999999), 6, '0', STR_PAD_LEFT);
-		return $randomString . $numbers;
+		$prefix = GeneralService::generateRandomUppercaseString(2);
+		$paddedNumbers = GeneralService::generatePaddedNumber(6);
+		return $prefix . $paddedNumbers;
 	}
 
 	public static function generateUniqueInvoiceNumber()
