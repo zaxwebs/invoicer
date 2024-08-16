@@ -27,7 +27,8 @@ class DatabaseSeeder extends Seeder
 		Setting::factory()->create();
 
 		Customer::factory()->count(10)->create();
-		Invoice::factory()->count(10)->create();
-		Note::factory()->count(10)->create();
+		Invoice::factory()
+			->has(Note::factory()->count(5))
+			->count(10)->create();
 	}
 }

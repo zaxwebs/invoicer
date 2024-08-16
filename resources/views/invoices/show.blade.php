@@ -264,6 +264,12 @@
 						<div>{{ $invoice->customer->name }}</div>
 						<div class="text-gray-500">{{ $invoice->customer->email }}</div>
 					</div>
+					<div class="p-4 bg-white shadow sm:p-8 dark:bg-gray-800 sm:rounded-lg">
+						<h3>Notes</h3>
+						@foreach ($invoice->notes as $note)
+							<p>{{ $note->content }}</p>
+						@endforeach
+					</div>
 				</div>
 
 			</div>

@@ -22,6 +22,7 @@ class InvoiceController extends Controller
 
 	public function show(Invoice $invoice)
 	{
+		$invoice->load('notes');
 		return view('invoices.show', compact('invoice'));
 	}
 
@@ -87,6 +88,5 @@ class InvoiceController extends Controller
 		return redirect()->route('invoices.show', $invoice->invoice_number)
 			->with('alert', alertify('Invoice status updated successfully!'));
 	}
-
 
 }
