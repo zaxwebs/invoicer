@@ -62,16 +62,16 @@ class Invoice extends Model
 		return $this->belongsTo(Customer::class);
 	}
 
-	public function comments()
+	public function notes()
 	{
-		return $this->hasMany(Comment::class);
+		return $this->hasMany(Note::class);
 	}
 
 	protected static function boot()
 	{
 		parent::boot();
 
-		static::saving(function (self $invoice) {
+		static::creating(function (self $invoice) {
 			$invoice->calculateTotals();
 			$invoice->invoice_number = InvoiceService::generateUniqueInvoiceNumber();
 		});

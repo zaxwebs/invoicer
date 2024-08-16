@@ -6,9 +6,10 @@ use App\Models\Invoice;
 use App\Models\Setting;
 use App\Models\Customer;
 use App\Enums\InvoiceStatus;
-use App\Services\InvoiceService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
+use Illuminate\Validation\Rule;
+use App\Services\InvoiceService;
 
 class InvoiceController extends Controller
 {
@@ -69,5 +70,23 @@ class InvoiceController extends Controller
 		return redirect()->route('invoices.show', $invoice->invoice_number)->with('alert', alertify('Invoice created successfully!'));
 
 	}
+
+	public function updateStatus(Request $request, Invoice $invoice)
+	{
+		// Validate the requested status, excluding the 'overdue' status
+		$validated = $request->validate([
+			'status' => [
+				'required',
+				Rule::enum(InvoiceStatus::class)->except([InvoiceStatus::OVERDUE]),
+			],
+		]);
+
+		// Update the invoice status
+		$invoice->update(['status' => $validated['status']]);
+
+		return redirect()->route('invoices.show', $invoice->invoice_number)
+			->with('alert', alertify('Invoice status updated successfully!'));
+	}
+
 
 }

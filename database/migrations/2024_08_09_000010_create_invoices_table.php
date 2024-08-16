@@ -19,9 +19,10 @@ return new class extends Migration {
 			$table->string('invoice_number')->unique();
 			$table->date('invoice_date');
 			$table->date('due_date');
-			$table->decimal('total', 10, 2);
-			$table->string('status')->default(InvoiceStatus::cases()[0]);
 			$table->json('items');
+			$table->decimal('total', 10, 2);
+			$table->text('remarks')->nullable();
+			$table->string('status')->default(InvoiceStatus::cases()[0]);
 			$table->timestamps();
 		});
 	}

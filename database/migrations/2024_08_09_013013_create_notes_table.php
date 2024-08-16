@@ -12,7 +12,7 @@ return new class extends Migration {
 	 */
 	public function up(): void
 	{
-		Schema::create('comments', function (Blueprint $table) {
+		Schema::create('notes', function (Blueprint $table) {
 			$table->id();
 			$table->foreignIdFor(Invoice::class);
 			$table->text('content');
@@ -25,6 +25,6 @@ return new class extends Migration {
 	 */
 	public function down(): void
 	{
-		Schema::dropIfExists('comments');
+		Schema::dropIfExists('notes');
 	}
 };
