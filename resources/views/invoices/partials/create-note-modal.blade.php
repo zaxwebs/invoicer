@@ -29,8 +29,8 @@
 					<input type="hidden" name="invoice_id" value="{{ $invoice->id }}">
 					<div>
 						<x-input-label for="content" :value="__('Content')" />
-						<x-textarea id="content" name="content" class="block w-full mt-1"
-							autofocus>{{ old('content') }}</x-textarea>
+						<x-textarea id="content" name="content" class="block w-full mt-1" autofocus
+							required>{{ old('content') }}</x-textarea>
 						<x-input-error class="mt-2" :messages="$errors->get('content')" />
 					</div>
 				</form>
