@@ -13,7 +13,7 @@ class NoteController extends Controller
 		try {
 			$validated = $request->validate([
 				'invoice_id' => 'required|exists:invoices,id',
-				'content' => 'required|string|min:2',
+				'content' => 'required|string',
 			]);
 		} catch (ValidationException $e) {
 			return redirect()->back()->with('alert', alertify('Something went wrong!', 'danger'));
