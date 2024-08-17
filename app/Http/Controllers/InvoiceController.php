@@ -22,7 +22,12 @@ class InvoiceController extends Controller
 
 	public function show(Invoice $invoice)
 	{
-		$invoice->load('notes');
+		$invoice->load([
+			'notes' => function ($query) {
+				$query->orderBy('created_at', 'desc');
+			}
+		]);
+
 		return view('invoices.show', compact('invoice'));
 	}
 
