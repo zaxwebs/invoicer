@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\NoteController;
 use App\Http\Controllers\TinkerController;
 use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\ProfileController;
@@ -35,6 +36,7 @@ Route::middleware('auth')->group(function () {
 	Route::get('/customers', [CustomerController::class, 'index'])->name('customers.index');
 	Route::get('/customers/{customer}/edit', [CustomerController::class, 'edit'])->name('customers.edit');
 	Route::put('/customers/{customer}', [CustomerController::class, 'update'])->name('customers.update');
+	Route::post('/notes', [NoteController::class, 'store'])->name('notes.store');
 	Route::get('/settings', [SettingController::class, 'edit'])->name('settings.edit');
 	Route::patch('/settings', [SettingController::class, 'update'])->name('settings.update');
 });

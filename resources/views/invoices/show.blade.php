@@ -36,8 +36,7 @@
 										class="fill-blue-600 dark:fill-white" />
 								</svg> -->
 
-									<h1
-										class="mt-2 text-lg font-semibold text-indigo-700 dark:text-indigo-300 md:text-xl">
+									<h1 class="mt-2 text-lg font-semibold text-blue-700 dark:text-blue-300 md:text-xl">
 										{{ $invoice->issuer_details->name }}
 									</h1>
 									<div>{{ $invoice->issuer_details->website }}</div>
@@ -266,7 +265,10 @@
 					</div>
 					<div class="bg-white shadow dark:bg-gray-800 sm:rounded-lg">
 						<div class="p-4 py-2 border-b sm:py-3 sm:p-8">
-							<h3 class="text-base font-medium text-gray-900 dark:text-gray-100">Notes</h3>
+							<div class="flex items-center justify-between">
+								<h3 class="text-base font-medium text-gray-900 dark:text-gray-100">Notes</h3>
+								@include('invoices.partials.create-note-modal')
+							</div>
 						</div>
 						<div class="p-4 space-y-4 sm:p-8">
 							@foreach ($invoice->notes as $note)

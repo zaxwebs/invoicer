@@ -1,10 +1,5 @@
-@props([
-	'id' => 'modal',
-])
-
 <x-secondary-button aria-haspopup="dialog" aria-expanded="false" aria-controls="hs-vertically-centered-modal"
 	data-hs-overlay="#hs-vertically-centered-modal">Add Note</x-secondary-button>
-
 <div id="hs-vertically-centered-modal"
 	class="hs-overlay hidden size-full fixed top-0 start-0 z-[80] overflow-x-hidden overflow-y-auto pointer-events-none"
 	role="dialog" tabindex="-1" aria-labelledby="hs-vertically-centered-modal-label">
@@ -29,16 +24,14 @@
 				</button>
 			</div>
 			<div class="p-4 overflow-y-auto">
-				<form method="post" action="#">
+				<form method="post" action="{{ route('notes.store') }}" id="create-note">
 					@csrf
-					<div class="space-y-6">
-						<div>
-							<x-input-label for="content" :value="__('Content')" />
-							<x-textarea id="content" name="content"
-								class="block w-full mt-1">{{ old('content') }}</x-textarea>
-							<x-input-error class="mt-2" :messages="$errors->get('content')" />
-						</div>
-						<x-primary-button>{{ __('Add Note') }}</x-primary-button>
+					<input type="hidden" name="invoice_id" value="{{ $invoice->id }}">
+					<div>
+						<x-input-label for="content" :value="__('Content')" />
+						<x-textarea id="content" name="content" class="block w-full mt-1"
+							autofocus>{{ old('content') }}</x-textarea>
+						<x-input-error class="mt-2" :messages="$errors->get('content')" />
 					</div>
 				</form>
 			</div>
@@ -48,6 +41,7 @@
 					data-hs-overlay="#hs-vertically-centered-modal">
 					Close
 				</button>
+				<x-primary-button form="create-note">{{ __('Add Note') }}</x-primary-button>
 			</div>
 		</div>
 	</div>
