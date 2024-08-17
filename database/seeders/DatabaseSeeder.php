@@ -27,8 +27,11 @@ class DatabaseSeeder extends Seeder
 		Setting::factory()->create();
 
 		Customer::factory()->count(10)->create();
-		Invoice::factory()
-			->has(Note::factory()->count(5))
-			->count(10)->create();
+		Invoice::factory()->count(10)->create()->each(function ($invoice) {
+			$numberOfNotes = rand(0, 3); // Random number between 0 and 3
+			Note::factory()->count($numberOfNotes)->create([
+				'invoice_id' => $invoice->id,
+			]);
+		});
 	}
 }

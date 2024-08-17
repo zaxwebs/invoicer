@@ -19,7 +19,7 @@ class NoteFactory extends Factory
 	{
 		return [
 			'invoice_id' => Invoice::factory(),
-			'content' => $this->faker->text(),
+			'content' => $this->faker->sentence(),
 			'created_at' => now(),
 			'updated_at' => now(),
 		];
