@@ -259,18 +259,18 @@
 							<x-primary-button class="whitespace-nowrap">Update Status</x-primary-button>
 						</div>
 					</form>
-					<div class="p-4 bg-white shadow sm:p-8 dark:bg-gray-800 sm:rounded-lg">
+					<div class="p-6 bg-white shadow dark:bg-gray-800 sm:rounded-lg">
 						<div>{{ $invoice->customer->name }}</div>
 						<div class="text-gray-500">{{ $invoice->customer->email }}</div>
 					</div>
 					<div class="bg-white shadow dark:bg-gray-800 sm:rounded-lg">
-						<div class="p-4 py-2 border-b sm:py-3 sm:p-8">
+						<div class="p-6 py-3 border-b">
 							<div class="flex items-center justify-between">
 								<h3 class="text-base font-medium text-gray-900 dark:text-gray-100">Notes</h3>
 								@include('invoices.partials.create-note-modal')
 							</div>
 						</div>
-						<div class="p-4 space-y-4 sm:p-8">
+						<div class="p-6 space-y-4">
 							@foreach ($invoice->notes as $note)
 								<div>
 									<div class="">{{ $note->content }}</div>
