@@ -37,6 +37,7 @@ Route::middleware('auth')->group(function () {
 	Route::get('/customers/{customer}/edit', [CustomerController::class, 'edit'])->name('customers.edit');
 	Route::put('/customers/{customer}', [CustomerController::class, 'update'])->name('customers.update');
 	Route::post('/notes', [NoteController::class, 'store'])->name('notes.store');
+	Route::delete('notes/{note}', [NoteController::class, 'destroy'])->name('notes.destroy');
 	Route::get('/settings', [SettingController::class, 'edit'])->name('settings.edit');
 	Route::patch('/settings', [SettingController::class, 'update'])->name('settings.update');
 });

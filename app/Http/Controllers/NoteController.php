@@ -23,4 +23,11 @@ class NoteController extends Controller
 
 		return redirect()->back()->with('alert', alertify('Invoice created successfully!'));
 	}
+
+	public function destroy(Note $note)
+	{
+		$note->delete();
+
+		return redirect()->back()->with('alert', alertify('Note deleted successfully!'));
+	}
 }
