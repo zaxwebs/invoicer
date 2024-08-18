@@ -274,7 +274,12 @@
 							@foreach ($invoice->notes as $note)
 								<div>
 									<div class="flex w-full gap-3">
-										<div class="flex-1">{{ $note->content }}</div>
+										<div class="flex flex-col flex-1 gap-1">
+											<div class="flex-1">{{ $note->content }}</div>
+											<div class="text-sm tracking-wider text-gray-500">
+												{{ $note->created_at->diffForHumans() }}
+											</div>
+										</div>
 										<div>
 											<form action="{{ route('notes.destroy', $note->id) }}" method="POST"
 												onsubmit="return confirm('Are you sure you want to delete this note?');">
@@ -292,9 +297,6 @@
 												</x-secondary-button>
 											</form>
 										</div>
-									</div>
-									<div class="text-sm tracking-wider text-gray-500">
-										{{ $note->created_at->diffForHumans() }}
 									</div>
 								</div>
 							@endforeach
