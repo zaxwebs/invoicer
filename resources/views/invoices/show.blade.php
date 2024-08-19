@@ -37,9 +37,9 @@
 								</svg> -->
 
 									<h1 class="mt-2 text-lg font-semibold text-blue-700 dark:text-blue-300 md:text-xl">
-										{{ $invoice->issuer_details->name }}
+										{{ $invoice->issuer_details['name'] }}
 									</h1>
-									<div>{{ $invoice->issuer_details->website }}</div>
+									<div>{{ $invoice->issuer_details['website'] }}</div>
 								</div>
 								<!-- Col -->
 
@@ -52,7 +52,7 @@
 
 									<address
 										class="mt-4 not-italic text-gray-800 whitespace-pre-line dark:text-neutral-200">
-										{{ $invoice->issuer_details->address }}
+										{{ $invoice->issuer_details['address'] }}
 									</address>
 								</div>
 								<!-- Col -->
@@ -64,11 +64,11 @@
 								<div>
 									<h3 class="text-lg font-semibold text-gray-800 dark:text-neutral-200">Bill to:</h3>
 									<h3 class="text-lg font-semibold text-gray-800 dark:text-neutral-200">
-										{{ $invoice->customer_details->name }}
+										{{ $invoice->customer_details['name'] }}
 									</h3>
 									<address
 										class="mt-2 not-italic text-gray-500 whitespace-pre-line dark:text-neutral-500">
-										{{ $invoice->customer_details->address }}
+										{{ $invoice->customer_details['address'] }}
 									</address>
 								</div>
 								<!-- Col -->
@@ -200,16 +200,16 @@
 									the following contact information:</p>
 								<div class="mt-2">
 									<p class="block text-sm font-medium text-gray-800 dark:text-neutral-200">
-										{{ $invoice->issuer_details->email }}
+										{{ $invoice->issuer_details['email'] }}
 									</p>
 									<p class="block text-sm font-medium text-gray-800 dark:text-neutral-200">
-										{{ $invoice->issuer_details->phone }}
+										{{ $invoice->issuer_details['phone'] }}
 									</p>
 								</div>
 							</div>
 
 							<p class="mt-5 text-sm text-gray-500 dark:text-neutral-500">© 2024
-								{{ $invoice->issuer_details->name }}.
+								{{ $invoice->issuer_details['name'] }}.
 							</p>
 						</div>
 						<!-- End Card -->

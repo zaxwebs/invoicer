@@ -18,10 +18,37 @@ class Invoice extends Model
 
 	protected $casts = [
 		'status' => InvoiceStatus::class,
-		'customer_details' => 'object',
-		'issuer_details' => 'object',
+		'customer_details' => 'array',
+		'issuer_details' => 'array',
 		'items' => 'array',
 	];
+
+	public function customer()
+	{
+		return $this->belongsTo(Customer::class);
+	}
+
+	public function notes()
+	{
+		return $this->hasMany(Note::class);
+	}
+
+	protected function statuses(): Attribute
+	{
+		return Attribute::make(
+			get: fn() => $this->calculateStatuses(),
+		);
+	}
+
+	protected static function boot()
+	{
+		parent::boot();
+
+		static::creating(function (self $invoice) {
+			$invoice->calculateTotals();
+			$invoice->invoice_number = InvoiceService::generateUniqueInvoiceNumber();
+		});
+	}
 
 	private function isOverdue(): bool
 	{
@@ -48,33 +75,6 @@ class Invoice extends Model
 		}
 
 		return [$status];
-	}
-
-	protected function statuses(): Attribute
-	{
-		return Attribute::make(
-			get: fn() => $this->calculateStatuses(),
-		);
-	}
-
-	public function customer()
-	{
-		return $this->belongsTo(Customer::class);
-	}
-
-	public function notes()
-	{
-		return $this->hasMany(Note::class);
-	}
-
-	protected static function boot()
-	{
-		parent::boot();
-
-		static::creating(function (self $invoice) {
-			$invoice->calculateTotals();
-			$invoice->invoice_number = InvoiceService::generateUniqueInvoiceNumber();
-		});
 	}
 
 	protected function calculateTotals()
