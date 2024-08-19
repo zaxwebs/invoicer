@@ -14,8 +14,8 @@
 	</x-slot>
 	<div class="py-12">
 		<div class="mx-auto space-y-6 max-w-7xl sm:px-6 lg:px-8">
-			<div class="grid grid-cols-6 gap-6">
-				<div class="col-span-4">
+			<div class="grid gap-6 lg:grid-cols-6">
+				<div class="lg:col-span-4">
 					<div>
 						<!-- Card -->
 						<div class="flex flex-col p-4 bg-white shadow-md sm:p-10 rounded-xl dark:bg-neutral-800">
@@ -242,7 +242,7 @@
 						<!-- End Buttons -->
 					</div>
 				</div>
-				<div class="col-span-2 space-y-6">
+				<div class="space-y-6 lg:col-span-2">
 					<form action="{{ route('invoices.update-status', $invoice->id) }}" method="POST">
 						@csrf
 						@method('PATCH')
