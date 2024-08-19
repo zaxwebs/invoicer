@@ -40,8 +40,10 @@ class Invoice extends Model
 		);
 	}
 
-	protected static function booted()
+	protected static function boot()
 	{
+		parent::boot();
+
 		static::creating(function (self $invoice) {
 			$invoice->calculateTotals();
 			$invoice->invoice_number = InvoiceService::generateUniqueInvoiceNumber();
