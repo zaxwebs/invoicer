@@ -285,7 +285,7 @@
 												onsubmit="return confirm('Are you sure you want to delete this note?');">
 												@csrf
 												@method('DELETE')
-												<x-secondary-button class="text-gray-600">
+												<x-secondary-button class="text-gray-500">
 													<svg class="shrink-0 size-3" xmlns="http://www.w3.org/2000/svg"
 														width="24" height="24" viewBox="0 0 24 24" fill="none"
 														stroke="currentColor" stroke-width="2" stroke-linecap="round"
