@@ -40,10 +40,8 @@ class Invoice extends Model
 		);
 	}
 
-	protected static function boot()
+	protected static function booted()
 	{
-		parent::boot();
-
 		static::creating(function (self $invoice) {
 			$invoice->calculateTotals();
 			$invoice->invoice_number = InvoiceService::generateUniqueInvoiceNumber();
@@ -58,7 +56,7 @@ class Invoice extends Model
 
 	private function isPendingPayment(): bool
 	{
-		return $this->status === InvoiceStatus::ISSUED || $this->status === InvoiceStatus::PARTIALLY_PAID;
+		return in_array($this->status, [InvoiceStatus::ISSUED, InvoiceStatus::PARTIALLY_PAID]);
 	}
 
 	private function calculateStatuses(): array

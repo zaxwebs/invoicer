@@ -10,30 +10,14 @@ use Illuminate\Support\Str;
 class InvoiceService
 {
 
-	public function __construct()
+	public static function composeCustomerDetails(Customer $customer): array
 	{
-
+		return $customer->only(['name', 'email', 'phone', 'address']);
 	}
 
-	public static function composeCustomerDetails(Customer $customer)
+	public static function composeIssuerDetails(Setting $settings): array
 	{
-		return [
-			'name' => $customer->name,
-			'email' => $customer->email,
-			'phone' => $customer->phone,
-			'address' => $customer->address,
-		];
-	}
-
-	public static function composeIssuerDetails(Setting $settings)
-	{
-		return [
-			'name' => $settings->name,
-			'email' => $settings->email,
-			'phone' => $settings->phone,
-			'address' => $settings->address,
-			'website' => $settings->website,
-		];
+		return $settings->only(['name', 'email', 'phone', 'address', 'website']);
 	}
 
 	protected static function generateInvoiceNumber()
@@ -51,4 +35,5 @@ class InvoiceService
 
 		return $invoiceNumber;
 	}
+
 }
