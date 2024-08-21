@@ -1,5 +1,7 @@
 <x-app-layout>
-	<x-modal title="Create Customer">
-		<livewire:create-customer />
-	</x-modal>
+	<div class="p-4">
+		<x-modal title="Create Customer">
+			<livewire:create-customer modal={{ true }} />
+		</x-modal>
+	</div>
 </x-app-layout>

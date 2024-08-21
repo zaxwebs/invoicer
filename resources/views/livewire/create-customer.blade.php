@@ -1,4 +1,4 @@
-<form wire:submit.prevent="submit" class="space-y-6">
+<form id="create-customer-form" wire:submit="submit" class="space-y-6">
 	<div>
 		<x-input-label for="name" :value="__('Name')" />
 		<x-text-input id="name" wire:model="name" type="text" class="block w-full mt-1" required autofocus
@@ -24,7 +24,12 @@
 		@error('address') <span class="text-red-600">{{ $message }}</span> @enderror
 	</div>
 
-	<div class="flex items-center gap-4">
-		<x-primary-button>{{ __('Create') }}</x-primary-button>
-	</div>
+	<div class="empty:hidden" id="create-customer-form-actions"></div>
+
+	<template x-teleport="{{ $modal ? '#modal-actions' : '#create-customer-form-actions' }}">
+		<div class="flex items-center gap-x-2">
+			<x-primary-button form="create-customer-form">{{ __('Create') }}</x-primary-button>
+		</div>
+	</template>
+
 </form>
