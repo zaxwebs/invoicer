@@ -7,7 +7,7 @@ use App\Models\Customer;
 
 class CreateCustomer extends Component
 {
-	public $modal = false;
+	public $modal = null;
 	public $name;
 	public $email;
 	public $phone;

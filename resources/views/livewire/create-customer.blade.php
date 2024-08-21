@@ -26,7 +26,7 @@
 
 	<div class="empty:hidden" id="create-customer-form-actions"></div>
 
-	<template x-teleport="{{ $modal ? '#modal-actions' : '#create-customer-form-actions' }}">
+	<template x-teleport="{{ $modal ? '#' . $modal . '-actions' : '#create-customer-form-actions' }}">
 		<div class="flex items-center gap-x-2">
 			<x-primary-button form="create-customer-form">{{ __('Create') }}</x-primary-button>
 		</div>

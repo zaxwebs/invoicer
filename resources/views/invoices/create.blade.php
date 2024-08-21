@@ -35,7 +35,7 @@
 							@csrf
 							<div>
 								<x-input-label for="customer_id" :value="__('Customer')" />
-								<x-select id="customer_id" name="customer_id">
+								<x-select id="customer_id" name="customer_id" class="block w-full mt-1">
 									@foreach($customers as $customer)
 										<option value="{{ $customer->id }}">{{ $customer->name }}</option>
 									@endforeach
