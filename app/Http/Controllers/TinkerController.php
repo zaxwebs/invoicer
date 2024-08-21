@@ -11,7 +11,6 @@ class TinkerController extends Controller
 {
 	public function index()
 	{
-		$customers = Customer::all();
-		return view('invoices.create', compact('customers'));
+		return view('tinker');
 	}
 }
