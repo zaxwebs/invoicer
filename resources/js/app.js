@@ -11,7 +11,3 @@ window.Alpine = Alpine;
 Alpine.plugin(TimeAgo);
 
 Livewire.start()
-
-document.addEventListener('livewire:navigated', () => {
-	window.HSStaticMethods.autoInit();
-})
