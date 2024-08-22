@@ -26,7 +26,7 @@ class CreateCustomer extends Component
 
 		$customer = Customer::create($validatedData);
 
-		return redirect()->route('customers.edit', $customer);
+		return redirect()->route('customers.edit', $customer)->with('alert', alertify('Customer created successfully!'));
 	}
 
 	public function render()
