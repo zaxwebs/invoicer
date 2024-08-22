@@ -5,9 +5,9 @@
 @endphp
 
 @if ($href)
-	<a href="{{ $href }}" {{ $attributes->merge(['class' => $classes]) }}>
+	<x-link href="{{ $href }}" {{ $attributes->merge(['class' => $classes]) }}>
 		{{ $slot }}
-	</a>
+	</x-link>
 @else
 	<button {{ $attributes->merge(['type' => 'submit', 'class' => $classes]) }}>
 		{{ $slot }}
