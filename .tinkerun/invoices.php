@@ -1,7 +1,9 @@
 <?php
 
+use Carbon\Carbon;
 use App\Models\Invoice;
 
-$invoices = Invoice::with('customer')->limit(4)->get();
+// get only date
+$now = Carbon::now()->toDateString();
 
-$invoices->first()->customer;
+$invoices = Invoice::overdue()->get();

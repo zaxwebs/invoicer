@@ -4,9 +4,10 @@ namespace App\Models;
 
 use App\Models\Customer;
 use App\Enums\InvoiceStatus;
-use App\Services\InvoiceService;
 use Illuminate\Support\Carbon;
+use App\Services\InvoiceService;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -22,6 +23,8 @@ class Invoice extends Model
 		'issuer_details' => 'array',
 		'items' => 'array',
 	];
+
+	protected $activeStatuses = [InvoiceStatus::ISSUED, InvoiceStatus::PARTIALLY_PAID];
 
 	public function customer()
 	{
@@ -40,6 +43,13 @@ class Invoice extends Model
 		);
 	}
 
+	public function scopeOverdue(Builder $query)
+	{
+		return $query
+			->where('status', $this->activeStatuses)
+			->where('due_date', '<', Carbon::now()->toDateString());
+	}
+
 	protected static function boot()
 	{
 		parent::boot();
@@ -52,29 +62,25 @@ class Invoice extends Model
 
 	private function isOverdue(): bool
 	{
-		$dueDate = Carbon::parse($this->due_date);
-		return Carbon::now()->greaterThan($dueDate);
+		return Carbon::now()->greaterThan($this->due_date);
 	}
 
-	private function isPendingPayment(): bool
+	private function isActive(): bool
 	{
-		return in_array($this->status, [InvoiceStatus::ISSUED, InvoiceStatus::PARTIALLY_PAID]);
+		return in_array($this->status, $this->activeStatuses);
 	}
 
 	private function calculateStatuses(): array
 	{
 		$status = $this->status;
+		$isOverdue = $this->isOverdue();
+		$isActive = $this->isActive();
 
-		if ($status === InvoiceStatus::ISSUED && $this->isOverdue()) {
-			return [InvoiceStatus::OVERDUE];
+		if ($status === InvoiceStatus::ISSUED) {
+			return $isOverdue ? [InvoiceStatus::OVERDUE] : [$status];
 		}
 
-
-		if ($this->isOverdue() && $this->isPendingPayment()) {
-			return [$status, InvoiceStatus::OVERDUE];
-		}
-
-		return [$status];
+		return $isOverdue && $isActive ? [$status, InvoiceStatus::OVERDUE] : [$status];
 	}
 
 	protected function calculateTotals()
