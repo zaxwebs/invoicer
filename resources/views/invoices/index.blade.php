@@ -14,7 +14,7 @@
 			<div class="flex justify-end">
 				<form class="max-w-sm" action="{{ route('invoices.index') }}" method="GET" x-data
 					x-on:change="$el.submit()">
-					<div class="flex items-center gap-4">
+					<div class="flex items-center gap-3">
 						<x-input-label for="status">Status</x-input-label>
 						<x-select name="status" class="form-select" required>
 							<option value="all" {{ request()->query('status') == 'all' ? 'selected' : '' }}>
