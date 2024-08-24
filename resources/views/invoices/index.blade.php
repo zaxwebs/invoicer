@@ -84,6 +84,8 @@
 				@endforeach
 			</div>
 
+			{{ $invoices->links() }}
+
 
 		</div>
 
