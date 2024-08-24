@@ -2,12 +2,11 @@
 
 namespace App\Models;
 
-use App\Models\Customer;
 use App\Enums\InvoiceStatus;
-use Illuminate\Support\Carbon;
 use App\Services\InvoiceService;
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Carbon;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -24,7 +23,15 @@ class Invoice extends Model
 		'items' => 'array',
 	];
 
-	protected $activeStatuses = [InvoiceStatus::ISSUED, InvoiceStatus::PARTIALLY_PAID];
+	protected $activeStatuses = [
+		InvoiceStatus::ISSUED,
+		InvoiceStatus::PARTIALLY_PAID,
+	];
+
+	protected $inactiveStatuses = [
+		InvoiceStatus::REFUNDED,
+		InvoiceStatus::CANCELLED
+	];
 
 	public function customer()
 	{
@@ -46,8 +53,21 @@ class Invoice extends Model
 	public function scopeOverdue(Builder $query)
 	{
 		return $query
-			->where('status', $this->activeStatuses)
+			->whereIn('status', $this->activeStatuses)
 			->where('due_date', '<', Carbon::now()->toDateString());
+	}
+
+	public function scopeStatus(Builder $query, string $status = 'all')
+	{
+		if ($status === 'all') {
+			return $query;
+		}
+
+		if ($status === InvoiceStatus::OVERDUE) {
+			return $this->scopeOverdue($query);
+		}
+
+		return $query->where('status', $status);
 	}
 
 	protected static function boot()
@@ -62,7 +82,7 @@ class Invoice extends Model
 
 	private function isOverdue(): bool
 	{
-		return Carbon::now()->greaterThan($this->due_date);
+		return $this->isActive() && Carbon::now()->greaterThan($this->due_date);
 	}
 
 	private function isActive(): bool
@@ -72,15 +92,14 @@ class Invoice extends Model
 
 	private function resolveStatusList(): array
 	{
-		$status = $this->status;
 		$isOverdue = $this->isOverdue();
-		$isActive = $this->isActive();
+		$status = $this->status;
 
 		if ($status === InvoiceStatus::ISSUED) {
 			return $isOverdue ? [InvoiceStatus::OVERDUE] : [$status];
 		}
 
-		return $isOverdue && $isActive ? [$status, InvoiceStatus::OVERDUE] : [$status];
+		return $isOverdue ? [$status, InvoiceStatus::OVERDUE] : [$status];
 	}
 
 	protected function calculateTotals()

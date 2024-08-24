@@ -14,9 +14,12 @@ use App\Services\InvoiceService;
 class InvoiceController extends Controller
 {
 
-	public function index()
+	public function index(Request $request)
 	{
-		$invoices = Invoice::with('customer')->latest()->get();
+		$filterStatus = $request->query('status', 'all');
+
+		$invoices = Invoice::status($filterStatus)->with('customer')->latest()->get();
+
 		return view('invoices.index', compact('invoices'));
 	}
 

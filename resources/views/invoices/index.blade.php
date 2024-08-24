@@ -11,6 +11,30 @@
 	<div class="py-12">
 		<div class="mx-auto space-y-6 max-w-7xl sm:px-6 lg:px-8">
 
+			<div class="flex justify-end">
+				<form class="max-w-sm" action="{{ route('invoices.index') }}" method="GET" x-data
+					x-on:change="$el.submit()">
+					<div class="flex items-center gap-4">
+						<x-input-label for="status">Status</x-input-label>
+						<x-select name="status" class="form-select" required>
+							<option value="all" {{ request()->query('status') == 'all' ? 'selected' : '' }}>
+								All
+							</option>
+							@foreach(\App\Enums\InvoiceStatus::cases() as $status)
+								@if($status !== \App\Enums\InvoiceStatus::OVERDUE)
+
+									<option value="{{ $status->value }}" {{ request()->query('status') == $status->value ? 'selected' : '' }}>
+										{{ $status->label() }}
+									</option>
+								@endif
+							@endforeach
+						</x-select>
+					</div>
+				</form>
+			</div>
+
+
+
 			<div class="space-y-3">
 				@foreach ($invoices as $invoice)
 					<x-link class="block" href="{{ route('invoices.show', $invoice->invoice_number) }}">
