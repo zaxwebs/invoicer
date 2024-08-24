@@ -59,11 +59,12 @@ class Invoice extends Model
 
 	public function scopeStatus(Builder $query, string $status = 'all')
 	{
+
 		if ($status === 'all') {
 			return $query;
 		}
 
-		if ($status === InvoiceStatus::OVERDUE) {
+		if ($status === InvoiceStatus::OVERDUE->value) {
 			return $this->scopeOverdue($query);
 		}
 

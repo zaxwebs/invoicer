@@ -20,6 +20,9 @@
 							<option value="all" {{ request()->query('status') == 'all' ? 'selected' : '' }}>
 								All
 							</option>
+							<option value="overdue" {{ request()->query('status') == 'overdue' ? 'selected' : '' }}>
+								Overdue
+							</option>
 							@foreach(\App\Enums\InvoiceStatus::cases() as $status)
 								@if($status !== \App\Enums\InvoiceStatus::OVERDUE)
 
