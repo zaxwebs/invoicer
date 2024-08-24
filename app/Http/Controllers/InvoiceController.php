@@ -17,8 +17,9 @@ class InvoiceController extends Controller
 	public function index(Request $request)
 	{
 		$filterStatus = $request->query('status', 'all');
+		$sortBy = $request->query('sort', 'created_at');
 
-		$invoices = Invoice::status($filterStatus)->with('customer')->latest()->get();
+		$invoices = Invoice::status($filterStatus)->sortBy($sortBy)->with('customer')->latest()->get();
 
 		return view('invoices.index', compact('invoices'));
 	}

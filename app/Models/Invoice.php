@@ -50,15 +50,20 @@ class Invoice extends Model
 		);
 	}
 
-	public function scopeOverdue(Builder $query)
+	public function scopeOverdue(Builder $query): Builder
 	{
 		return $query
 			->whereIn('status', $this->activeStatuses)
 			->where('due_date', '<', Carbon::now()->toDateString());
 	}
 
-	public function scopeStatus(Builder $query, string $status = 'all')
+	public function scopeStatus(Builder $query, string $status = 'all'): Builder
 	{
+		$validStatuses = array_column(InvoiceStatus::cases(), 'value');
+		if (!in_array($status, $validStatuses)) {
+			$status = 'all';
+		}
+
 
 		if ($status === 'all') {
 			return $query;
@@ -69,6 +74,25 @@ class Invoice extends Model
 		}
 
 		return $query->where('status', $status);
+	}
+
+	public function scopeSortBy(Builder $query, $field = 'name', $direction = 'desc'): Builder
+	{
+		$validSortFields = ['created_at', 'due_date', 'total'];
+		$validDirections = ['asc', 'desc'];
+
+		// Apply default sorting if the field is invalid
+		if (!in_array($field, $validSortFields)) {
+			$field = 'created_at';
+		}
+
+		// Apply default direction if invalid
+		if (!in_array($direction, $validDirections)) {
+			$direction = 'desc';
+		}
+
+		// Apply sorting
+		return $query->orderBy($field, $direction);
 	}
 
 	protected static function boot()
