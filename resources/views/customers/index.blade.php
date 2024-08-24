@@ -36,7 +36,7 @@
 				@endforeach
 			</div>
 
-
+			{{ $customers->links() }}
 		</div>
 
 

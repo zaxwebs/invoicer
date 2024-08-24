@@ -9,7 +9,7 @@ class CustomerController extends Controller
 {
 	public function index()
 	{
-		$customers = Customer::latest()->get();
+		$customers = Customer::latest()->simplePaginate(10)->withQueryString();
 		return view('customers.index', compact('customers'));
 	}
 
