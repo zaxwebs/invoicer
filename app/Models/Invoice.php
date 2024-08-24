@@ -39,7 +39,7 @@ class Invoice extends Model
 	protected function statuses(): Attribute
 	{
 		return Attribute::make(
-			get: fn() => $this->calculateStatuses(),
+			get: fn() => $this->resolveStatusList(),
 		);
 	}
 
@@ -70,7 +70,7 @@ class Invoice extends Model
 		return in_array($this->status, $this->activeStatuses);
 	}
 
-	private function calculateStatuses(): array
+	private function resolveStatusList(): array
 	{
 		$status = $this->status;
 		$isOverdue = $this->isOverdue();
