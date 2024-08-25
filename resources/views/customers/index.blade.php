@@ -19,7 +19,10 @@
 							<div class="grid gap-4 md:grid-cols-3">
 								<div class="flex items-center flex-1 gap-4">
 									<x-avatar :customer="$customer" />
-									<div class="font-medium">{{ $customer->name }}</div>
+									<div class="space-y-0.5">
+										<div class="font-normal">{{ $customer->name }}</div>
+										<div class="text-gray-500">Customer</div>
+									</div>
 								</div>
 								<div class="flex flex-col flex-1 gap-2">
 									<div class="text-sm text-gray-500">Email</div>

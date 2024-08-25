@@ -6,5 +6,5 @@
 		: asset('images/user-avatar.svg');
 @endphp
 
-<img class="inline-block object-cover border border-gray-100 rounded-full size-16" src="{{ $imageUrl }}"
+<img class="inline-block object-cover border border-gray-100 rounded-xl size-20" src="{{ $imageUrl }}"
 	alt="{{ $customer->name }}" />
