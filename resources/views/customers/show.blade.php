@@ -47,7 +47,8 @@
 				<h2 class="text-lg font-medium text-gray-900 dark:text-gray-100">
 					{{ __('Invoices') }}
 				</h2>
-				<x-secondary-button href="{{ route('invoices.create') }}">Create</x-secondary-button>
+				<x-secondary-button
+					href="{{ route('invoices.create', ['customer_id' => $customer->id]) }}">Create</x-secondary-button>
 			</div>
 
 			<div class="space-y-3">

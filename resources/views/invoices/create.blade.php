@@ -35,9 +35,12 @@
 							@csrf
 							<div>
 								<x-input-label for="customer_id" :value="__('Customer')" />
-								<x-select id="customer_id" name="customer_id" class="block w-full mt-1">
+								<x-select id="customer_id" name="customer_id" class="block w-full mt-1" autofocus>
+									<option disabled selected>Select a Customer</option>
 									@foreach($customers as $customer)
-										<option value="{{ $customer->id }}">{{ $customer->name }}</option>
+										<option value="{{ $customer->id }}" {{ request()->query('customer_id') == $customer->id ? 'selected' : '' }}>
+											{{ $customer->name }}
+										</option>
 									@endforeach
 								</x-select>
 								<x-input-error class="mt-2" :messages="$errors->get('customer_id')" />
