@@ -260,7 +260,7 @@
 						</div>
 					</form>
 					<div class="flex items-center gap-4 p-6 bg-white shadow dark:bg-gray-800 sm:rounded-lg">
-						<x-avatar :customer="$invoice->customer" />
+						<x-avatar :customer="$invoice->customer" class="size-16" />
 						<div>
 							<div>{{ $invoice->customer->name }}</div>
 							<div class="text-gray-500">{{ $invoice->customer->email }}</div>
