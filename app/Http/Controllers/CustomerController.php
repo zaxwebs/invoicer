@@ -25,7 +25,14 @@ class CustomerController extends Controller
 			'email' => 'required|string|email|max:255|unique:customers',
 			'phone' => 'nullable|string|max:15',
 			'address' => 'nullable|string|max:255',
+			'image' => 'nullable|image|max:2048',
 		]);
+
+		if ($request->hasFile('image')) {
+			$file = $request->file('image');
+			$path = $file->store('uploads', 'public');
+			$validated['image'] = $path;
+		}
 
 		$customer = Customer::create($validated);
 
