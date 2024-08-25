@@ -259,9 +259,12 @@
 							<x-primary-button class="whitespace-nowrap">Update Status</x-primary-button>
 						</div>
 					</form>
-					<div class="p-6 bg-white shadow dark:bg-gray-800 sm:rounded-lg">
-						<div>{{ $invoice->customer->name }}</div>
-						<div class="text-gray-500">{{ $invoice->customer->email }}</div>
+					<div class="flex items-center gap-4 p-6 bg-white shadow dark:bg-gray-800 sm:rounded-lg">
+						<x-avatar :customer="$invoice->customer" />
+						<div>
+							<div>{{ $invoice->customer->name }}</div>
+							<div class="text-gray-500">{{ $invoice->customer->email }}</div>
+						</div>
 					</div>
 					@include('invoices.partials.note-card')
 				</div>
