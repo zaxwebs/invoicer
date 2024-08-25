@@ -259,13 +259,16 @@
 							<x-primary-button class="whitespace-nowrap">Update Status</x-primary-button>
 						</div>
 					</form>
-					<div class="flex items-center gap-4 p-6 bg-white shadow dark:bg-gray-800 sm:rounded-lg">
-						<x-avatar :customer="$invoice->customer" class="size-14" />
-						<div>
-							<div>{{ $invoice->customer->name }}</div>
-							<div class="text-gray-500">{{ $invoice->customer->email }}</div>
+					<x-link class="block" href="{{ route('customers.show', $invoice->customer) }}">
+						<div class="flex items-center gap-4 p-6 bg-white shadow dark:bg-gray-800 sm:rounded-lg">
+							<x-avatar :customer="$invoice->customer" class="size-14" />
+							<div>
+								<div>{{ $invoice->customer->name }}</div>
+								<div class="text-gray-500">{{ $invoice->customer->email }}</div>
+							</div>
 						</div>
-					</div>
+					</x-link>
+
 					@include('invoices.partials.note-card')
 				</div>
 
