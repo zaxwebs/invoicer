@@ -19,6 +19,12 @@ class CustomerController extends Controller
 		return view('customers.create');
 	}
 
+	public function show(Customer $customer)
+	{
+		$invoices = $customer->invoices()->latest()->get();
+		return view('customers.show', compact('customer', 'invoices'));
+	}
+
 	public function store(Request $request)
 	{
 		$validated = $request->validate([

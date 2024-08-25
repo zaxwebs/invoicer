@@ -14,7 +14,7 @@
 
 			<div class="space-y-3">
 				@foreach ($customers as $customer)
-					<x-link class="block" href="{{ route('customers.edit', $customer) }}">
+					<x-link class="block" href="{{ route('customers.show', $customer) }}">
 						<div class="p-4 bg-white shadow sm:p-8 dark:bg-gray-800 sm:rounded-lg">
 							<div class="grid gap-4 md:grid-cols-3">
 								<div class="flex items-center flex-1 gap-4">
