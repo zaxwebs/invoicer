@@ -21,7 +21,7 @@ class InvoiceFactory extends Factory
 	public function definition(): array
 	{
 		// Retrieve related models
-		$customer = Customer::factory()->create();
+		$customer = Customer::inRandomOrder()->first();
 		$settings = Setting::first();
 
 		// Generate invoice and due dates
