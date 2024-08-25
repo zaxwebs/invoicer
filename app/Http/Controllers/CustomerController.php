@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Customer;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class CustomerController extends Controller
 {
@@ -51,7 +52,18 @@ class CustomerController extends Controller
 			'email' => 'required|string|email|max:255|unique:customers,email,' . $customer->id,
 			'phone' => 'nullable|string|max:15',
 			'address' => 'nullable|string|max:255',
+			'image' => 'nullable|image|max:2048',
 		]);
+
+		if ($request->hasFile('image')) {
+			$file = $request->file('image');
+			$path = $file->store('uploads', 'public');
+			$validated['image'] = $path;
+
+			if ($customer->image) {
+				Storage::disk('public')->delete($customer->image);
+			}
+		}
 
 		$customer->update($validated);
 

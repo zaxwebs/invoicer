@@ -19,7 +19,7 @@
 							<div class="grid gap-4 md:grid-cols-3">
 								<div class="flex items-center flex-1 gap-4">
 									@if ($customer->image)
-										<img class="inline-block size-[62px] rounded-full"
+										<img class="inline-block size-[62px] rounded-full border border-gray-200 object-cover"
 											src="{{ asset('storage/' . $customer->image) }}" alt="{{ $customer->name }}">
 
 									@else

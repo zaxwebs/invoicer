@@ -20,7 +20,8 @@
 							</p>
 						</header>
 
-						<form method="post" action="{{ route('customers.update', $customer) }}" class="mt-6 space-y-6">
+						<form method="post" action="{{ route('customers.update', $customer) }}"
+							enctype="multipart/form-data" class="mt-6 space-y-6">
 							@csrf
 							@method('put')
 							<div>
@@ -49,6 +50,12 @@
 								<x-textarea id="address" name="address"
 									class="block w-full mt-1">{{ old('address', $customer->address) }}</x-textarea>
 								<x-input-error class="mt-2" :messages="$errors->get('address')" />
+							</div>
+
+							<div>
+								<x-input-label for="image" :value="__('Image')" />
+								<x-dp-input class="block w-full mt-1" name="image"></x-dp-input>
+								<x-input-error class="mt-2" :messages="$errors->get('image')" />
 							</div>
 
 							<div class="flex items-center gap-4">
