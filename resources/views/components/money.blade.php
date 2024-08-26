@@ -1,4 +1,7 @@
+@use(Illuminate\Support\Number)
+
 @props(['value'])
+
 <span>
-	{{ Illuminate\Support\Number::currency($value) }}
+	{{ Number::currency($value) }}
 </span>

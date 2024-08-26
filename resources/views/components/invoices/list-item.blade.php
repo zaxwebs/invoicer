@@ -5,15 +5,15 @@
 		<div class="grid items-center gap-4 md:grid-cols-3 lg:grid-cols-5">
 			<div class="flex flex-col flex-1 gap-2">
 				<div class="text-sm text-gray-500">Number</div>
-				<div>{{ strtoupper($invoice->invoice_number) }}</div>
+				<div class="dark:text-white">{{ strtoupper($invoice->invoice_number) }}</div>
 			</div>
 			<div class="flex flex-col flex-1 gap-2">
 				<div class="text-sm text-gray-500">Billed To</div>
-				<div>{{ $invoice->customer->name }}</div>
+				<div class="dark:text-white">{{ $invoice->customer->name }}</div>
 			</div>
 			<div class="flex flex-col flex-1 gap-2">
 				<div class="text-sm text-gray-500">Due Date</div>
-				<div>{{ $invoice->due_date }}</div>
+				<div class="dark:text-white">{{ $invoice->due_date }}</div>
 			</div>
 			<div class="flex flex-col flex-1 gap-2">
 				<div class="text-sm text-gray-500">Total</div>
