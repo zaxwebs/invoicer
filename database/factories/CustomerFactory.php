@@ -16,11 +16,13 @@ class CustomerFactory extends Factory
 	 */
 	public function definition(): array
 	{
+		$websiteValues = ['https://' . $this->faker->domainName, NULL];
 		return [
 			'name' => $this->faker->name,
 			'email' => $this->faker->unique()->safeEmail,
 			'phone' => $this->faker->phoneNumber,
 			'address' => $this->faker->address,
+			'website' => $this->faker->randomElement($websiteValues),
 			'created_at' => now(),
 			'updated_at' => now(),
 		];

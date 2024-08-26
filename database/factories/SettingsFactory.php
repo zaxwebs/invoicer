@@ -20,7 +20,7 @@ class SettingsFactory extends Factory
 			'name' => 'Invoicer Inc.',
 			'email' => 'billing@example.com',
 			'phone' => $this->faker->phoneNumber,
-			'website' => $this->faker->domainName,
+			'website' => 'https://' . $this->faker->domainName,
 			'address' => $this->faker->address,
 		];
 	}

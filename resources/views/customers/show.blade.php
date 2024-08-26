@@ -54,7 +54,7 @@
 					</div>
 
 
-					<div class="grid grid-cols-1 gap-6 lg:grid-cols-2">
+					<div class="grid grid-cols-1 gap-6 gap-x-12 lg:grid-cols-2">
 						<div class="flex flex-col flex-1 gap-2">
 							<div class="text-sm text-gray-500">Email</div>
 							<div>{{ $customer->email }}</div>
@@ -67,6 +67,12 @@
 							<div class="text-sm text-gray-500">Address</div>
 							<div class="whitespace-pre-line">{{ $customer->address }}</div>
 						</div>
+						@if ($customer->website)
+							<div class="flex flex-col flex-1 gap-2">
+								<div class="text-sm text-gray-500">Website</div>
+								<div>{{ $customer->website }}</div>
+							</div>
+						@endif
 					</div>
 				</div>
 			</div>
