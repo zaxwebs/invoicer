@@ -12,6 +12,11 @@ use App\Http\Controllers\Auth\VerifyEmailController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware('guest')->group(function () {
+    /*
+        [NITPICK] Be consistent with the routes.
+        Sometimes you start with '/' (web.php), and sometimes without it (here). And I know this is from Breeze
+        but you have full control over it.
+    */
     Route::get('register', [RegisteredUserController::class, 'create'])
                 ->name('register');
 

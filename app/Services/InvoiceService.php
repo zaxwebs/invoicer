@@ -5,16 +5,16 @@ namespace App\Services;
 use App\Models\Invoice;
 use App\Models\Setting;
 use App\Models\Customer;
-use Illuminate\Support\Str;
 
 class InvoiceService
 {
-
 	public static function composeCustomerDetails(Customer $customer): array
 	{
 		return $customer->only(['name', 'email', 'phone', 'address']);
 	}
 
+	// This service will be hard to test because of all the static methods
+	// Check InvoiceController, I left a note there
 	public static function composeIssuerDetails(Setting $settings): array
 	{
 		return $settings->only(['name', 'email', 'phone', 'address', 'website']);

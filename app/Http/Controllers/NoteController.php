@@ -15,7 +15,7 @@ class NoteController extends Controller
 				'invoice_id' => 'required|exists:invoices,id',
 				'content' => 'required|string',
 			]);
-		} catch (ValidationException $e) {
+		} catch (ValidationException) {
 			return redirect()->back()->with('alert', alertify('Something went wrong!', 'danger'));
 		}
 

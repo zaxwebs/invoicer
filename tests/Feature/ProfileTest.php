@@ -3,12 +3,14 @@
 namespace Tests\Feature;
 
 use App\Models\User;
-use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\LazilyRefreshDatabase;
 use Tests\TestCase;
 
 class ProfileTest extends TestCase
 {
-    use RefreshDatabase;
+    // use LazilyRefreshDatabase instead, if a test does not interact with the database, no migrations are run
+    // => faster tests
+    use LazilyRefreshDatabase;
 
     public function test_profile_page_is_displayed(): void
     {

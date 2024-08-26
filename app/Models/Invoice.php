@@ -23,7 +23,11 @@ class Invoice extends Model
 		'items' => 'array',
 	];
 
-	protected $activeStatuses = [
+	/**
+	 * Hint types help you a lot.
+	 * @var array<int, InvoiceStatus>
+	 */
+	protected array $activeStatuses = [
 		InvoiceStatus::ISSUED,
 		InvoiceStatus::PARTIALLY_PAID,
 	];
@@ -50,11 +54,15 @@ class Invoice extends Model
 		);
 	}
 
+	/*
+		You have 3 scopes. Consider using a query builder instead.
+		It will provide autocompletion, unlike these scopes.
+	*/
 	public function scopeOverdue(Builder $query): Builder
 	{
 		return $query
 			->whereIn('status', $this->activeStatuses)
-			->where('due_date', '<', Carbon::now()->toDateString());
+			->where('due_date', '<', now()->toDateString());
 	}
 
 	public function scopeStatus(Builder $query, string $status = 'all'): Builder
@@ -63,7 +71,6 @@ class Invoice extends Model
 		if (!in_array($status, $validStatuses)) {
 			$status = 'all';
 		}
-
 
 		if ($status === 'all') {
 			return $query;
@@ -107,7 +114,7 @@ class Invoice extends Model
 
 	private function isOverdue(): bool
 	{
-		return $this->isActive() && Carbon::now()->greaterThan($this->due_date);
+		return $this->isActive() && now()->greaterThan($this->due_date);
 	}
 
 	private function isActive(): bool
