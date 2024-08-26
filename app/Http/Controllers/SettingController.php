@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Setting;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class SettingController extends Controller
 {
@@ -16,16 +17,26 @@ class SettingController extends Controller
 
 	public function update(Request $request)
 	{
-		// Validate the incoming request data
 		$validated = $request->validate([
 			'name' => 'required|string|max:255',
 			'email' => 'required|email|max:255',
 			'phone' => 'required|string|max:20',
 			'address' => 'required|string',
 			'website' => 'nullable|url|max:255',
+			'logo' => 'nullable|image|max:2048',
 		]);
 
+		if ($request->hasFile('logo')) {
+			$file = $request->file('logo');
+			$path = $file->store('uploads', 'public');
+			$validated['logo'] = $path;
+		}
+
 		$settings = Setting::first();
+
+		if ($settings->image) {
+			Storage::disk('public')->delete($settings->image);
+		}
 
 		// Update the settings
 		$settings->update($validated);

@@ -1,0 +1,1 @@
+<x-file-input {{ $attributes }}></x-file-input>

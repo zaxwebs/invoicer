@@ -17,6 +17,7 @@ return new class extends Migration {
 			$table->string('phone');
 			$table->string('website')->nullable();
 			$table->text('address');
+			$table->text('logo')->nullable();
 		});
 	}
 

@@ -32,7 +32,9 @@ class InvoiceController extends Controller
 			}
 		]);
 
-		return view('invoices.show', compact('invoice'));
+		$settings = Setting::first();
+
+		return view('invoices.show', compact('invoice', 'settings'));
 	}
 
 	public function create()

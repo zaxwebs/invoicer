@@ -22,21 +22,12 @@
 							<!-- Grid -->
 							<div class="flex justify-between">
 								<div>
-									<!-- <svg class="size-10" width="26" height="26" viewBox="0 0 26 26" fill="none"
-									xmlns="http://www.w3.org/2000/svg">
-									<path
-										d="M1 26V13C1 6.37258 6.37258 1 13 1C19.6274 1 25 6.37258 25 13C25 19.6274 19.6274 25 13 25H12"
-										class="stroke-blue-600 dark:stroke-white" stroke="currentColor"
-										stroke-width="2" />
-									<path
-										d="M5 26V13.16C5 8.65336 8.58172 5 13 5C17.4183 5 21 8.65336 21 13.16C21 17.6666 17.4183 21.32 13 21.32H12"
-										class="stroke-blue-600 dark:stroke-white" stroke="currentColor"
-										stroke-width="2" />
-									<circle cx="13" cy="13.0214" r="5" fill="currentColor"
-										class="fill-blue-600 dark:fill-white" />
-								</svg> -->
+									@if ($settings->logo)
+										<img class="mb-4 max-w-60 max-h-40" src="{{ asset('storage/' . $settings->logo) }}"
+											alt="Logo">
+									@endif
 
-									<h1 class="mt-2 text-lg font-semibold text-blue-700 dark:text-blue-300 md:text-xl">
+									<h1 class="text-lg font-semibold text-blue-700 dark:text-blue-300 md:text-xl">
 										{{ $invoice->issuer_details['name'] }}
 									</h1>
 									<div>{{ $invoice->issuer_details['website'] }}</div>
