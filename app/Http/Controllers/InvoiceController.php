@@ -41,7 +41,6 @@ class InvoiceController extends Controller
 	{
 		$customers = Customer::all();
 		$due_date = now()->addDays(3)->format('Y-m-d');
-		// due date in dd mm yyyy format
 
 		return view('invoices.create', compact('customers', 'due_date'));
 	}
