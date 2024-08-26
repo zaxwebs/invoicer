@@ -6,10 +6,11 @@ use Tests\TestCase;
 use InvalidArgumentException;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use PHPUnit\Framework\Attributes\Test;
 
 class AlertifyTest extends TestCase
 {
-	/** @test */
+	#[Test]
 	public function it_returns_an_array_with_message_and_type()
 	{
 		$result = alertify('Test message', 'info');
@@ -21,7 +22,7 @@ class AlertifyTest extends TestCase
 		$this->assertEquals('info', $result['type']);
 	}
 
-	/** @test */
+	#[Test]
 	public function it_defaults_type_to_success()
 	{
 		$result = alertify('Default type message');
@@ -29,7 +30,7 @@ class AlertifyTest extends TestCase
 		$this->assertEquals('success', $result['type']);
 	}
 
-	/** @test */
+	#[Test]
 	public function it_throws_exception_for_invalid_type()
 	{
 		$this->expectException(InvalidArgumentException::class);
@@ -38,7 +39,7 @@ class AlertifyTest extends TestCase
 		alertify('Invalid type message', 'x');
 	}
 
-	/** @test */
+	#[Test]
 	public function it_allows_valid_types()
 	{
 		$types = ['success', 'info', 'danger', 'warning'];

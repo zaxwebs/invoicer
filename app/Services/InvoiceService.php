@@ -3,9 +3,8 @@
 namespace App\Services;
 
 use App\Models\Invoice;
-use App\Models\Setting;
+use App\Models\Settings;
 use App\Models\Customer;
-use Illuminate\Support\Str;
 
 class InvoiceService
 {
@@ -15,7 +14,7 @@ class InvoiceService
 		return $customer->only(['name', 'email', 'phone', 'address']);
 	}
 
-	public static function composeIssuerDetails(Setting $settings): array
+	public static function composeIssuerDetails(Settings $settings): array
 	{
 		return $settings->only(['name', 'email', 'phone', 'address', 'website']);
 	}

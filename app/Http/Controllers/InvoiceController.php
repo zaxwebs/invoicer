@@ -7,7 +7,6 @@ use App\Models\Settings;
 use App\Models\Customer;
 use App\Enums\InvoiceStatus;
 use Illuminate\Http\Request;
-use Illuminate\Support\Carbon;
 use Illuminate\Validation\Rule;
 use App\Services\InvoiceService;
 
@@ -19,18 +18,19 @@ class InvoiceController extends Controller
 		$filterStatus = $request->query('status', 'all');
 		$sortBy = $request->query('sort', 'created_at');
 
-		$invoices = Invoice::status($filterStatus)->sortBy($sortBy)->with('customer')->latest()->simplePaginate(10)->withQueryString();
+		$invoices = Invoice::status($filterStatus)
+			->sortBy($sortBy)
+			->with('customer')
+			->latest()
+			->simplePaginate(10)
+			->withQueryString();
 
 		return view('invoices.index', compact('invoices'));
 	}
 
 	public function show(Invoice $invoice)
 	{
-		$invoice->load([
-			'notes' => function ($query) {
-				$query->orderBy('created_at', 'desc');
-			}
-		]);
+		$invoice->load(['notes' => fn($query) => $query->orderBy('created_at', 'desc')]);
 
 		$settings = Settings::first();
 
@@ -40,7 +40,7 @@ class InvoiceController extends Controller
 	public function create()
 	{
 		$customers = Customer::all();
-		$due_date = Carbon::now()->addDays(3)->format('Y-m-d');
+		$due_date = now()->addDays(3)->format('Y-m-d');
 		// due date in dd mm yyyy format
 
 		return view('invoices.create', compact('customers', 'due_date'));
@@ -73,13 +73,15 @@ class InvoiceController extends Controller
 			'customer_id' => $customer->id,
 			'customer_details' => $customerDetails,
 			'issuer_details' => $issuerDetails,
-			'invoice_date' => Carbon::now()->format('Y-m-d'),
+			'invoice_date' => now()->format('Y-m-d'),
 			'due_date' => $request->input('due_date'),
 			'status' => InvoiceStatus::ISSUED,
 			'items' => $request->input('items'),
 		]);
 
-		return redirect()->route('invoices.show', $invoice->invoice_number)->with('alert', alertify('Invoice created successfully!'));
+		return redirect()
+			->route('invoices.show', $invoice->invoice_number)
+			->with('alert', alertify('Invoice created successfully!'));
 
 	}
 
@@ -96,7 +98,8 @@ class InvoiceController extends Controller
 		// Update the invoice status
 		$invoice->update(['status' => $validated['status']]);
 
-		return redirect()->route('invoices.show', $invoice->invoice_number)
+		return redirect()
+			->route('invoices.show', $invoice->invoice_number)
 			->with('alert', alertify('Invoice status updated successfully!'));
 	}
 

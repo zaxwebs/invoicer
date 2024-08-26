@@ -4,11 +4,12 @@ namespace App\Models;
 
 use App\Enums\InvoiceStatus;
 use App\Services\InvoiceService;
-use Illuminate\Support\Carbon;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Invoice extends Model
 {
@@ -23,22 +24,28 @@ class Invoice extends Model
 		'items' => 'array',
 	];
 
+	/**
+	 * @var array<InvoiceStatus>
+	 */
 	protected $activeStatuses = [
 		InvoiceStatus::ISSUED,
 		InvoiceStatus::PARTIALLY_PAID,
 	];
 
+	/**
+	 * @var array<InvoiceStatus>
+	 */
 	protected $inactiveStatuses = [
 		InvoiceStatus::REFUNDED,
 		InvoiceStatus::CANCELLED
 	];
 
-	public function customer()
+	public function customer(): BelongsTo
 	{
 		return $this->belongsTo(Customer::class);
 	}
 
-	public function notes()
+	public function notes(): HasMany
 	{
 		return $this->hasMany(Note::class);
 	}
@@ -54,7 +61,7 @@ class Invoice extends Model
 	{
 		return $query
 			->whereIn('status', $this->activeStatuses)
-			->where('due_date', '<', Carbon::now()->toDateString());
+			->where('due_date', '<', now()->toDateString());
 	}
 
 	public function scopeStatus(Builder $query, string $status = 'all'): Builder
@@ -107,7 +114,7 @@ class Invoice extends Model
 
 	private function isOverdue(): bool
 	{
-		return $this->isActive() && Carbon::now()->greaterThan($this->due_date);
+		return $this->isActive() && now()->greaterThan($this->due_date);
 	}
 
 	private function isActive(): bool

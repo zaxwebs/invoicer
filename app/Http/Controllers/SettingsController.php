@@ -42,7 +42,8 @@ class SettingsController extends Controller
 		$settings->update($validated);
 
 		// Redirect back with a success message
-		return redirect()->route('settings.edit')
+		return redirect()
+			->route('settings.edit')
 			->with('alert', alertify('All set! Invoice information is up to date.'));
 	}
 }

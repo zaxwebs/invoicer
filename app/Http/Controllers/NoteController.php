@@ -15,19 +15,25 @@ class NoteController extends Controller
 				'invoice_id' => 'required|exists:invoices,id',
 				'content' => 'required|string',
 			]);
-		} catch (ValidationException $e) {
-			return redirect()->back()->with('alert', alertify('Something went wrong!', 'danger'));
+		} catch (ValidationException) {
+			return redirect()
+				->back()
+				->with('alert', alertify('Something went wrong!', 'danger'));
 		}
 
 		Note::create($validated);
 
-		return redirect()->back()->with('alert', alertify('Invoice created successfully!'));
+		return redirect()
+			->back()
+			->with('alert', alertify('Invoice created successfully!'));
 	}
 
 	public function destroy(Note $note)
 	{
 		$note->delete();
 
-		return redirect()->back()->with('alert', alertify('Note deleted successfully!'));
+		return redirect()
+			->back()
+			->with('alert', alertify('Note deleted successfully!'));
 	}
 }
