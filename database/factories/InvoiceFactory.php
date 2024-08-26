@@ -99,7 +99,7 @@ class InvoiceFactory extends Factory
 		return [
 			'name' => $this->faker->randomElement($tasks),
 			'quantity' => $this->faker->numberBetween(1, 10),
-			'rate' => $this->faker->randomFloat(2, 100, 2000),
+			'rate' => $this->faker->numberBetween(100, 2000),
 		];
 	}
 }
