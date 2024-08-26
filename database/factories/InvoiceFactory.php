@@ -2,7 +2,7 @@
 
 namespace Database\Factories;
 
-use App\Models\Setting;
+use App\Models\Settings;
 use App\Models\Customer;
 use App\Enums\InvoiceStatus;
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -22,7 +22,7 @@ class InvoiceFactory extends Factory
 	{
 		// Retrieve related models
 		$customer = Customer::inRandomOrder()->first();
-		$settings = Setting::first();
+		$settings = Settings::first();
 
 		// Generate invoice and due dates
 		$invoiceDate = $this->faker->dateTimeBetween('-2 years', 'now');
@@ -60,13 +60,7 @@ class InvoiceFactory extends Factory
 		];
 	}
 
-	/**
-	 * Generate issuer details array.
-	 *
-	 * @param \App\Models\Setting $settings
-	 * @return array<string, mixed>
-	 */
-	private function generateIssuerDetails(Setting $settings): array
+	private function generateIssuerDetails(Settings $settings): array
 	{
 		return [
 			'name' => $settings->name,

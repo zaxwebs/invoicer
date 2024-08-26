@@ -2,16 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Setting;
+use App\Models\Settings;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
-class SettingController extends Controller
+class SettingsController extends Controller
 {
 	//
 	public function edit()
 	{
-		$settings = Setting::first();
+		$settings = Settings::first();
 		return view('settings.edit', compact('settings'));
 	}
 
@@ -32,7 +32,7 @@ class SettingController extends Controller
 			$validated['logo'] = $path;
 		}
 
-		$settings = Setting::first();
+		$settings = Settings::first();
 
 		if ($settings->image) {
 			Storage::disk('public')->delete($settings->image);

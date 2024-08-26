@@ -6,7 +6,7 @@ use App\Models\User;
 use App\Models\Note;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\Invoice;
-use App\Models\Setting;
+use App\Models\Settings;
 use App\Models\Customer;
 use Illuminate\Database\Seeder;
 
@@ -24,7 +24,7 @@ class DatabaseSeeder extends Seeder
 			'email' => 'test@example.com',
 		]);
 
-		Setting::factory()->create();
+		Settings::factory()->create();
 		Customer::factory()->count(20)->create();
 		Invoice::factory()->count(40)->create()->each(function ($invoice) {
 			$numberOfNotes = rand(0, 3); // Random number between 0 and 3

@@ -5,7 +5,7 @@ use App\Http\Controllers\NoteController;
 use App\Http\Controllers\TinkerController;
 use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\SettingController;
+use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\CustomerController;
 
 if (app()->environment('local')) {
@@ -41,8 +41,8 @@ Route::middleware('auth')->group(function () {
 	Route::put('/customers/{customer}', [CustomerController::class, 'update'])->name('customers.update');
 	Route::post('/notes', [NoteController::class, 'store'])->name('notes.store');
 	Route::delete('notes/{note}', [NoteController::class, 'destroy'])->name('notes.destroy');
-	Route::get('/settings', [SettingController::class, 'edit'])->name('settings.edit');
-	Route::patch('/settings', [SettingController::class, 'update'])->name('settings.update');
+	Route::get('/settings', [SettingsController::class, 'edit'])->name('settings.edit');
+	Route::patch('/settings', [SettingsController::class, 'update'])->name('settings.update');
 });
 
 require __DIR__ . '/auth.php';

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Invoice;
-use App\Models\Setting;
+use App\Models\Settings;
 use App\Models\Customer;
 use App\Enums\InvoiceStatus;
 use Illuminate\Http\Request;
@@ -32,7 +32,7 @@ class InvoiceController extends Controller
 			}
 		]);
 
-		$settings = Setting::first();
+		$settings = Settings::first();
 
 		return view('invoices.show', compact('invoice', 'settings'));
 	}
@@ -62,7 +62,7 @@ class InvoiceController extends Controller
 		// Fetch customer and settings
 
 		$customer = Customer::findOrFail($validated['customer_id']);
-		$settings = Setting::first();
+		$settings = Settings::first();
 
 		// Compose customer and issuer details
 
