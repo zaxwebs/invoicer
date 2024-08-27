@@ -8,10 +8,10 @@
 	<div class="py-12">
 		<div class="mx-auto space-y-6 max-w-7xl sm:px-6 lg:px-8">
 
-			<div class="grid gap-4 lg:grid-cols-4">
+			<div class="grid grid-cols-2 gap-4 lg:grid-cols-4">
 				<div
 					class="flex flex-col bg-white border shadow-sm rounded-xl dark:bg-neutral-900 dark:border-neutral-800">
-					<div class="flex p-4 md:p-6 gap-x-4">
+					<div class="flex flex-col gap-4 p-4 md:flex-row md:p-6">
 						<div
 							class="shrink-0 flex justify-center items-center size-[46px] bg-blue-100 rounded-lg dark:bg-neutral-800">
 
@@ -60,7 +60,7 @@
 
 				<div
 					class="flex flex-col bg-white border shadow-sm rounded-xl dark:bg-neutral-900 dark:border-neutral-800">
-					<div class="flex p-4 md:p-6 gap-x-4">
+					<div class="flex flex-col gap-4 p-4 md:flex-row md:p-6">
 						<div
 							class="shrink-0 flex justify-center items-center size-[46px] bg-teal-100 rounded-lg dark:bg-neutral-800">
 
@@ -88,7 +88,7 @@
 
 				<div
 					class="flex flex-col bg-white border shadow-sm rounded-xl dark:bg-neutral-900 dark:border-neutral-800">
-					<div class="flex p-4 md:p-6 gap-x-4">
+					<div class="flex flex-col gap-4 p-4 md:flex-row md:p-6">
 						<div
 							class="shrink-0 flex justify-center items-center size-[46px] bg-blue-100 rounded-lg dark:bg-neutral-800">
 
@@ -115,7 +115,7 @@
 
 				<div
 					class="flex flex-col bg-white border shadow-sm rounded-xl dark:bg-neutral-900 dark:border-neutral-800">
-					<div class="flex p-4 md:p-6 gap-x-4">
+					<div class="flex flex-col gap-4 p-4 md:flex-row md:p-6">
 						<div
 							class="shrink-0 flex justify-center items-center size-[46px] bg-fuchsia-100 rounded-lg dark:bg-neutral-800">
 							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -143,7 +143,7 @@
 
 				<div
 					class="flex flex-col bg-white border shadow-sm rounded-xl dark:bg-neutral-900 dark:border-neutral-800">
-					<div class="flex p-4 md:p-6 gap-x-4">
+					<div class="flex flex-col gap-4 p-4 md:flex-row md:p-6">
 						<div
 							class="shrink-0 flex justify-center items-center size-[46px] bg-gray-100 rounded-lg dark:bg-neutral-800">
 							<svg class="text-gray-600 shrink-0 size-6 dark:text-neutral-400"
@@ -172,7 +172,7 @@
 
 				<div
 					class="flex flex-col bg-white border shadow-sm rounded-xl dark:bg-neutral-900 dark:border-neutral-800">
-					<div class="flex p-4 md:p-6 gap-x-4">
+					<div class="flex flex-col gap-4 p-4 md:flex-row md:p-6">
 						<div
 							class="shrink-0 flex justify-center items-center size-[46px] bg-gray-100 rounded-lg dark:bg-neutral-800">
 							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -198,7 +198,7 @@
 
 				<div
 					class="flex flex-col bg-white border shadow-sm rounded-xl dark:bg-neutral-900 dark:border-neutral-800">
-					<div class="flex p-4 md:p-6 gap-x-4">
+					<div class="flex flex-col gap-4 p-4 md:flex-row md:p-6">
 						<div
 							class="shrink-0 flex justify-center items-center size-[46px] bg-gray-100 rounded-lg dark:bg-neutral-800">
 							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
