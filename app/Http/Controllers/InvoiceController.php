@@ -90,9 +90,11 @@ class InvoiceController extends Controller
 		$validated = $request->validate([
 			'status' => [
 				'required',
-				Rule::enum(InvoiceStatus::class)->except([InvoiceStatus::OVERDUE]),
+				Rule::enum(InvoiceStatus::class)->only(InvoiceStatus::fillableStatuses()),
 			],
 		]);
+
+		// TODO: Show validation errors to user
 
 		// Update the invoice status
 		$invoice->update(['status' => $validated['status']]);

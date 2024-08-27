@@ -239,12 +239,10 @@
 						@method('PATCH')
 						<div class="flex gap-2">
 							<x-select name="status" class="form-select" required>
-								@foreach(\App\Enums\InvoiceStatus::cases() as $status)
-									@if($status !== \App\Enums\InvoiceStatus::OVERDUE)
-										<option value="{{ $status->value }}" {{ $invoice->status->value === $status->value ? 'selected' : '' }}>
-											{{ $status->label() }}
-										</option>
-									@endif
+								@foreach(\App\Enums\InvoiceStatus::fillableStatuses() as $status)
+									<option value="{{ $status->value }}" {{ $invoice->status->value === $status->value ? 'selected' : '' }}>
+										{{ $status->label() }}
+									</option>
 								@endforeach
 							</x-select>
 							<x-primary-button class="whitespace-nowrap">Update Status</x-primary-button>

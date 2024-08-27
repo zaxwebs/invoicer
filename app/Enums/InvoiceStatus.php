@@ -22,4 +22,31 @@ enum InvoiceStatus: string
 			self::REFUNDED => 'Refunded',
 		};
 	}
+
+	public static function activeStatuses(): array
+	{
+		return [
+			self::ISSUED,
+			self::PARTIALLY_PAID,
+		];
+	}
+
+	public static function fillableStatuses(): array
+	{
+		return [
+			self::ISSUED,
+			self::PAID,
+			self::PARTIALLY_PAID,
+			self::CANCELLED,
+			self::REFUNDED,
+		];
+	}
+
+	public static function inactiveStatuses(): array
+	{
+		return [
+			self::CANCELLED,
+			self::REFUNDED,
+		];
+	}
 }

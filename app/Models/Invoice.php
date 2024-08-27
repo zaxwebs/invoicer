@@ -24,22 +24,6 @@ class Invoice extends Model
 		'items' => 'array',
 	];
 
-	/**
-	 * @var array<InvoiceStatus>
-	 */
-	protected $activeStatuses = [
-		InvoiceStatus::ISSUED,
-		InvoiceStatus::PARTIALLY_PAID,
-	];
-
-	/**
-	 * @var array<InvoiceStatus>
-	 */
-	protected $inactiveStatuses = [
-		InvoiceStatus::REFUNDED,
-		InvoiceStatus::CANCELLED
-	];
-
 	public function customer(): BelongsTo
 	{
 		return $this->belongsTo(Customer::class);
@@ -60,7 +44,7 @@ class Invoice extends Model
 	public function scopeOverdue(Builder $query): Builder
 	{
 		return $query
-			->whereIn('status', $this->activeStatuses)
+			->whereIn('status', InvoiceStatus::activeStatuses())
 			->where('due_date', '<', now()->toDateString());
 	}
 
@@ -104,7 +88,7 @@ class Invoice extends Model
 
 	public function scopeActive(Builder $query): Builder
 	{
-		return $query->whereIn('status', $this->activeStatuses);
+		return $query->whereIn('status', InvoiceStatus::activeStatuses());
 	}
 
 	public function scopePaid(Builder $query): Builder
@@ -129,7 +113,7 @@ class Invoice extends Model
 
 	private function isActive(): bool
 	{
-		return in_array($this->status, $this->activeStatuses);
+		return in_array($this->status, InvoiceStatus::activeStatuses());
 	}
 
 	private function resolveStatusList(): array
