@@ -11,7 +11,7 @@
 			<div class="grid gap-4 lg:grid-cols-4">
 				<div
 					class="flex flex-col bg-white border shadow-sm rounded-xl dark:bg-neutral-900 dark:border-neutral-800">
-					<div class="flex p-4 md:p-5 gap-x-4">
+					<div class="flex p-4 md:p-6 gap-x-4">
 						<div
 							class="shrink-0 flex justify-center items-center size-[46px] bg-gray-100 rounded-lg dark:bg-neutral-800">
 							<svg class="text-gray-600 shrink-0 size-5 dark:text-neutral-400"
@@ -40,7 +40,7 @@
 
 				<div
 					class="flex flex-col bg-white border shadow-sm rounded-xl dark:bg-neutral-900 dark:border-neutral-800">
-					<div class="flex p-4 md:p-5 gap-x-4">
+					<div class="flex p-4 md:p-6 gap-x-4">
 						<div
 							class="shrink-0 flex justify-center items-center size-[46px] bg-gray-100 rounded-lg dark:bg-neutral-800">
 							<svg class="text-gray-600 shrink-0 size-5 dark:text-neutral-400"
@@ -69,7 +69,7 @@
 
 				<div
 					class="flex flex-col bg-white border shadow-sm rounded-xl dark:bg-neutral-900 dark:border-neutral-800">
-					<div class="flex p-4 md:p-5 gap-x-4">
+					<div class="flex p-4 md:p-6 gap-x-4">
 						<div
 							class="shrink-0 flex justify-center items-center size-[46px] bg-gray-100 rounded-lg dark:bg-neutral-800">
 							<svg class="text-gray-600 shrink-0 size-5 dark:text-neutral-400"
@@ -98,7 +98,7 @@
 
 				<div
 					class="flex flex-col bg-white border shadow-sm rounded-xl dark:bg-neutral-900 dark:border-neutral-800">
-					<div class="flex p-4 md:p-5 gap-x-4">
+					<div class="flex p-4 md:p-6 gap-x-4">
 						<div
 							class="shrink-0 flex justify-center items-center size-[46px] bg-gray-100 rounded-lg dark:bg-neutral-800">
 							<svg class="text-gray-600 shrink-0 size-5 dark:text-neutral-400"
@@ -129,7 +129,7 @@
 
 				<div
 					class="flex flex-col bg-white border shadow-sm rounded-xl dark:bg-neutral-900 dark:border-neutral-800">
-					<div class="flex p-4 md:p-5 gap-x-4">
+					<div class="flex p-4 md:p-6 gap-x-4">
 						<div
 							class="shrink-0 flex justify-center items-center size-[46px] bg-gray-100 rounded-lg dark:bg-neutral-800">
 							<svg class="text-gray-600 shrink-0 size-5 dark:text-neutral-400"
@@ -158,7 +158,7 @@
 
 				<div
 					class="flex flex-col bg-white border shadow-sm rounded-xl dark:bg-neutral-900 dark:border-neutral-800">
-					<div class="flex p-4 md:p-5 gap-x-4">
+					<div class="flex p-4 md:p-6 gap-x-4">
 						<div
 							class="shrink-0 flex justify-center items-center size-[46px] bg-gray-100 rounded-lg dark:bg-neutral-800">
 							<svg class="text-gray-600 shrink-0 size-5 dark:text-neutral-400"
@@ -176,10 +176,27 @@
 							<p class="text-xs tracking-wide text-gray-500 uppercase dark:text-neutral-500">
 								Active Invoices Total
 							</p>
-							<div class="mt-1">
+							<div class="flex items-center gap-2 mt-1">
 								<h3 class="text-xl font-medium text-gray-800 sm:text-2xl dark:text-neutral-200">
 									{{ Illuminate\Support\Number::abbreviate($activeInvoicesTotal) }}
 								</h3>
+								<div class="hs-tooltip">
+									<div class="hs-tooltip-toggle">
+										<svg class="text-gray-500 shrink-0 size-4 dark:text-neutral-500"
+											xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+											viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+											stroke-linecap="round" stroke-linejoin="round">
+											<circle cx="12" cy="12" r="10" />
+											<path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
+											<path d="M12 17h.01" />
+										</svg>
+										<span
+											class="absolute z-10 invisible inline-block px-2 py-1 text-xs font-medium text-white transition-opacity bg-gray-900 rounded shadow-sm opacity-0 hs-tooltip-content hs-tooltip-shown:opacity-100 hs-tooltip-shown:visible dark:bg-neutral-700"
+											role="tooltip">
+											<x-money :value="$activeInvoicesTotal" />
+										</span>
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -187,7 +204,7 @@
 
 				<div
 					class="flex flex-col bg-white border shadow-sm rounded-xl dark:bg-neutral-900 dark:border-neutral-800">
-					<div class="flex p-4 md:p-5 gap-x-4">
+					<div class="flex p-4 md:p-6 gap-x-4">
 						<div
 							class="shrink-0 flex justify-center items-center size-[46px] bg-gray-100 rounded-lg dark:bg-neutral-800">
 							<svg class="text-gray-600 shrink-0 size-5 dark:text-neutral-400"
@@ -205,10 +222,27 @@
 							<p class="text-xs tracking-wide text-gray-500 uppercase dark:text-neutral-500">
 								Paid Invoices Total
 							</p>
-							<div class="mt-1">
+							<div class="flex items-center gap-2 mt-1">
 								<h3 class="text-xl font-medium text-gray-800 sm:text-2xl dark:text-neutral-200">
 									{{ Illuminate\Support\Number::abbreviate($paidInvoicesTotal) }}
 								</h3>
+								<div class="hs-tooltip">
+									<div class="hs-tooltip-toggle">
+										<svg class="text-gray-500 shrink-0 size-4 dark:text-neutral-500"
+											xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+											viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+											stroke-linecap="round" stroke-linejoin="round">
+											<circle cx="12" cy="12" r="10" />
+											<path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
+											<path d="M12 17h.01" />
+										</svg>
+										<span
+											class="absolute z-10 invisible inline-block px-2 py-1 text-xs font-medium text-white transition-opacity bg-gray-900 rounded shadow-sm opacity-0 hs-tooltip-content hs-tooltip-shown:opacity-100 hs-tooltip-shown:visible dark:bg-neutral-700"
+											role="tooltip">
+											<x-money :value="$paidInvoicesTotal" />
+										</span>
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
