@@ -203,7 +203,7 @@
 
 						<div class="grow">
 							<p class="text-xs tracking-wide text-gray-500 uppercase dark:text-neutral-500">
-								Paid Invoice Total
+								Paid Invoices Total
 							</p>
 							<div class="mt-1">
 								<h3 class="text-xl font-medium text-gray-800 sm:text-2xl dark:text-neutral-200">

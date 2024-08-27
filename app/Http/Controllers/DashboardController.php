@@ -12,12 +12,12 @@ class DashboardController extends Controller
 	public function index()
 	{
 		$totalInvoices = Invoice::count();
-		$paidInvoices = Invoice::where('status', InvoiceStatus::PAID)->count();
-		$activeInvoices = Invoice::whereIn('status', [InvoiceStatus::ISSUED, InvoiceStatus::PARTIALLY_PAID])->count();
+		$paidInvoices = Invoice::paid()->count();
+		$activeInvoices = Invoice::active()->count();
 		$overdueInvoices = Invoice::overdue()->count();
 		$totalCustomers = Customer::count();
-		$activeInvoicesTotal = Invoice::whereIn('status', [InvoiceStatus::ISSUED, InvoiceStatus::PARTIALLY_PAID])->sum('total');
-		$paidInvoicesTotal = Invoice::where('status', InvoiceStatus::PAID)->sum('total');
+		$activeInvoicesTotal = Invoice::active()->sum('total');
+		$paidInvoicesTotal = Invoice::paid()->sum('total');
 
 
 

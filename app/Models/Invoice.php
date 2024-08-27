@@ -102,6 +102,16 @@ class Invoice extends Model
 		return $query->orderBy($field, $direction);
 	}
 
+	public function scopeActive(Builder $query): Builder
+	{
+		return $query->whereIn('status', $this->activeStatuses);
+	}
+
+	public function scopePaid(Builder $query): Builder
+	{
+		return $query->where('status', InvoiceStatus::PAID);
+	}
+
 	protected static function boot()
 	{
 		parent::boot();
