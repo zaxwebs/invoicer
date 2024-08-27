@@ -6,7 +6,7 @@
 	</x-slot>
 
 	<div class="py-12">
-		<div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
+		<div class="mx-auto space-y-6 max-w-7xl sm:px-6 lg:px-8">
 
 			<div class="grid gap-4 lg:grid-cols-4">
 				<div
@@ -26,12 +26,32 @@
 						</div>
 
 						<div class="grow">
-							<p class="text-xs tracking-wide text-gray-500 uppercase dark:text-neutral-500">
-								Total Invoices
-							</p>
+							<div class="flex items-center gap-x-2">
+								<p class="text-xs tracking-wide text-gray-500 uppercase dark:text-neutral-500">
+									Net Invoices
+								</p>
+								<div class="hs-tooltip">
+									<div class="hs-tooltip-toggle">
+										<svg class="text-gray-500 shrink-0 size-4 dark:text-neutral-500"
+											xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+											viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+											stroke-linecap="round" stroke-linejoin="round">
+											<circle cx="12" cy="12" r="10"></circle>
+											<path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+											<path d="M12 17h.01"></path>
+										</svg>
+										<span
+											class="absolute z-10 invisible hidden inline-block px-2 py-1 text-xs font-medium text-white transition-opacity bg-gray-900 rounded shadow-sm opacity-0 hs-tooltip-content hs-tooltip-shown:opacity-100 hs-tooltip-shown:visible dark:bg-neutral-700"
+											role="tooltip" data-popper-placement="top"
+											style="position: fixed; inset: auto auto 0px 0px; margin: 0px; transform: translate(132px, -138px);">
+											Excluding terminated invoices.
+										</span>
+									</div>
+								</div>
+							</div>
 							<div class="mt-1">
 								<h3 class="text-xl font-medium text-gray-800 sm:text-2xl dark:text-neutral-200">
-									{{ $totalInvoices }}
+									{{ $netInvoices }}
 								</h3>
 							</div>
 						</div>
@@ -82,11 +102,11 @@
 
 						<div class="grow">
 							<p class="text-xs tracking-wide text-gray-500 uppercase dark:text-neutral-500">
-								Active Invoices
+								Current Invoices
 							</p>
 							<div class="mt-1">
 								<h3 class="text-xl font-medium text-gray-800 sm:text-2xl dark:text-neutral-200">
-									{{ $activeInvoices }}
+									{{ $currentInvoices }}
 								</h3>
 							</div>
 						</div>
@@ -165,11 +185,11 @@
 
 						<div class="grow">
 							<p class="text-xs tracking-wide text-gray-500 uppercase dark:text-neutral-500">
-								Active Invoices Total
+								Paid Invoices Total
 							</p>
 							<div class="mt-1">
 								<h3 class="text-xl font-medium text-gray-800 sm:text-2xl dark:text-neutral-200">
-									{{ Illuminate\Support\Number::abbreviate($activeInvoicesTotal) }}
+									{{ Illuminate\Support\Number::abbreviate($paidInvoicesTotal) }}
 								</h3>
 							</div>
 						</div>
@@ -191,11 +211,11 @@
 
 						<div class="grow">
 							<p class="text-xs tracking-wide text-gray-500 uppercase dark:text-neutral-500">
-								Paid Invoices Total
+								Current Invoices Total
 							</p>
 							<div class="mt-1">
 								<h3 class="text-xl font-medium text-gray-800 sm:text-2xl dark:text-neutral-200">
-									{{ Illuminate\Support\Number::abbreviate($paidInvoicesTotal) }}
+									{{ Illuminate\Support\Number::abbreviate($currentInvoicesTotal) }}
 								</h3>
 							</div>
 						</div>
@@ -204,6 +224,20 @@
 
 			</div>
 
+			<div class="flex items-center justify-between">
+				<h2 class="text-lg font-medium text-gray-900 dark:text-gray-100">
+					{{ __('Invoices') }}
+				</h2>
+				<x-secondary-button href="{{ route('invoices.index') }}">
+					View All
+				</x-secondary-button>
+			</div>
+
+			<div class="space-y-3">
+				@foreach ($invoices as $invoice)
+					<x-invoices.list-item :invoice="$invoice" />
+				@endforeach
+			</div>
 
 		</div>
 	</div>

@@ -44,7 +44,7 @@ class Invoice extends Model
 	public function scopeOverdue(Builder $query): Builder
 	{
 		return $query
-			->whereIn('status', InvoiceStatus::activeStatuses())
+			->whereIn('status', InvoiceStatus::currentStatuses())
 			->where('due_date', '<', now()->toDateString());
 	}
 
@@ -86,9 +86,19 @@ class Invoice extends Model
 		return $query->orderBy($field, $direction);
 	}
 
-	public function scopeActive(Builder $query): Builder
+	public function scopeCurrent(Builder $query): Builder
 	{
-		return $query->whereIn('status', InvoiceStatus::activeStatuses());
+		return $query->whereIn('status', InvoiceStatus::currentStatuses());
+	}
+
+	public function scopeTerminated(Builder $query): Builder
+	{
+		return $query->whereIn('status', InvoiceStatus::terminatedStatuses());
+	}
+
+	public function scopeEffective(Builder $query): Builder
+	{
+		return $query->whereNotIn('status', InvoiceStatus::terminatedStatuses());
 	}
 
 	public function scopePaid(Builder $query): Builder
@@ -108,12 +118,12 @@ class Invoice extends Model
 
 	private function isOverdue(): bool
 	{
-		return $this->isActive() && now()->greaterThan($this->due_date);
+		return $this->isCurrent() && now()->greaterThan($this->due_date);
 	}
 
-	private function isActive(): bool
+	private function isCurrent(): bool
 	{
-		return in_array($this->status, InvoiceStatus::activeStatuses());
+		return in_array($this->status, InvoiceStatus::currentStatuses());
 	}
 
 	private function resolveStatusList(): array

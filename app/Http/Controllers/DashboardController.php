@@ -11,24 +11,25 @@ class DashboardController extends Controller
 {
 	public function index()
 	{
-		$totalInvoices = Invoice::count();
+		$netInvoices = Invoice::effective()->count();
 		$paidInvoices = Invoice::paid()->count();
-		$activeInvoices = Invoice::active()->count();
+		$currentInvoices = Invoice::current()->count();
 		$overdueInvoices = Invoice::overdue()->count();
 		$totalCustomers = Customer::count();
-		$activeInvoicesTotal = Invoice::active()->sum('total');
+		$currentInvoicesTotal = Invoice::current()->sum('total');
 		$paidInvoicesTotal = Invoice::paid()->sum('total');
 
-
+		$invoices = Invoice::latest()->with('customer')->take(5)->get();
 
 		return view('dashboard', compact(
-			'totalInvoices',
+			'netInvoices',
 			'paidInvoices',
 			'overdueInvoices',
 			'totalCustomers',
-			'activeInvoices',
-			'activeInvoicesTotal',
-			'paidInvoicesTotal'
+			'currentInvoices',
+			'currentInvoicesTotal',
+			'paidInvoicesTotal',
+			'invoices'
 		));
 	}
 }

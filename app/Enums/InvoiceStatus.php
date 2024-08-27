@@ -23,14 +23,6 @@ enum InvoiceStatus: string
 		};
 	}
 
-	public static function activeStatuses(): array
-	{
-		return [
-			self::ISSUED,
-			self::PARTIALLY_PAID,
-		];
-	}
-
 	public static function fillableStatuses(): array
 	{
 		return [
@@ -42,7 +34,15 @@ enum InvoiceStatus: string
 		];
 	}
 
-	public static function inactiveStatuses(): array
+	public static function currentStatuses(): array
+	{
+		return [
+			self::ISSUED,
+			self::PARTIALLY_PAID,
+		];
+	}
+
+	public static function terminatedStatuses(): array
 	{
 		return [
 			self::CANCELLED,
