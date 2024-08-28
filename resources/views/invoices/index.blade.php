@@ -52,9 +52,11 @@
 			</div>
 
 			<div class="space-y-3">
-				@foreach ($invoices as $invoice)
+				@forelse ($invoices as $invoice)
 					<x-invoices.list-item :invoice="$invoice" />
-				@endforeach
+				@empty
+					<x-invoices.empty />
+				@endforelse
 			</div>
 
 			{{ $invoices->links() }}

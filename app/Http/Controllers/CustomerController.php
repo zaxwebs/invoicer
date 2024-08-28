@@ -21,7 +21,7 @@ class CustomerController extends Controller
 
 	public function show(Customer $customer)
 	{
-		$invoices = $customer->invoices()->latest()->get();
+		$invoices = $customer->invoices()->latest()->simplePaginate(10);
 		return view('customers.show', compact('customer', 'invoices'));
 	}
 
