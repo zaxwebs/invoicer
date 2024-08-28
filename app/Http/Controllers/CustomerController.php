@@ -10,7 +10,7 @@ class CustomerController extends Controller
 {
 	public function index()
 	{
-		$customers = Customer::latest()->simplePaginate(10)->withQueryString();
+		$customers = Customer::latest()->simplePaginate(18)->withQueryString();
 		return view('customers.index', compact('customers'));
 	}
 

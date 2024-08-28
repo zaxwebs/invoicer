@@ -93,7 +93,6 @@
 			</div>
 
 			<div class="space-y-3">
-
 				@foreach ($invoices as $invoice)
 					<x-invoices.list-item :invoice="$invoice" />
 				@endforeach
