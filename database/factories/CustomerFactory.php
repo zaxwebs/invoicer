@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +18,9 @@ class CustomerFactory extends Factory
 	public function definition(): array
 	{
 		$websiteValues = ['https://' . $this->faker->domainName, NULL];
+
 		return [
+			'user_id' => User::factory(),
 			'name' => $this->faker->name,
 			'email' => $this->faker->unique()->safeEmail,
 			'phone' => $this->faker->phoneNumber,

@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,6 +18,7 @@ class SettingsFactory extends Factory
 	public function definition(): array
 	{
 		return [
+			'user_id' => User::factory(),
 			'name' => 'Invoicer Inc.',
 			'email' => 'billing@example.com',
 			'phone' => $this->faker->phoneNumber,

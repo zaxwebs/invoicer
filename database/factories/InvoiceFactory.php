@@ -21,8 +21,8 @@ class InvoiceFactory extends Factory
 	public function definition(): array
 	{
 		// Retrieve related models
-		$customer = Customer::inRandomOrder()->first();
-		$settings = Settings::first();
+		$customer = Customer::factory()->create();
+		$settings = Settings::factory()->create();
 
 		// Generate invoice and due dates
 		$invoiceDate = $this->faker->dateTimeBetween('-2 years', 'now');

@@ -47,6 +47,7 @@ class InvoiceController extends Controller
 
 	public function store(Request $request)
 	{
+		// Decode the items JSON string to an array
 		$request->merge(['items' => json_decode($request->input('items'), true)]);
 
 		$validated = $request->validate([

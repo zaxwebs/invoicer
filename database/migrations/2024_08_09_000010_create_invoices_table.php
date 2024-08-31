@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Customer;
 use App\Enums\InvoiceStatus;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
@@ -13,7 +14,7 @@ return new class extends Migration {
 	{
 		Schema::create('invoices', function (Blueprint $table) {
 			$table->id();
-			$table->foreignId('customer_id')->constrained();
+			$table->foreignIdFor(Customer::class)->constrained();
 			$table->json('customer_details');
 			$table->json('issuer_details');
 			$table->string('invoice_number')->unique();

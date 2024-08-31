@@ -58,7 +58,7 @@
 					</div>
 				</div>
 
-				<div
+				<x-link :href="route('invoices.index', ['status' => 'paid'])"
 					class="flex flex-col bg-white border shadow-sm rounded-xl dark:bg-neutral-900 dark:border-neutral-800">
 					<div class="flex flex-col gap-4 p-4 md:flex-row md:p-6">
 						<div
@@ -84,7 +84,7 @@
 							</div>
 						</div>
 					</div>
-				</div>
+				</x-link>
 
 				<div
 					class="flex flex-col bg-white border shadow-sm rounded-xl dark:bg-neutral-900 dark:border-neutral-800">
@@ -113,7 +113,7 @@
 					</div>
 				</div>
 
-				<div
+				<x-link :href="route('invoices.index', ['status' => 'overdue'])"
 					class="flex flex-col bg-white border shadow-sm rounded-xl dark:bg-neutral-900 dark:border-neutral-800">
 					<div class="flex flex-col gap-4 p-4 md:flex-row md:p-6">
 						<div
@@ -137,7 +137,7 @@
 							</div>
 						</div>
 					</div>
-				</div>
+				</x-link>
 
 
 
