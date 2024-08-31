@@ -2,11 +2,12 @@
 
 namespace Database\Factories;
 
-use App\Models\Settings;
+use App\Models\User;
 use App\Models\Customer;
+use App\Models\Settings;
 use App\Enums\InvoiceStatus;
-use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Carbon;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Invoice>
@@ -20,9 +21,6 @@ class InvoiceFactory extends Factory
 	 */
 	public function definition(): array
 	{
-		// Retrieve related models
-		$customer = Customer::factory()->create();
-		$settings = Settings::factory()->create();
 
 		// Generate invoice and due dates
 		$invoiceDate = $this->faker->dateTimeBetween('-2 years', 'now');
@@ -33,9 +31,11 @@ class InvoiceFactory extends Factory
 		$items = array_map(fn() => $this->generateInvoiceItem(), range(1, $itemCount));
 
 		return [
-			'customer_id' => $customer->id,
-			'customer_details' => $this->generateCustomerDetails($customer),
-			'issuer_details' => $this->generateIssuerDetails($settings),
+			'customer_id' => Customer::factory(),
+			'customer_details' => function (array $attributes) {
+				return $this->generateCustomerDetails(Customer::find($attributes['customer_id']));
+			},
+			'issuer_details' => $this->generateIssuerDetails(Settings::first()),
 			'invoice_date' => $invoiceDate,
 			'due_date' => $dueDate,
 			'total' => $this->faker->randomFloat(2, 100, 1000),

@@ -19,18 +19,23 @@ class DatabaseSeeder extends Seeder
 	{
 		// User::factory(10)->create();
 
-		User::factory()->create([
+		$user = User::factory()->create([
 			'name' => 'Test User',
 			'email' => 'test@example.com',
 		]);
 
 		Settings::factory()->create();
-		Customer::factory()->count(40)->create();
-		Invoice::factory()->count(400)->create()->each(function ($invoice) {
-			$numberOfNotes = rand(0, 3); // Random number between 0 and 3
-			Note::factory()->count($numberOfNotes)->create([
-				'invoice_id' => $invoice->id,
-			]);
+
+		Customer::factory()->count(20)->state([
+			'user_id' => $user->id,
+		])->create()->each(function ($invoice) {
+			Invoice::factory()->count(20)->create(['customer_id' => $invoice->id])->each(function ($invoice) {
+				$numberOfNotes = rand(0, 3); // Random number between 0 and 3
+				Note::factory()->count($numberOfNotes)->create([
+					'invoice_id' => $invoice->id,
+				]);
+			});
 		});
+		;
 	}
 }
