@@ -24,18 +24,22 @@ class DatabaseSeeder extends Seeder
 			'email' => 'test@example.com',
 		]);
 
-		Settings::factory()->create();
+		$settings = Settings::factory()->create(['user_id' => $user->id]);
 
-		Customer::factory()->count(20)->state([
-			'user_id' => $user->id,
-		])->create()->each(function ($invoice) {
-			Invoice::factory()->count(20)->create(['customer_id' => $invoice->id])->each(function ($invoice) {
+		$customers = Customer::factory()
+			->count(20)
+			->create(['user_id' => $user->id]);
+
+		Invoice::factory()
+			->count(200)
+			->make()
+			->each(function ($invoice) use ($customers) {
+				$invoice->customer_id = $customers->random()->id;
+				$invoice->save();
 				$numberOfNotes = rand(0, 3); // Random number between 0 and 3
-				Note::factory()->count($numberOfNotes)->create([
-					'invoice_id' => $invoice->id,
-				]);
+				Note::factory()
+					->count($numberOfNotes)
+					->create(['invoice_id' => $invoice->id]); // Create notes for this invoice
 			});
-		});
-		;
 	}
 }
