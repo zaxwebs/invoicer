@@ -70,14 +70,22 @@ class InvoiceController extends Controller
 			'items.*.rate' => 'required|numeric|min:0',
 		]);
 
-		if ($validated['customer_id']->user_id !== Auth::user()->id) {
+		$customerIds = Auth::user()->customers()->pluck('id')->toArray();
+
+		if (!in_array($validated['customer_id'], $customerIds)) {
 			return redirect()->back()->withErrors(['customer_id' => 'Invalid customer selected.']);
 		}
 
 		// Fetch customer and settings
 
 		$customer = Customer::findOrFail($validated['customer_id']);
-		$settings = Settings::first();
+
+
+		$settings = Auth::user()->settings;
+
+		if (!$settings) {
+			abort(403, 'Settings not found');
+		}
 
 		// Compose customer and issuer details
 
