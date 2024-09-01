@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Customer;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
@@ -13,7 +14,8 @@ class CustomerController extends Controller
 
 	public function index()
 	{
-		$customers = Customer::latest()->simplePaginate(18)->withQueryString();
+		$user = Auth::user();
+		$customers = $user->customers()->latest()->simplePaginate(18)->withQueryString();
 		return view('customers.index', compact('customers'));
 	}
 
@@ -24,6 +26,7 @@ class CustomerController extends Controller
 
 	public function show(Customer $customer)
 	{
+		$this->authorize('view', $customer);
 		$invoices = $customer->invoices()->latest()->simplePaginate(10);
 		return view('customers.show', compact('customer', 'invoices'));
 	}
@@ -37,6 +40,8 @@ class CustomerController extends Controller
 			'address' => 'nullable|string|max:255',
 			'image' => 'nullable|image|max:2048',
 		]);
+
+		$validated['user_id'] = Auth::id();
 
 		if ($request->hasFile('image')) {
 			$file = $request->file('image');
@@ -58,6 +63,8 @@ class CustomerController extends Controller
 
 	public function update(Request $request, Customer $customer)
 	{
+		$this->authorize('update', $customer);
+
 		$validated = $request->validate([
 			'name' => 'required|string|max:255',
 			'email' => 'required|string|email|max:255|unique:customers,email,' . $customer->id,
