@@ -5,9 +5,12 @@ namespace App\Http\Controllers;
 use App\Models\Customer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 class CustomerController extends Controller
 {
+	use AuthorizesRequests;
+
 	public function index()
 	{
 		$customers = Customer::latest()->simplePaginate(18)->withQueryString();
@@ -48,6 +51,8 @@ class CustomerController extends Controller
 
 	public function edit(Customer $customer)
 	{
+		$this->authorize('update', $customer);
+
 		return view('customers.edit', compact('customer'));
 	}
 
