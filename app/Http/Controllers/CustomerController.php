@@ -14,8 +14,7 @@ class CustomerController extends Controller
 
 	public function index()
 	{
-		$user = Auth::user();
-		$customers = $user->customers()->latest()->simplePaginate(18)->withQueryString();
+		$customers = Auth::user()->customers()->latest()->simplePaginate(18)->withQueryString();
 		return view('customers.index', compact('customers'));
 	}
 

@@ -3,22 +3,29 @@
 namespace App\Http\Controllers;
 
 use App\Models\Invoice;
-use App\Models\Settings;
 use App\Models\Customer;
+use App\Models\Settings;
 use App\Enums\InvoiceStatus;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use App\Services\InvoiceService;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 class InvoiceController extends Controller
 {
+	use AuthorizesRequests;
 
 	public function index(Request $request)
 	{
+
 		$filterStatus = $request->query('status', 'all');
 		$sortBy = $request->query('sort', 'created_at');
 
-		$invoices = Invoice::status($filterStatus)
+		$customerIds = Auth::user()->customers()->pluck('id');
+
+		$invoices = Invoice::whereIn('customer_id', $customerIds)
+			->status($filterStatus)
 			->sortBy($sortBy)
 			->with('customer')
 			->latest()
@@ -30,6 +37,8 @@ class InvoiceController extends Controller
 
 	public function show(Invoice $invoice)
 	{
+		$this->authorize('view', $invoice);
+
 		$invoice->load(['notes' => fn($query) => $query->orderBy('created_at', 'desc')]);
 
 		$settings = Settings::first();
@@ -39,7 +48,7 @@ class InvoiceController extends Controller
 
 	public function create()
 	{
-		$customers = Customer::all();
+		$customers = Auth::user()->customers;
 		$due_date = now()->addDays(3)->format('Y-m-d');
 
 		return view('invoices.create', compact('customers', 'due_date'));
@@ -47,6 +56,8 @@ class InvoiceController extends Controller
 
 	public function store(Request $request)
 	{
+
+
 		// Decode the items JSON string to an array
 		$request->merge(['items' => json_decode($request->input('items'), true)]);
 
@@ -58,6 +69,10 @@ class InvoiceController extends Controller
 			'items.*.quantity' => 'required|integer|min:1',
 			'items.*.rate' => 'required|numeric|min:0',
 		]);
+
+		if ($validated['customer_id']->user_id !== Auth::user()->id) {
+			return redirect()->back()->withErrors(['customer_id' => 'Invalid customer selected.']);
+		}
 
 		// Fetch customer and settings
 
@@ -87,6 +102,8 @@ class InvoiceController extends Controller
 
 	public function updateStatus(Request $request, Invoice $invoice)
 	{
+		$this->authorize('update', $invoice);
+
 		// Validate the requested status, excluding the 'overdue' status
 		$validated = $request->validate([
 			'status' => [
