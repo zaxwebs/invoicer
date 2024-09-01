@@ -46,12 +46,14 @@ class SettingsController extends Controller
 
 		$settings = Auth::user()->settings()->first();
 
-		if ($settings->image) {
+		if ($settings?->image) {
 			Storage::disk('public')->delete($settings->image);
 		}
 
+		$validated['user_id'] = Auth::user()->id;
+
 		// Update the settings
-		$settings->update($validated);
+		Auth::user()->settings()->updateOrCreate($validated);
 
 		// Redirect back with a success message
 		return redirect()
