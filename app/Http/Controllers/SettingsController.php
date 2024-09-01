@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Settings;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 class SettingsController extends Controller
@@ -11,7 +12,18 @@ class SettingsController extends Controller
 	//
 	public function edit()
 	{
-		$settings = Settings::first();
+		$settings = Auth::user()->settings()->first();
+
+		if (!$settings) {
+			$settings = Settings::make([
+				'name' => '',
+				'email' => '',
+				'phone' => '',
+				'address' => '',
+				'website' => '',
+			]);
+		}
+
 		return view('settings.edit', compact('settings'));
 	}
 
@@ -32,7 +44,7 @@ class SettingsController extends Controller
 			$validated['logo'] = $path;
 		}
 
-		$settings = Settings::first();
+		$settings = Auth::user()->settings()->first();
 
 		if ($settings->image) {
 			Storage::disk('public')->delete($settings->image);

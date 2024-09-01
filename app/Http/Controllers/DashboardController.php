@@ -3,8 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Invoice;
-use App\Models\Customer;
-use App\Enums\InvoiceStatus;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
