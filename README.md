@@ -12,12 +12,14 @@
 
 An invocing app designed for freelancers to simplify the invoicing process, making it easy to manage their invoices, customers, and more. Built with the robust and elegant Laravel framework.
 
+This application is currently under active development. Some features may not be fully implemented, and certain areas of the app may be subject to change. I appreciate your understanding and welcome any feedback as I continue to build and improve the project.
+
 ## Features
 
 ### Invoice Management
 - **Create Invoices**: Easily generate new invoices with detailed itemized lists.
 - **View Invoices**: Access comprehensive views of all invoices with search and filter options.
-- **Invoice Status**: Track the status of each invoice (e.g., Paid, Unpaid, Overdue).
+- **Invoice Status**: Track the status of each invoice (e.g. Paid, Unpaid, Overdue).
 
 ### Customer Management
 - **Add Customers**: Register new customers with essential details such as name, email, phone, and address.
@@ -79,14 +81,6 @@ To get a copy of the project up and running on your local machine, follow these 
    ```
 
 Visit `http://localhost:8000` in your browser to see the application in action.
-
-## Contributing
-
-We welcome contributions to enhance this project! Please fork the repository, create a new branch for your feature or bugfix, and submit a pull request.
-
-## License
-
-This project is open-source and available under the [MIT License](LICENSE).
 
 ## Acknowledgements
 
