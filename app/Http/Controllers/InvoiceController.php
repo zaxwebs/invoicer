@@ -41,7 +41,7 @@ class InvoiceController extends Controller
 
 		$invoice->load(['notes' => fn($query) => $query->orderBy('created_at', 'desc')]);
 
-		$settings = Settings::first();
+		$settings = Auth::user()->settings;
 
 		return view('invoices.show', compact('invoice', 'settings'));
 	}

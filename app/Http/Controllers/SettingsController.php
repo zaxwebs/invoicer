@@ -29,6 +29,7 @@ class SettingsController extends Controller
 
 	public function update(Request $request)
 	{
+		// Validate the incoming request data
 		$validated = $request->validate([
 			'name' => 'required|string|max:255',
 			'email' => 'required|email|max:255',
@@ -38,26 +39,31 @@ class SettingsController extends Controller
 			'logo' => 'nullable|image|max:2048',
 		]);
 
+		// Check if a new logo file is uploaded
 		if ($request->hasFile('logo')) {
 			$file = $request->file('logo');
 			$path = $file->store('uploads', 'public');
 			$validated['logo'] = $path;
 		}
 
-		$settings = Auth::user()->settings()->first();
+		$user = Auth::user();
+		$settings = $user->settings;
 
-		if ($settings?->image) {
-			Storage::disk('public')->delete($settings->image);
+		// If there is an existing logo, delete the old one
+		if ($settings && $settings->logo && $request->hasFile('logo')) {
+			Storage::disk('public')->delete($settings->logo);
 		}
 
-		$validated['user_id'] = Auth::user()->id;
-
-		// Update the settings
-		Auth::user()->settings()->updateOrCreate($validated);
+		// Update or create the settings
+		$user->settings()->updateOrCreate(
+			['user_id' => $user->id],
+			$validated
+		);
 
 		// Redirect back with a success message
 		return redirect()
 			->route('settings.edit')
 			->with('alert', alertify('All set! Invoice information is up to date.'));
 	}
+
 }
