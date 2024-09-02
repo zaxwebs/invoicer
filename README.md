@@ -92,6 +92,3 @@ This project is open-source and available under the [MIT License](LICENSE).
 
 - [Laravel](https://laravel.com) - The PHP framework for web artisans.
 - [Faker](https://github.com/fzaninotto/Faker) - For generating fake data for testing.
-
-Thank you for using our Invoicing Web App! We hope it simplifies your invoicing process and helps your business run more smoothly.
-```
