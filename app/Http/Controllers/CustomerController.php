@@ -6,6 +6,8 @@ use App\Models\Customer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use App\Http\Requests\StoreCustomerRequest;
+use App\Http\Requests\UpdateCustomerRequest;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 class CustomerController extends Controller
@@ -30,17 +32,9 @@ class CustomerController extends Controller
 		return view('customers.show', compact('customer', 'invoices'));
 	}
 
-	public function store(Request $request)
+	public function store(StoreCustomerRequest $request)
 	{
-		$validated = $request->validate([
-			'name' => 'required|string|max:255',
-			'email' => 'required|string|email|max:255|unique:customers',
-			'phone' => 'nullable|string|max:15',
-			'address' => 'nullable|string|max:255',
-			'image' => 'nullable|image|max:2048',
-		]);
-
-		$validated['user_id'] = Auth::id();
+		$validated = $request->validated();
 
 		if ($request->hasFile('image')) {
 			$file = $request->file('image');
@@ -48,7 +42,7 @@ class CustomerController extends Controller
 			$validated['image'] = $path;
 		}
 
-		$customer = Customer::create($validated);
+		$customer = Auth::user()->customers()->create($validated);
 
 		return redirect()->route('customers.edit', $customer)->with('alert', alertify('Customer created successfully!'));
 	}
@@ -60,17 +54,11 @@ class CustomerController extends Controller
 		return view('customers.edit', compact('customer'));
 	}
 
-	public function update(Request $request, Customer $customer)
+	public function update(UpdateCustomerRequest $request, Customer $customer)
 	{
 		$this->authorize('update', $customer);
 
-		$validated = $request->validate([
-			'name' => 'required|string|max:255',
-			'email' => 'required|string|email|max:255|unique:customers,email,' . $customer->id,
-			'phone' => 'nullable|string|max:15',
-			'address' => 'nullable|string|max:255',
-			'image' => 'nullable|image|max:2048',
-		]);
+		$validated = $request->validated();
 
 		if ($request->hasFile('image')) {
 			$file = $request->file('image');
