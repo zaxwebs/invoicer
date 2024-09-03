@@ -1,5 +1,5 @@
 <x-app-layout>
-	<div class="p-4 space-y-6">
+	<div class="p-4">
 		<x-primary-button x-data=""
 			x-on:click.prevent="$dispatch('open-modal', 'X')">{{ __('Open Modal') }}</x-primary-button>
 		<x-modal name="X">
