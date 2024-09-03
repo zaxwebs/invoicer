@@ -36,11 +36,7 @@ class CustomerController extends Controller
 	{
 		$validated = $request->validated();
 
-		if ($request->hasFile('image')) {
-			$file = $request->file('image');
-			$path = $file->store('uploads', 'public');
-			$validated['image'] = $path;
-		}
+		$validated = $this->validatedImageUpload($request->validated(), $request);
 
 		$customer = Auth::user()->customers()->create($validated);
 
@@ -58,18 +54,25 @@ class CustomerController extends Controller
 	{
 		$validated = $request->validated();
 
+		$validated = $this->validatedImageUpload($request->validated(), $request);
+
+		$customer->update($validated);
+
+		return redirect()->route('customers.edit', $customer)->with('alert', alertify('All set! Everything is up to date.'));
+	}
+
+	protected function validatedImageUpload(array $validated, Request $request, Customer $customer = null): array
+	{
 		if ($request->hasFile('image')) {
 			$file = $request->file('image');
 			$path = $file->store('uploads', 'public');
 			$validated['image'] = $path;
 
-			if ($customer->image) {
+			if ($customer && $customer->image) {
 				Storage::disk('public')->delete($customer->image);
 			}
 		}
 
-		$customer->update($validated);
-
-		return redirect()->route('customers.edit', $customer)->with('alert', alertify('All set! Everything is up to date.'));
+		return $validated;
 	}
 }
