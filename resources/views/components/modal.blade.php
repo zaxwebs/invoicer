@@ -1,45 +1,61 @@
-@props(['id' => 'modal', 'title' => ''])
+@props([
+	'name',
+	'show' => false,
+	'maxWidth' => '2xl'
+])
 
-<button type="button"
-	class="inline-flex items-center px-4 py-3 text-sm font-medium text-white bg-blue-600 border border-transparent rounded-lg gap-x-2 hover:bg-blue-700 focus:outline-none focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none"
-	aria-haspopup="dialog" aria-expanded="false" aria-controls="{{ $id }}" data-hs-overlay="#{{ $id }}">
-	Open modal
-</button>
+@php
+	$maxWidth = [
+		'sm' => 'sm:max-w-sm',
+		'md' => 'sm:max-w-md',
+		'lg' => 'sm:max-w-lg',
+		'xl' => 'sm:max-w-xl',
+		'2xl' => 'sm:max-w-2xl',
+	][$maxWidth];
+@endphp
 
-<div id="{{ $id }}"
-	class="hs-overlay hidden size-full fixed top-0 start-0 z-[80] overflow-x-hidden overflow-y-auto pointer-events-none"
-	role="dialog" tabindex="-1" aria-labelledby="{{ $id }}-label">
-	<div
-		class="hs-overlay-animation-target hs-overlay-open:scale-100 hs-overlay-open:opacity-100 scale-95 opacity-0 ease-in-out transition-all duration-140 sm:max-w-lg sm:w-full m-3 sm:mx-auto min-h-[calc(100%-3.5rem)] flex items-center">
-		<div
-			class="flex flex-col w-full bg-white border shadow-sm pointer-events-auto rounded-xl dark:bg-neutral-800 dark:border-neutral-700 dark:shadow-neutral-700/70">
-			<div class="flex items-center justify-between px-4 py-3 border-b dark:border-neutral-700">
-				<h3 id="{{ $id }}-label" class="font-bold text-gray-800 dark:text-white">
-					{{ $title }}
-				</h3>
-				<button type="button"
-					class="inline-flex items-center justify-center text-gray-800 bg-gray-100 border border-transparent rounded-full size-8 gap-x-2 hover:bg-gray-200 focus:outline-none focus:bg-gray-200 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-700 dark:hover:bg-neutral-600 dark:text-neutral-400 dark:focus:bg-neutral-600"
-					aria-label="Close" data-hs-overlay="#{{ $id }}">
-					<span class="sr-only">Close</span>
-					<svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-						viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-						stroke-linejoin="round">
-						<path d="M18 6 6 18"></path>
-						<path d="m6 6 12 12"></path>
-					</svg>
-				</button>
-			</div>
-			<div class="px-4 py-3 mb-4 overflow-y-auto">
-				{{ $slot }}
-			</div>
-			<div class="flex items-center justify-end px-4 py-3 border-t gap-x-2 dark:border-neutral-700">
-				<button type="button"
-					class="inline-flex items-center px-3 py-2 text-sm font-medium text-gray-800 bg-white border border-gray-200 rounded-lg shadow-sm gap-x-2 hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-700 dark:focus:bg-neutral-700"
-					data-hs-overlay="#{{ $id }}">
-					Close
-				</button>
-				<div class="empty:hidden" id="{{ $id }}-actions"></div>
-			</div>
-		</div>
+<div x-data="{
+        show: @js($show),
+        focusables() {
+            // All focusable element types...
+            let selector = 'a, button, input:not([type=\'hidden\']), textarea, select, details, [tabindex]:not([tabindex=\'-1\'])'
+            return [...$el.querySelectorAll(selector)]
+                // All non-disabled elements...
+                .filter(el => ! el.hasAttribute('disabled'))
+        },
+        firstFocusable() { return this.focusables()[0] },
+        lastFocusable() { return this.focusables().slice(-1)[0] },
+        nextFocusable() { return this.focusables()[this.nextFocusableIndex()] || this.firstFocusable() },
+        prevFocusable() { return this.focusables()[this.prevFocusableIndex()] || this.lastFocusable() },
+        nextFocusableIndex() { return (this.focusables().indexOf(document.activeElement) + 1) % (this.focusables().length + 1) },
+        prevFocusableIndex() { return Math.max(0, this.focusables().indexOf(document.activeElement)) -1 },
+    }" x-init="$watch('show', value => {
+        if (value) {
+            document.body.classList.add('overflow-y-hidden');
+            {{ $attributes->has('focusable') ? 'setTimeout(() => firstFocusable().focus(), 100)' : '' }}
+        } else {
+            document.body.classList.remove('overflow-y-hidden');
+        }
+    })" x-on:open-modal.window="$event.detail == '{{ $name }}' ? show = true : null"
+	x-on:close-modal.window="$event.detail == '{{ $name }}' ? show = false : null" x-on:close.stop="show = false"
+	x-on:keydown.escape.window="show = false" x-on:keydown.tab.prevent="$event.shiftKey || nextFocusable().focus()"
+	x-on:keydown.shift.tab.prevent="prevFocusable().focus()" x-show="show"
+	class="fixed inset-0 z-50 flex items-center justify-center px-4 py-6 sm:px-0"
+	style="display: {{ $show ? 'block' : 'none' }};">
+	<div x-show="show" class="fixed inset-0 transition-all transform" x-on:click="show = false"
+		x-transition:enter="ease-out duration-300" x-transition:enter-start="opacity-0"
+		x-transition:enter-end="opacity-100" x-transition:leave="ease-in duration-200"
+		x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0">
+		<div class="absolute inset-0 bg-gray-500 opacity-75"></div>
+	</div>
+
+	<div x-show="show"
+		class="bg-white rounded-lg overflow-hidden shadow-xl transform transition-all sm:w-full {{ $maxWidth }} sm:mx-auto"
+		x-transition:enter="ease-out duration-300"
+		x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+		x-transition:enter-end="opacity-100 translate-y-0 sm:scale-100" x-transition:leave="ease-in duration-200"
+		x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100"
+		x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95">
+		{{ $slot }}
 	</div>
 </div>
