@@ -56,8 +56,6 @@ class CustomerController extends Controller
 
 	public function update(UpdateCustomerRequest $request, Customer $customer)
 	{
-		$this->authorize('update', $customer);
-
 		$validated = $request->validated();
 
 		if ($request->hasFile('image')) {
