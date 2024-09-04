@@ -3,16 +3,17 @@
 namespace App\Livewire;
 
 use App\Models\Note;
+use App\Models\Invoice;
 use Livewire\Component;
 use Livewire\Attributes\On;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 class Notes extends Component
 {
+	use AuthorizesRequests;
 	public $invoiceId;
-	public $notes;
-	public $content;
-
-	public $isEditing = false;
+	public $notes = [];
+	public $content = '';
 	public $noteId = null;
 
 	protected $rules = [
@@ -41,11 +42,15 @@ class Notes extends Component
 
 	public function fetchNotes()
 	{
-		$this->notes = Note::where('invoice_id', $this->invoiceId)->latest()->get();
+		$this->notes = Note::where('invoice_id', $this->invoiceId)
+			->latest()
+			->get();
 	}
 
 	public function create()
 	{
+		$invoice = Invoice::findOrFail($this->invoiceId);
+		$this->authorize('create', [Note::class, $invoice]);
 		$this->validate();
 
 		Note::create([
@@ -53,13 +58,9 @@ class Notes extends Component
 			'content' => $this->content,
 		]);
 
-		$this->resetData();
-
-		$this->fetchNotes();
+		$this->refreshNotes();
 		$this->dispatch('close-modal', 'create-note');
 	}
-
-
 
 	public function cancelCreate()
 	{
@@ -68,34 +69,36 @@ class Notes extends Component
 
 	public function edit($id)
 	{
-		$this->noteId = $id;
-		$this->dispatch('open-modal', 'create-note');
 		$note = Note::findOrFail($id);
+		$this->authorize('update', $note);
+		$this->noteId = $id;
 		$this->content = $note->content;
+		$this->dispatch('open-modal', 'create-note');
 	}
 
 	public function update()
 	{
 		$this->validate();
+
 		$note = Note::findOrFail($this->noteId);
-		$note->update([
-			'content' => $this->content,
-		]);
-
-		$this->resetData();
+		$this->authorize('update', $note);
+		$note->update(['content' => $this->content]);
+		$this->refreshNotes();
 		$this->dispatch('close-modal', 'create-note');
-
-		$this->fetchNotes();
 	}
 
 	public function delete()
 	{
 		$note = Note::findOrFail($this->noteId);
+		$this->authorize('delete', $note);
 		$note->delete();
-
-		$this->resetData();
+		$this->refreshNotes();
 		$this->dispatch('close-modal', 'create-note');
+	}
 
+	private function refreshNotes()
+	{
+		$this->resetData();
 		$this->fetchNotes();
 	}
 
