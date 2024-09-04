@@ -10,6 +10,8 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 class Notes extends Component
 {
+	//TODO: Refactor
+
 	use AuthorizesRequests;
 	public $invoiceId;
 	public $notes = [];
