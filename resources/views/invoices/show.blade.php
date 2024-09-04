@@ -257,8 +257,7 @@
 							</div>
 						</div>
 					</x-link>
-
-					@include('invoices.partials.note-card')
+					<livewire:notes :invoice-id="$invoice->id"></livewire:notes>
 				</div>
 
 			</div>
