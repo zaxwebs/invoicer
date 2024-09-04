@@ -9,24 +9,29 @@
 					<div class="p-6">
 						<header>
 							<h3 class="font-bold text-gray-800 dark:text-white">
-								Add a Note
+								{{ !$noteId ? 'Add a Note' : 'Edit Note' }}
 							</h3>
 							<p class="mt-1 text-sm text-gray-600 dark:text-gray-400">
 								{{ __("Save and track additional information about this invoice. Notes are private and only visible to you.") }}
 							</p>
 						</header>
 
-						<form wire:submit.prevent="create" class="mt-6 space-y-6">
+						<div class="mt-6 space-y-6">
 							<div>
 								<x-textarea name="content" wire:model.defer="content" class="block w-full mt-1"
 									autofocus>{{ old('content') }}</x-textarea>
 								<x-input-error class="mt-2" :messages="$errors->get('content')" />
 							</div>
 							<div class="flex gap-3">
-								<x-primary-button>{{ __('Save') }}</x-primary-button>
+								@if (!$noteId)
+									<x-primary-button wire:click="create">{{ __('Create') }}</x-primary-button>
+								@else
+									<x-primary-button wire:click="update">{{ __('Update') }}</x-primary-button>
+									<x-secondary-button wire:click="delete">{{ __('Delete') }}</x-secondary-button>
+								@endif
 								<x-secondary-button wire:click="cancelCreate">{{ __('Cancel') }}</x-secondary-button>
 							</div>
-						</form>
+						</div>
 					</div>
 				</x-modal>
 			</div>
@@ -37,19 +42,18 @@
 			<div class="flex gap-3" wire:key="{{ $note->id }}">
 				<div class="flex-1">
 					<div>{{ $note->content }}</div>
-					<div class="mt-1 text-sm tracking-wider text-gray-500">
+					<div class="mt-1 text-sm tracking-wider text-gray-700">
 						<span x-data="{ date: '{{ $note->created_at->toISOString() }}' }" x-timeago="date"></span>
 					</div>
 				</div>
-				<button wire:click="delete({{ $note->id }})" type="button"
-					class="flex items-center justify-center text-sm font-semibold text-gray-400 bg-white border border-gray-200 rounded-lg shadow-sm hs-dropdown-toggle size-9 hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-800 dark:focus:bg-neutral-800"
-					aria-haspopup="menu" aria-expanded="false" aria-label="Dropdown">
+				<button wire:click="edit({{ $note->id }})" type="button"
+					class="flex items-center justify-center text-sm font-semibold text-gray-500 bg-white border border-gray-200 rounded-lg shadow-sm size-8 hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-800 dark:focus:bg-neutral-800">
 					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
 						stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
 						class="shrink-0 size-4">
-						<path d="m7 21-4.3-4.3c-1-1-1-2.5 0-3.4l9.6-9.6c1-1 2.5-1 3.4 0l5.6 5.6c1 1 1 2.5 0 3.4L13 21" />
-						<path d="M22 21H7" />
-						<path d="m5 11 9 9" />
+						<circle cx="12" cy="12" r="1" />
+						<circle cx="12" cy="5" r="1" />
+						<circle cx="12" cy="19" r="1" />
 					</svg>
 				</button>
 			</div>
