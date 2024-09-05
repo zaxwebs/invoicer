@@ -4,7 +4,7 @@
 			<div class="grid grid-cols-2 gap-4 lg:grid-cols-4">
 				<div
 					class="flex flex-col bg-white border shadow-sm rounded-xl dark:bg-neutral-900 dark:border-neutral-800">
-					<div class="flex flex-col gap-4 p-4 md:p-6">
+					<div class="flex flex-col gap-4 p-4 md:p-6 lg:flex-row">
 						<div
 							class="shrink-0 flex justify-center items-center size-[46px] bg-blue-100 rounded-lg dark:bg-neutral-800">
 
@@ -43,8 +43,7 @@
 								</div>
 							</div>
 							<div class="mt-1">
-								<h3
-									class="text-xl font-medium text-gray-800 sm:text-2xl dark:text-neutral-200 lg:text-3xl">
+								<h3 class="text-xl font-medium text-gray-800 sm:text-2xl dark:text-neutral-200">
 									{{ $netInvoices }}
 								</h3>
 							</div>
@@ -54,7 +53,7 @@
 
 				<x-link :href="route('invoices.index', ['status' => 'paid'])"
 					class="flex flex-col bg-white border shadow-sm rounded-xl dark:bg-neutral-900 dark:border-neutral-800">
-					<div class="flex flex-col gap-4 p-4 md:p-6">
+					<div class="flex flex-col gap-4 p-4 md:p-6 lg:flex-row">
 						<div
 							class="shrink-0 flex justify-center items-center size-[46px] bg-teal-100 rounded-lg dark:bg-neutral-800">
 
@@ -72,8 +71,7 @@
 								Paid Invoices
 							</p>
 							<div class="mt-1">
-								<h3
-									class="text-xl font-medium text-gray-800 sm:text-2xl dark:text-neutral-200 lg:text-3xl">
+								<h3 class="text-xl font-medium text-gray-800 sm:text-2xl dark:text-neutral-200">
 									{{ $paidInvoices }}
 								</h3>
 							</div>
@@ -83,7 +81,7 @@
 
 				<div
 					class="flex flex-col bg-white border shadow-sm rounded-xl dark:bg-neutral-900 dark:border-neutral-800">
-					<div class="flex flex-col gap-4 p-4 md:p-6">
+					<div class="flex flex-col gap-4 p-4 md:p-6 lg:flex-row">
 						<div
 							class="shrink-0 flex justify-center items-center size-[46px] bg-blue-100 rounded-lg dark:bg-neutral-800">
 
@@ -100,8 +98,7 @@
 								Current Invoices
 							</p>
 							<div class="mt-1">
-								<h3
-									class="text-xl font-medium text-gray-800 sm:text-2xl dark:text-neutral-200 lg:text-3xl">
+								<h3 class="text-xl font-medium text-gray-800 sm:text-2xl dark:text-neutral-200">
 									{{ $currentInvoices }}
 								</h3>
 							</div>
@@ -111,7 +108,7 @@
 
 				<x-link :href="route('invoices.index', ['status' => 'overdue'])"
 					class="flex flex-col bg-white border shadow-sm rounded-xl dark:bg-neutral-900 dark:border-neutral-800">
-					<div class="flex flex-col gap-4 p-4 md:p-6">
+					<div class="flex flex-col gap-4 p-4 md:p-6 lg:flex-row">
 						<div
 							class="shrink-0 flex justify-center items-center size-[46px] bg-fuchsia-100 rounded-lg dark:bg-neutral-800">
 							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -127,8 +124,7 @@
 								Overdue Invoices
 							</p>
 							<div class="mt-1">
-								<h3
-									class="text-xl font-medium text-gray-800 sm:text-2xl dark:text-neutral-200 lg:text-3xl">
+								<h3 class="text-xl font-medium text-gray-800 sm:text-2xl dark:text-neutral-200">
 									{{ $overdueInvoices }}
 								</h3>
 							</div>
@@ -140,7 +136,7 @@
 
 				<div
 					class="flex flex-col bg-white border shadow-sm rounded-xl dark:bg-neutral-900 dark:border-neutral-800">
-					<div class="flex flex-col gap-4 p-4 md:p-6">
+					<div class="flex flex-col gap-4 p-4 md:p-6 lg:flex-row">
 						<div
 							class="shrink-0 flex justify-center items-center size-[46px] bg-gray-100 rounded-lg dark:bg-neutral-800">
 							<svg class="text-gray-600 shrink-0 size-6 dark:text-neutral-400"
@@ -159,8 +155,7 @@
 								Total Customers
 							</p>
 							<div class="mt-1">
-								<h3
-									class="text-xl font-medium text-gray-800 sm:text-2xl dark:text-neutral-200 lg:text-3xl">
+								<h3 class="text-xl font-medium text-gray-800 sm:text-2xl dark:text-neutral-200">
 									{{ $totalCustomers }}
 								</h3>
 							</div>
@@ -170,7 +165,7 @@
 
 				<div
 					class="flex flex-col bg-white border shadow-sm rounded-xl dark:bg-neutral-900 dark:border-neutral-800">
-					<div class="flex flex-col gap-4 p-4 md:p-6">
+					<div class="flex flex-col gap-4 p-4 md:p-6 lg:flex-row">
 						<div
 							class="shrink-0 flex justify-center items-center size-[46px] bg-gray-100 rounded-lg dark:bg-neutral-800">
 							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -186,8 +181,7 @@
 								Paid Invoices Total
 							</p>
 							<div class="mt-1">
-								<h3
-									class="text-xl font-medium text-gray-800 sm:text-2xl dark:text-neutral-200 lg:text-3xl">
+								<h3 class="text-xl font-medium text-gray-800 sm:text-2xl dark:text-neutral-200">
 									{{ Illuminate\Support\Number::abbreviate($paidInvoicesTotal) }}
 								</h3>
 							</div>
@@ -197,7 +191,7 @@
 
 				<div
 					class="flex flex-col bg-white border shadow-sm rounded-xl dark:bg-neutral-900 dark:border-neutral-800">
-					<div class="flex flex-col gap-4 p-4 md:p-6">
+					<div class="flex flex-col gap-4 p-4 md:p-6 lg:flex-row">
 						<div
 							class="shrink-0 flex justify-center items-center size-[46px] bg-gray-100 rounded-lg dark:bg-neutral-800">
 							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -213,8 +207,7 @@
 								Current Invoices Total
 							</p>
 							<div class="mt-1">
-								<h3
-									class="text-xl font-medium text-gray-800 sm:text-2xl dark:text-neutral-200 lg:text-3xl">
+								<h3 class="text-xl font-medium text-gray-800 sm:text-2xl dark:text-neutral-200">
 									{{ Illuminate\Support\Number::abbreviate($currentInvoicesTotal) }}
 								</h3>
 							</div>
