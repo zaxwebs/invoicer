@@ -38,14 +38,19 @@
 						</x-link>
 					@endforeach
 				</div>
+				@if($customers->isEmpty())
+					<x-tile>
+						<div class="text-sm text-gray-500">
+							{{ __('No customers found.') }}
+						</div>
+					</x-tile>
+				@endif
 
+				{{ $customers->links() }}
 			</div>
 
-			{{ $customers->links() }}
+
 		</div>
-
-
-	</div>
 
 
 </x-app-layout>

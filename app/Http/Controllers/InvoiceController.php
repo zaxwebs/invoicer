@@ -48,7 +48,20 @@ class InvoiceController extends Controller
 
 	public function create()
 	{
+		$settings = Auth::user()->settings;
+		if (!$settings) {
+			return redirect()
+				->route('settings.edit')
+				->with('alert', alertify('Let\'s set up your invoice information first!', 'info'));
+		}
+
 		$customers = Auth::user()->customers;
+		if ($customers->count() === 0) {
+			return redirect()
+				->route('customers.create')
+				->with('alert', alertify('Add a customer and you can create and assign invoices.', 'info'));
+		}
+
 		$due_date = now()->addDays(3)->format('Y-m-d');
 
 		return view('invoices.create', compact('customers', 'due_date'));
