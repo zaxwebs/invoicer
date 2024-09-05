@@ -1,5 +1,5 @@
 <x-app-layout>
-	<section style="background-image: url('{{ asset('images/gradient.jpg') }}');" class="py-20 bg-cover bg-slate-900">
+	<section class="py-20">
 		<div class="mx-auto space-y-6 max-w-7xl sm:px-6 lg:px-8">
 			<div class="grid grid-cols-2 gap-4 lg:grid-cols-4">
 				<div
@@ -43,7 +43,8 @@
 								</div>
 							</div>
 							<div class="mt-1">
-								<h3 class="text-xl font-medium text-gray-800 sm:text-2xl dark:text-neutral-200">
+								<h3
+									class="text-xl font-medium text-gray-800 sm:text-2xl dark:text-neutral-200 lg:text-3xl">
 									{{ $netInvoices }}
 								</h3>
 							</div>
@@ -71,7 +72,8 @@
 								Paid Invoices
 							</p>
 							<div class="mt-1">
-								<h3 class="text-xl font-medium text-gray-800 sm:text-2xl dark:text-neutral-200">
+								<h3
+									class="text-xl font-medium text-gray-800 sm:text-2xl dark:text-neutral-200 lg:text-3xl">
 									{{ $paidInvoices }}
 								</h3>
 							</div>
@@ -98,7 +100,8 @@
 								Current Invoices
 							</p>
 							<div class="mt-1">
-								<h3 class="text-xl font-medium text-gray-800 sm:text-2xl dark:text-neutral-200">
+								<h3
+									class="text-xl font-medium text-gray-800 sm:text-2xl dark:text-neutral-200 lg:text-3xl">
 									{{ $currentInvoices }}
 								</h3>
 							</div>
@@ -124,7 +127,8 @@
 								Overdue Invoices
 							</p>
 							<div class="mt-1">
-								<h3 class="text-xl font-medium text-gray-800 sm:text-2xl dark:text-neutral-200">
+								<h3
+									class="text-xl font-medium text-gray-800 sm:text-2xl dark:text-neutral-200 lg:text-3xl">
 									{{ $overdueInvoices }}
 								</h3>
 							</div>
@@ -155,7 +159,8 @@
 								Total Customers
 							</p>
 							<div class="mt-1">
-								<h3 class="text-xl font-medium text-gray-800 sm:text-2xl dark:text-neutral-200">
+								<h3
+									class="text-xl font-medium text-gray-800 sm:text-2xl dark:text-neutral-200 lg:text-3xl">
 									{{ $totalCustomers }}
 								</h3>
 							</div>
@@ -181,7 +186,8 @@
 								Paid Invoices Total
 							</p>
 							<div class="mt-1">
-								<h3 class="text-xl font-medium text-gray-800 sm:text-2xl dark:text-neutral-200">
+								<h3
+									class="text-xl font-medium text-gray-800 sm:text-2xl dark:text-neutral-200 lg:text-3xl">
 									{{ Illuminate\Support\Number::abbreviate($paidInvoicesTotal) }}
 								</h3>
 							</div>
@@ -207,7 +213,8 @@
 								Current Invoices Total
 							</p>
 							<div class="mt-1">
-								<h3 class="text-xl font-medium text-gray-800 sm:text-2xl dark:text-neutral-200">
+								<h3
+									class="text-xl font-medium text-gray-800 sm:text-2xl dark:text-neutral-200 lg:text-3xl">
 									{{ Illuminate\Support\Number::abbreviate($currentInvoicesTotal) }}
 								</h3>
 							</div>
