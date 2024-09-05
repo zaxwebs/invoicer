@@ -6,31 +6,29 @@
 				<x-secondary-button class="!py-2" x-data=""
 					x-on:click.prevent="$dispatch('open-modal', 'create-note')">Add Note</x-secondary-button>
 				<x-modal name="create-note" max-width="xl">
-					<div class="p-6">
-						<header>
-							<h3 class="font-bold text-gray-800 dark:text-white">
-								{{ !$noteId ? 'Add a Note' : 'Edit Note' }}
-							</h3>
-							<p class="mt-1 text-sm text-gray-600 dark:text-gray-400">
-								{{ __("Save and track additional information about this invoice. Notes are private and only visible to you.") }}
-							</p>
-						</header>
+					<header>
+						<h3 class="font-bold text-gray-800 dark:text-white">
+							{{ !$noteId ? 'Add a Note' : 'Edit Note' }}
+						</h3>
+						<p class="mt-1 text-sm text-gray-600 dark:text-gray-400">
+							{{ __("Save and track additional information about this invoice. Notes are private and only visible to you.") }}
+						</p>
+					</header>
 
-						<div class="mt-6 space-y-6">
-							<div>
-								<x-textarea name="content" wire:model.defer="content" class="block w-full mt-1"
-									autofocus>{{ old('content') }}</x-textarea>
-								<x-input-error class="mt-2" :messages="$errors->get('content')" />
-							</div>
-							<div class="flex gap-3">
-								@if (!$noteId)
-									<x-primary-button wire:click="create">{{ __('Create') }}</x-primary-button>
-								@else
-									<x-primary-button wire:click="update">{{ __('Update') }}</x-primary-button>
-									<x-secondary-button wire:click="delete">{{ __('Delete') }}</x-secondary-button>
-								@endif
-								<x-secondary-button wire:click="cancelCreate">{{ __('Cancel') }}</x-secondary-button>
-							</div>
+					<div class="mt-6 space-y-6">
+						<div>
+							<x-textarea name="content" wire:model.defer="content" class="block w-full mt-1"
+								autofocus>{{ old('content') }}</x-textarea>
+							<x-input-error class="mt-2" :messages="$errors->get('content')" />
+						</div>
+						<div class="flex gap-3">
+							@if (!$noteId)
+								<x-primary-button wire:click="create">{{ __('Create') }}</x-primary-button>
+							@else
+								<x-primary-button wire:click="update">{{ __('Update') }}</x-primary-button>
+								<x-secondary-button wire:click="delete">{{ __('Delete') }}</x-secondary-button>
+							@endif
+							<x-secondary-button wire:click="cancelCreate">{{ __('Cancel') }}</x-secondary-button>
 						</div>
 					</div>
 				</x-modal>
