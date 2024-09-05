@@ -45,7 +45,6 @@
 						</div>
 					</x-tile>
 				@endif
-
 				{{ $customers->links() }}
 			</div>
 
