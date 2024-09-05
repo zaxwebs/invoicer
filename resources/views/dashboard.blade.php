@@ -1,5 +1,5 @@
 <x-app-layout>
-	<section style="background-image: url('{{ asset('images/gradient.jpg') }}');" class="py-20 bg-slate-900">
+	<section style="background-image: url('{{ asset('images/gradient.jpg') }}');" class="py-20 bg-cover bg-slate-900">
 		<div class="mx-auto space-y-6 max-w-7xl sm:px-6 lg:px-8">
 			<div class="grid grid-cols-2 gap-4 lg:grid-cols-4">
 				<div
