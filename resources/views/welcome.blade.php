@@ -187,7 +187,7 @@
 							clip-rule="evenodd"></path>
 					</svg>
 					<div
-						class="flex-row-reverse justify-between space-y-6 text-gray-600 md:flex md:gap-6 md:space-y-0 lg:gap-12 lg:items-center">
+						class="flex-row-reverse justify-between space-y-6 text-gray-600 md:flex md:gap-6 md:space-y-0 lg:gap-24 lg:items-center">
 						<div class="md:5/12 lg:w-1/2">
 							<img src="/images/pie.svg" alt="image" loading="lazy" width="" height="" class="w-full">
 						</div>
@@ -229,7 +229,8 @@
 										</svg>
 									</div>
 									<div class="w-5/6">
-										<h3 class="text-lg font-semibold text-gray-700 dark:text-teal-300">Dynamic Calculations</h3>
+										<h3 class="text-lg font-semibold text-gray-700 dark:text-teal-300">Dynamic
+											Calculations</h3>
 										<p class="text-gray-500 dark:text-gray-400">Asperiores nemo possimus nesciunt
 											quam mollitia.</p>
 									</div>
@@ -253,7 +254,7 @@
 							<h1 class="text-4xl font-bold text-center text-gray-800 dark:text-white md:text-5xl">Get
 								Started now</h1>
 							<p class="text-xl text-center text-gray-600 dark:text-gray-300">
-							Lorem ipsum dolor sit amet consectetur adipisicing elit.
+								Lorem ipsum dolor sit amet consectetur adipisicing elit.
 							</p>
 							<div class="flex flex-wrap justify-center gap-6">
 								<a href="#"
