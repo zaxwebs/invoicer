@@ -97,9 +97,11 @@
 						<h2 class="my-8 text-2xl font-bold text-gray-700 dark:text-white md:text-4xl">
 							Feature-Packed with Simplicity at Its Core
 						</h2>
-						<p class="text-gray-600 dark:text-gray-300">Lorem ipsum dolor sit amet consectetur adipisicing
-							elit. Natus ad ipsum pariatur autem, fugit laborum in atque amet obcaecati? Nisi minima
-							aspernatur, quidem nulla cupiditate nam consequatur eligendi magni adipisci.</p>
+						<p class="text-gray-600 dark:text-gray-300">
+							This invoicing app is designed to streamline the workflow for freelancers, offering powerful
+							features without unnecessary complexity. From managing invoices and customers to tracking
+							reports, everything is built to be intuitive and efficient. Simplify your invoicing process
+							and focus more on growing your business.</p>
 					</div>
 					<div
 						class="grid mt-16 overflow-hidden text-gray-600 border border-gray-100 divide-x divide-y divide-gray-100 dark:divide-gray-700 rounded-3xl dark:border-gray-700 sm:grid-cols-2 lg:grid-cols-4 lg:divide-y-0 xl:grid-cols-4">
@@ -115,7 +117,8 @@
 										Invoices
 									</h5>
 									<p class="text-gray-600 dark:text-gray-300">
-										Neque Dolor, fugiat non cum doloribus aperiam voluptates nostrum.
+										Generate new invoices, view detailed lists, and track payment statuses
+										effortlessly.
 									</p>
 								</div>
 							</div>
@@ -132,7 +135,8 @@
 										Customers
 									</h5>
 									<p class="text-gray-600 dark:text-gray-300">
-										Neque Dolor, fugiat non cum doloribus aperiam voluptates nostrum.
+										Easily add, update, and view customer records, all
+										organized and accessible.
 									</p>
 								</div>
 							</div>
@@ -149,7 +153,8 @@
 										Reports
 									</h5>
 									<p class="text-gray-600 dark:text-gray-300">
-										Neque Dolor, fugiat non cum doloribus aperiam voluptates nostrum.
+										Analyze invoices, track customer trends, and review your financial summaries
+										with ease.
 									</p>
 								</div>
 							</div>
@@ -164,10 +169,10 @@
 								<div class="space-y-2">
 									<h5
 										class="text-xl font-semibold text-gray-700 transition dark:text-white group-hover:text-secondary">
-										More features
+										& More
 									</h5>
 									<p class="text-gray-600 dark:text-gray-300">
-										Neque Dolor, fugiat non cum doloribus aperiam voluptates nostrum.
+										A whole bunch of features to make your life easy as a freelancer.
 									</p>
 								</div>
 							</div>
@@ -196,10 +201,9 @@
 								Track Invoices and Finances in Real-Time
 							</h2>
 							<p class="my-8 text-gray-600 dark:text-gray-300">
-								Nobis minus voluptatibus pariatur dignissimos libero quaerat iure expedita at?
-								Asperiores nemo possimus nesciunt dicta veniam aspernatur quam mollitia. <br> <br> Vitae
-								error, quaerat officia delectus voluptatibus explicabo quo pariatur impedit, at
-								reprehenderit aliquam a ipsum quas voluptatem. Quo pariatur asperiores eum amet.
+								Stay on top of your financials with real-time tracking of invoices and payments. Monitor
+								outstanding balances, due dates, and payment statuses with ease, giving you a clear
+								picture of your cash flow at any moment.
 							</p>
 							<div class="space-y-4 divide-y divide-gray-100 dark:divide-gray-800">
 								<div class="flex gap-4 mt-8 md:items-center">
@@ -215,8 +219,9 @@
 										<h3 class="text-lg font-semibold text-gray-700 dark:text-indigo-300">
 											Totals on Current and Paid Invoices
 										</h3>
-										<p class="text-gray-500 dark:text-gray-400">Asperiores nemo possimus nesciunt
-											quam mollitia.</p>
+										<p class="text-gray-500 dark:text-gray-400">Quickly view the total amounts for
+											both paid and current invoices, helping you manage income and outstanding
+											payments effectively.</p>
 									</div>
 								</div>
 								<div class="flex gap-4 pt-4 md:items-center">
@@ -231,8 +236,9 @@
 									<div class="w-5/6">
 										<h3 class="text-lg font-semibold text-gray-700 dark:text-teal-300">Dynamic
 											Calculations</h3>
-										<p class="text-gray-500 dark:text-gray-400">Asperiores nemo possimus nesciunt
-											quam mollitia.</p>
+										<p class="text-gray-500 dark:text-gray-400">Real-time calculations adjust
+											automatically as you add items, ensuring precise totals for your invoices. Say goodbye to manual errors and focus on
+											your business.</p>
 									</div>
 								</div>
 							</div>
