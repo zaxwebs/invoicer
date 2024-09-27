@@ -46,9 +46,9 @@
 					<div class="relative ml-auto pt-36">
 
 						<div class="mx-auto text-center lg:w-2/3">
-							<h1 class="text-5xl font-bold text-gray-900 dark:text-white md:text-6xl xl:text-7xl">
+							<h1 class="text-5xl font-bold dark:text-white md:text-6xl xl:text-7xl">
 								Easy Invoicing for <span class="text-blue-600 dark:text-white">Freelancers.</span></h1>
-							<p class="mt-8 text-gray-700 dark:text-gray-300">Effortlessly manage your invoices,
+							<p class="mt-8 dark:text-gray-300">Effortlessly manage your invoices,
 								customers, and finances with a solution designed for simplicity. Built to streamline
 								your business processes, Invoicer makes staying organized and getting paid easier than
 								ever.</p>
@@ -66,17 +66,17 @@
 							<div
 								class="justify-between hidden py-8 mt-16 border-gray-100 border-y dark:border-gray-800 sm:flex">
 								<div class="text-center">
-									<h6 class="text-lg font-semibold text-gray-700 dark:text-white">Hassle-Free
+									<h6 class="text-lg font-semibold dark:text-white">Hassle-Free
 									</h6>
 									<p class="mt-2 text-gray-500">Invoicing with zero fluff.</p>
 								</div>
 								<div class="text-center">
-									<h6 class="text-lg font-semibold text-gray-700 dark:text-white">Reports & Analytics
+									<h6 class="text-lg font-semibold dark:text-white">Reports & Analytics
 									</h6>
 									<p class="mt-2 text-gray-500">Track your invoices and fianaces.</p>
 								</div>
 								<div class="text-center">
-									<h6 class="text-lg font-semibold text-gray-700 dark:text-white">Customizable</h6>
+									<h6 class="text-lg font-semibold dark:text-white">Customizable</h6>
 									<p class="mt-2 text-gray-500">Logos, colors and a lot more.</p>
 								</div>
 							</div>
@@ -87,36 +87,34 @@
 			<div id="features">
 				<div class="px-6 mx-auto max-w-7xl md:px-12 xl:px-6">
 					<div class="md:w-2/3 lg:w-1/2">
-						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-							class="w-6 h-6 text-secondary">
-							<path fill-rule="evenodd"
-								d="M9 4.5a.75.75 0 01.721.544l.813 2.846a3.75 3.75 0 002.576 2.576l2.846.813a.75.75 0 010 1.442l-2.846.813a3.75 3.75 0 00-2.576 2.576l-.813 2.846a.75.75 0 01-1.442 0l-.813-2.846a3.75 3.75 0 00-2.576-2.576l-2.846-.813a.75.75 0 010-1.442l2.846-.813A3.75 3.75 0 007.466 7.89l.813-2.846A.75.75 0 019 4.5zM18 1.5a.75.75 0 01.728.568l.258 1.036c.236.94.97 1.674 1.91 1.91l1.036.258a.75.75 0 010 1.456l-1.036.258c-.94.236-1.674.97-1.91 1.91l-.258 1.036a.75.75 0 01-1.456 0l-.258-1.036a2.625 2.625 0 00-1.91-1.91l-1.036-.258a.75.75 0 010-1.456l1.036-.258a2.625 2.625 0 001.91-1.91l.258-1.036A.75.75 0 0118 1.5zM16.5 15a.75.75 0 01.712.513l.394 1.183c.15.447.5.799.948.948l1.183.395a.75.75 0 010 1.422l-1.183.395c-.447.15-.799.5-.948.948l-.395 1.183a.75.75 0 01-1.422 0l-.395-1.183a1.5 1.5 0 00-.948-.948l-1.183-.395a.75.75 0 010-1.422l1.183-.395c.447-.15.799-.5.948-.948l.395-1.183A.75.75 0 0116.5 15z"
-								clip-rule="evenodd"></path>
-						</svg>
 
-						<h2 class="my-8 text-2xl font-bold text-gray-700 dark:text-white md:text-4xl">
+						<h2 class="my-8 text-2xl font-bold dark:text-white md:text-4xl">
 							Feature-Packed with Simplicity at Its Core
 						</h2>
-						<p class="text-gray-600 dark:text-gray-300">
+						<p class="dark:text-gray-300">
 							This invoicing app is designed to streamline the workflow for freelancers, offering powerful
-							features without unnecessary complexity. From managing invoices and customers to tracking
-							reports, everything is built to be intuitive and efficient. Simplify your invoicing process
-							and focus more on growing your business.</p>
+							features without unnecessary complexity.</p>
 					</div>
 					<div
-						class="grid mt-16 overflow-hidden text-gray-600 border border-gray-100 divide-x divide-y divide-gray-100 dark:divide-gray-700 rounded-3xl dark:border-gray-700 sm:grid-cols-2 lg:grid-cols-4 lg:divide-y-0 xl:grid-cols-4">
+						class="grid mt-16 overflow-hidden border border-gray-100 divide-x divide-y divide-gray-100 dark:divide-gray-700 rounded-3xl dark:border-gray-700 sm:grid-cols-2 lg:grid-cols-4 lg:divide-y-0 xl:grid-cols-4">
 						<div
 							class="group relative bg-white dark:bg-gray-800 transition hover:z-[1] hover:shadow-2xl hover:shadow-gray-600/10">
 							<div class="relative p-8 py-12 space-y-8">
-								<img src="https://cdn-icons-png.flaticon.com/512/4341/4341139.png" class="w-12"
-									width="512" height="512" alt="burger illustration">
+								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+									fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+									stroke-linejoin="round" class="lucide lucide-receipt-text">
+									<path d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1Z" />
+									<path d="M14 8H8" />
+									<path d="M16 12H8" />
+									<path d="M13 16H8" />
+								</svg>
 
 								<div class="space-y-2">
 									<h5
-										class="text-xl font-semibold text-gray-700 transition dark:text-white group-hover:text-secondary">
+										class="text-xl font-semibold transition dark:text-white group-hover:text-secondary">
 										Invoices
 									</h5>
-									<p class="text-gray-600 dark:text-gray-300">
+									<p class="dark:text-gray-300">
 										Generate new invoices, view detailed lists, and track payment statuses
 										effortlessly.
 									</p>
@@ -126,15 +124,21 @@
 						<div
 							class="group relative bg-white dark:bg-gray-800 transition hover:z-[1] hover:shadow-2xl hover:shadow-gray-600/10">
 							<div class="relative p-8 py-12 space-y-8">
-								<img src="https://cdn-icons-png.flaticon.com/512/4341/4341134.png" class="w-12"
-									width="512" height="512" alt="burger illustration">
+								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+									fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+									stroke-linejoin="round" class="lucide lucide-users">
+									<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+									<circle cx="9" cy="7" r="4" />
+									<path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+									<path d="M16 3.13a4 4 0 0 1 0 7.75" />
+								</svg>
 
 								<div class="space-y-2">
 									<h5
-										class="text-xl font-semibold text-gray-700 transition dark:text-white group-hover:text-secondary">
+										class="text-xl font-semibold transition dark:text-white group-hover:text-secondary">
 										Customers
 									</h5>
-									<p class="text-gray-600 dark:text-gray-300">
+									<p class="dark:text-gray-300">
 										Easily add, update, and view customer records, all
 										organized and accessible.
 									</p>
@@ -144,15 +148,21 @@
 						<div
 							class="group relative bg-white dark:bg-gray-800 transition hover:z-[1] hover:shadow-2xl hover:shadow-gray-600/10">
 							<div class="relative p-8 py-12 space-y-8">
-								<img src="https://cdn-icons-png.flaticon.com/512/4341/4341160.png" class="w-12"
-									width="512" height="512" alt="burger illustration">
+								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+									fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+									stroke-linejoin="round" class="lucide lucide-clipboard-minus">
+									<rect width="8" height="4" x="8" y="2" rx="1" ry="1" />
+									<path
+										d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
+									<path d="M9 14h6" />
+								</svg>
 
 								<div class="space-y-2">
 									<h5
-										class="text-xl font-semibold text-gray-700 transition dark:text-white group-hover:text-secondary">
+										class="text-xl font-semibold transition dark:text-white group-hover:text-secondary">
 										Reports
 									</h5>
-									<p class="text-gray-600 dark:text-gray-300">
+									<p class="dark:text-gray-300">
 										Analyze invoices, track customer trends, and review your financial summaries
 										with ease.
 									</p>
@@ -163,15 +173,20 @@
 							class="group relative bg-gray-50 dark:bg-gray-900 transition hover:z-[1] hover:shadow-2xl hover:shadow-gray-600/10">
 							<div
 								class="relative p-8 py-12 space-y-8 transition duration-300 group-hover:bg-white dark:group-hover:bg-gray-800">
-								<img src="https://cdn-icons-png.flaticon.com/512/4341/4341025.png" class="w-12"
-									width="512" height="512" alt="burger illustration">
+								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+									fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+									stroke-linejoin="round" class="lucide lucide-circle-plus">
+									<circle cx="12" cy="12" r="10" />
+									<path d="M8 12h8" />
+									<path d="M12 8v8" />
+								</svg>
 
 								<div class="space-y-2">
 									<h5
-										class="text-xl font-semibold text-gray-700 transition dark:text-white group-hover:text-secondary">
+										class="text-xl font-semibold transition dark:text-white group-hover:text-secondary">
 										& More
 									</h5>
-									<p class="text-gray-600 dark:text-gray-300">
+									<p class="dark:text-gray-300">
 										A whole bunch of features to make your life easy as a freelancer.
 									</p>
 								</div>
@@ -182,17 +197,8 @@
 			</div>
 			<div id="solution">
 				<div class="px-6 mx-auto max-w-7xl md:px-12 xl:px-6">
-					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-						class="w-6 h-6 text-sky-500">
-						<path fill-rule="evenodd"
-							d="M2.25 13.5a8.25 8.25 0 018.25-8.25.75.75 0 01.75.75v6.75H18a.75.75 0 01.75.75 8.25 8.25 0 01-16.5 0z"
-							clip-rule="evenodd"></path>
-						<path fill-rule="evenodd"
-							d="M12.75 3a.75.75 0 01.75-.75 8.25 8.25 0 018.25 8.25.75.75 0 01-.75.75h-7.5a.75.75 0 01-.75-.75V3z"
-							clip-rule="evenodd"></path>
-					</svg>
 					<div
-						class="flex-row-reverse justify-between space-y-6 text-gray-600 md:flex md:gap-6 md:space-y-0 lg:gap-24 lg:items-center">
+						class="flex-row-reverse justify-between space-y-6 md:flex md:gap-6 md:space-y-0 lg:gap-24 lg:items-center">
 						<div class="md:5/12 lg:w-1/2">
 							<img src="/images/pie.svg" alt="image" loading="lazy" width="" height="" class="w-full">
 						</div>
@@ -200,48 +206,11 @@
 							<h2 class="text-3xl font-bold text-gray-900 md:text-4xl dark:text-white">
 								Track Invoices and Finances in Real-Time
 							</h2>
-							<p class="my-8 text-gray-600 dark:text-gray-300">
+							<p class="my-8 dark:text-gray-300">
 								Stay on top of your financials with real-time tracking of invoices and payments. Monitor
 								outstanding balances, due dates, and payment statuses with ease, giving you a clear
 								picture of your cash flow at any moment.
 							</p>
-							<div class="space-y-4 divide-y divide-gray-100 dark:divide-gray-800">
-								<div class="flex gap-4 mt-8 md:items-center">
-									<div class="flex w-12 h-12 gap-4 bg-indigo-100 rounded-full dark:bg-indigo-900/20">
-										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-											class="w-6 h-6 m-auto text-indigo-500 dark:text-indigo-400">
-											<path fill-rule="evenodd"
-												d="M4.848 2.771A49.144 49.144 0 0112 2.25c2.43 0 4.817.178 7.152.52 1.978.292 3.348 2.024 3.348 3.97v6.02c0 1.946-1.37 3.678-3.348 3.97a48.901 48.901 0 01-3.476.383.39.39 0 00-.297.17l-2.755 4.133a.75.75 0 01-1.248 0l-2.755-4.133a.39.39 0 00-.297-.17 48.9 48.9 0 01-3.476-.384c-1.978-.29-3.348-2.024-3.348-3.97V6.741c0-1.946 1.37-3.68 3.348-3.97zM6.75 8.25a.75.75 0 01.75-.75h9a.75.75 0 010 1.5h-9a.75.75 0 01-.75-.75zm.75 2.25a.75.75 0 000 1.5H12a.75.75 0 000-1.5H7.5z"
-												clip-rule="evenodd"></path>
-										</svg>
-									</div>
-									<div class="w-5/6">
-										<h3 class="text-lg font-semibold text-gray-700 dark:text-indigo-300">
-											Totals on Current and Paid Invoices
-										</h3>
-										<p class="text-gray-500 dark:text-gray-400">Quickly view the total amounts for
-											both paid and current invoices, helping you manage income and outstanding
-											payments effectively.</p>
-									</div>
-								</div>
-								<div class="flex gap-4 pt-4 md:items-center">
-									<div class="flex w-12 h-12 gap-4 bg-teal-100 rounded-full dark:bg-teal-900/20">
-										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-											class="w-6 h-6 m-auto text-teal-600 dark:text-teal-400">
-											<path fill-rule="evenodd"
-												d="M11.54 22.351l.07.04.028.016a.76.76 0 00.723 0l.028-.015.071-.041a16.975 16.975 0 001.144-.742 19.58 19.58 0 002.683-2.282c1.944-1.99 3.963-4.98 3.963-8.827a8.25 8.25 0 00-16.5 0c0 3.846 2.02 6.837 3.963 8.827a19.58 19.58 0 002.682 2.282 16.975 16.975 0 001.145.742zM12 13.5a3 3 0 100-6 3 3 0 000 6z"
-												clip-rule="evenodd"></path>
-										</svg>
-									</div>
-									<div class="w-5/6">
-										<h3 class="text-lg font-semibold text-gray-700 dark:text-teal-300">Dynamic
-											Calculations</h3>
-										<p class="text-gray-500 dark:text-gray-400">Real-time calculations adjust
-											automatically as you add items, ensuring precise totals for your invoices. Say goodbye to manual errors and focus on
-											your business.</p>
-									</div>
-								</div>
-							</div>
 						</div>
 					</div>
 				</div>
@@ -259,7 +228,7 @@
 						<div class="m-auto mt-6 space-y-6 md:w-8/12 lg:w-7/12">
 							<h1 class="text-4xl font-bold text-center text-gray-800 dark:text-white md:text-5xl">Get
 								Started now</h1>
-							<p class="text-xl text-center text-gray-600 dark:text-gray-300">
+							<p class="text-xl text-center dark:text-gray-300">
 								Lorem ipsum dolor sit amet consectetur adipisicing elit.
 							</p>
 							<div class="flex flex-wrap justify-center gap-6">
