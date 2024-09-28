@@ -32,57 +32,62 @@
 		<x-alert class="border-t-0 border-b rounded-none border-x-0 border-r-none" />
 
 		<!-- Page Content -->
-		<main class="mb-40 space-y-40 bg-white text-slate-800">
+		<main class="bg-white text-slate-800">
 
-			<div class="relative" id="home">
+			<div class="py-20 pt-40" id="home">
 				<div class="px-6 mx-auto max-w-7xl md:px-12 xl:px-6">
-					<div class="relative ml-auto pt-36">
-
+					<div class="relative ml-auto">
 						<div class="mx-auto text-center lg:w-2/3">
 							<h1 class="text-5xl font-bold dark:text-white md:text-6xl xl:text-7xl">
-								Easy Invoicing for <span class="text-blue-600 dark:text-white">Freelancers.</span></h1>
-							<p class="mt-8 text-slate-800">Effortlessly manage your invoices,
-								customers, and finances with a solution designed for simplicity. Built to streamline
-								your business processes, Invoicer makes staying organized and getting paid easier than
-								ever.</p>
+								Simple Invoicing for <span class="text-indigo-600 dark:text-white">Freelancers.</span>
+							</h1>
+							<p class="mt-8 text-slate-800 dark:text-slate-300">
+								Manage your invoices, clients, and finances effortlessly. Invoicer is designed to
+								simplify your workflow,
+								making it easier than ever to stay organized and get paid.
+							</p>
 							<div class="flex flex-wrap justify-center mt-16 gap-y-4 gap-x-6">
 								<a href="#"
-									class="relative flex items-center justify-center w-full px-6 h-11 before:absolute before:inset-0 before:rounded-full before:bg-blue-600 before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 sm:w-max">
-									<span class="relative text-base font-medium text-white">Get started</span>
+									class="relative flex items-center justify-center w-full px-6 h-11 before:absolute before:inset-0 before:rounded-full before:bg-indigo-600 before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 sm:w-max">
+									<span class="relative text-base font-medium text-white">Get Started</span>
 								</a>
 								<a href="#"
-									class="relative flex items-center justify-center w-full px-6 h-11 before:absolute before:inset-0 before:rounded-full before:border before:border-transparent before:bg-blue-600/10 before:bg-gradient-to-b before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 dark:before:border-gray-700 dark:before:bg-gray-800 sm:w-max">
-									<span class="relative text-base font-medium text-blue-600 dark:text-white">Learn
-										more</span>
+									class="relative flex items-center justify-center w-full px-6 h-11 before:absolute before:inset-0 before:rounded-full before:border before:border-transparent before:bg-indigo-600/10 before:bg-gradient-to-b before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 dark:before:border-gray-700 dark:before:bg-gray-800 sm:w-max">
+									<span class="relative text-base font-medium text-indigo-600 dark:text-white">Learn
+										More</span>
 								</a>
 							</div>
 							<div
-								class="justify-between hidden py-8 mt-16 border-gray-100 border-y dark:border-gray-800 sm:flex">
+								class="justify-between hidden py-8 mt-16 border-t border-b border-gray-100 sm:flex dark:border-gray-800">
 								<div class="text-center">
-									<h6 class="text-lg font-semibold dark:text-white">Hassle-Free
-									</h6>
-									<p class="mt-2 text-slate-500">Invoicing with zero fluff.</p>
+									<h6 class="text-lg font-semibold dark:text-white">Hassle-Free</h6>
+									<p class="mt-2 text-slate-500 dark:text-slate-400">Invoicing without the extra
+										fluff.</p>
 								</div>
 								<div class="text-center">
-									<h6 class="text-lg font-semibold dark:text-white">Reports & Analytics
-									</h6>
-									<p class="mt-2 text-slate-500">Track your invoices and fianaces.</p>
+									<h6 class="text-lg font-semibold dark:text-white">Reports & Analytics</h6>
+									<p class="mt-2 text-slate-500 dark:text-slate-400">Track your invoices and finances
+										easily.</p>
 								</div>
 								<div class="text-center">
 									<h6 class="text-lg font-semibold dark:text-white">Customizable</h6>
-									<p class="mt-2 text-slate-500">Logos, colors and a lot more.</p>
+									<p class="mt-2 text-slate-500 dark:text-slate-400">Personalize logos, colors, and
+										more.</p>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-			<div id="features">
+
+			<div class="py-20" id="features">
 				<div class="px-6 mx-auto max-w-7xl md:px-12 xl:px-6">
 					<div
-						class="grid mt-16 overflow-hidden border border-gray-100 divide-x divide-y divide-gray-100 dark:divide-gray-700 rounded-3xl dark:border-gray-700 sm:grid-cols-2 lg:grid-cols-4 lg:divide-y-0 xl:grid-cols-4">
+						class="grid mt-16 overflow-hidden border border-gray-100 divide-y divide-gray-100 rounded-3xl dark:divide-gray-700 dark:border-gray-700 sm:grid-cols-2 lg:grid-cols-4 lg:divide-y-0">
+
+						<!-- Invoices Feature -->
 						<div
-							class="group relative bg-white dark:bg-gray-800 transition hover:z-[1] hover:shadow-2xl hover:shadow-gray-600/10">
+							class="relative transition bg-white group dark:bg-gray-800 hover:z-10 hover:shadow-2xl hover:shadow-gray-600/10">
 							<div class="relative p-8 py-12 space-y-8">
 								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
 									fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -92,21 +97,19 @@
 									<path d="M16 12H8" />
 									<path d="M13 16H8" />
 								</svg>
-
 								<div class="space-y-2">
 									<h5
 										class="text-xl font-semibold transition dark:text-white group-hover:text-secondary">
-										Invoices
-									</h5>
-									<p class="dark:text-gray-300">
-										Generate new invoices, view detailed lists, and track payment statuses
-										effortlessly.
-									</p>
+										Invoices</h5>
+									<p class="dark:text-gray-300">Generate new invoices, view detailed lists, and track
+										payment statuses effortlessly.</p>
 								</div>
 							</div>
 						</div>
+
+						<!-- Customers Feature -->
 						<div
-							class="group relative bg-white dark:bg-gray-800 transition hover:z-[1] hover:shadow-2xl hover:shadow-gray-600/10">
+							class="relative transition bg-white group dark:bg-gray-800 hover:z-10 hover:shadow-2xl hover:shadow-gray-600/10">
 							<div class="relative p-8 py-12 space-y-8">
 								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
 									fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -116,21 +119,19 @@
 									<path d="M22 21v-2a4 4 0 0 0-3-3.87" />
 									<path d="M16 3.13a4 4 0 0 1 0 7.75" />
 								</svg>
-
 								<div class="space-y-2">
 									<h5
 										class="text-xl font-semibold transition dark:text-white group-hover:text-secondary">
-										Customers
-									</h5>
-									<p class="dark:text-gray-300">
-										Easily add, update, and view customer records, all
-										organized and accessible.
-									</p>
+										Customers</h5>
+									<p class="dark:text-gray-300">Easily add, update, and view customer records, all
+										organized and accessible.</p>
 								</div>
 							</div>
 						</div>
+
+						<!-- Reports Feature -->
 						<div
-							class="group relative bg-white dark:bg-gray-800 transition hover:z-[1] hover:shadow-2xl hover:shadow-gray-600/10">
+							class="relative transition bg-white group dark:bg-gray-800 hover:z-10 hover:shadow-2xl hover:shadow-gray-600/10">
 							<div class="relative p-8 py-12 space-y-8">
 								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
 									fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -140,21 +141,19 @@
 										d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
 									<path d="M9 14h6" />
 								</svg>
-
 								<div class="space-y-2">
 									<h5
 										class="text-xl font-semibold transition dark:text-white group-hover:text-secondary">
-										Reports
-									</h5>
-									<p class="dark:text-gray-300">
-										Analyze invoices, track customer trends, and review your financial summaries
-										with ease.
-									</p>
+										Reports</h5>
+									<p class="dark:text-gray-300">Analyze invoices, track customer trends, and review
+										financial summaries with ease.</p>
 								</div>
 							</div>
 						</div>
+
+						<!-- More Features -->
 						<div
-							class="group relative bg-gray-50 dark:bg-gray-900 transition hover:z-[1] hover:shadow-2xl hover:shadow-gray-600/10">
+							class="relative transition group bg-gray-50 dark:bg-gray-900 hover:z-10 hover:shadow-2xl hover:shadow-gray-600/10">
 							<div
 								class="relative p-8 py-12 space-y-8 transition duration-300 group-hover:bg-white dark:group-hover:bg-gray-800">
 								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -164,48 +163,46 @@
 									<path d="M8 12h8" />
 									<path d="M12 8v8" />
 								</svg>
-
 								<div class="space-y-2">
 									<h5
 										class="text-xl font-semibold transition dark:text-white group-hover:text-secondary">
-										& More
-									</h5>
-									<p class="dark:text-gray-300">
-										A whole bunch of features to make your life easy as a freelancer.
-									</p>
+										& More</h5>
+									<p class="dark:text-gray-300">A whole bunch of features designed to make invoicing
+										easier.</p>
 								</div>
 							</div>
 						</div>
+
 					</div>
 				</div>
 			</div>
 
-			<div id="cta" class="relative py-16">
 
+			<div id="cta" class="relative py-20 pb-40">
 				<div class="px-6 mx-auto max-w-7xl md:px-12 xl:px-6">
 					<div class="relative">
-						<div class="m-auto mt-6 space-y-6 md:w-8/12 lg:w-7/12">
-							<h1 class="text-4xl font-bold text-center text-gray-800 dark:text-white md:text-5xl">Get
-								Started now</h1>
-							<p class="text-center dark:text-gray-300">
-								Lorem ipsum dolor sit amet consectetur adipisicing elit.
+						<div class="m-auto mt-6 space-y-6 text-center md:w-8/12 lg:w-7/12">
+							<h1 class="text-4xl font-bold text-gray-800 dark:text-white md:text-5xl">Get Started Now
+							</h1>
+							<p class="dark:text-gray-300">
+								Efficient, intuitive, and designed for you. Start managing your invoices now.
 							</p>
 							<div class="flex flex-wrap justify-center gap-6">
 								<a href="#"
-									class="relative flex items-center justify-center w-full h-12 px-8 before:absolute before:inset-0 before:rounded-full before:bg-blue-600 before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 sm:w-max">
-									<span class="relative text-base font-medium text-white dark:text-dark">Get
-										Started</span>
+									class="relative flex items-center justify-center w-full h-12 px-8 before:absolute before:inset-0 before:rounded-full before:bg-indigo-600 before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 sm:w-max">
+									<span class="relative text-base font-medium text-white">Get Started</span>
 								</a>
 								<a href="#"
-									class="relative flex items-center justify-center w-full h-12 px-8 before:absolute before:inset-0 before:rounded-full before:border before:border-transparent before:bg-blue-600/10 before:bg-gradient-to-b before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 dark:before:border-gray-700 dark:before:bg-gray-800 sm:w-max">
-									<span class="relative text-base font-medium text-blue-600 dark:text-white">More
-										about</span>
+									class="relative flex items-center justify-center w-full h-12 px-8 before:absolute before:inset-0 before:rounded-full before:border before:border-transparent before:bg-indigo-600/10 before:bg-gradient-to-b before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 dark:before:border-gray-700 dark:before:bg-gray-800 sm:w-max">
+									<span class="relative text-base font-medium text-indigo-600 dark:text-white">Learn
+										More</span>
 								</a>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
+
 
 		</main>
 	</div>
