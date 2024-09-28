@@ -32,34 +32,27 @@
 		<x-alert class="border-t-0 border-b rounded-none border-x-0 border-r-none" />
 
 		<!-- Page Content -->
-		<main class="mb-40 space-y-40 bg-white">
+		<main class="mb-40 space-y-40 bg-white text-slate-800">
 
 			<div class="relative" id="home">
-				<div aria-hidden="true"
-					class="absolute inset-0 grid grid-cols-2 -space-x-52 opacity-40 dark:opacity-20">
-					<div class="blur-[106px] h-56 bg-gradient-to-br from-sky-300 to-purple-400 dark:from-blue-700">
-					</div>
-					<div class="blur-[106px] h-32 bg-gradient-to-r from-cyan-400 to-sky-300 dark:to-indigo-600">
-					</div>
-				</div>
 				<div class="px-6 mx-auto max-w-7xl md:px-12 xl:px-6">
 					<div class="relative ml-auto pt-36">
 
 						<div class="mx-auto text-center lg:w-2/3">
 							<h1 class="text-5xl font-bold dark:text-white md:text-6xl xl:text-7xl">
 								Easy Invoicing for <span class="text-blue-600 dark:text-white">Freelancers.</span></h1>
-							<p class="mt-8 dark:text-gray-300">Effortlessly manage your invoices,
+							<p class="mt-8 text-slate-800">Effortlessly manage your invoices,
 								customers, and finances with a solution designed for simplicity. Built to streamline
 								your business processes, Invoicer makes staying organized and getting paid easier than
 								ever.</p>
 							<div class="flex flex-wrap justify-center mt-16 gap-y-4 gap-x-6">
 								<a href="#"
 									class="relative flex items-center justify-center w-full px-6 h-11 before:absolute before:inset-0 before:rounded-full before:bg-blue-600 before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 sm:w-max">
-									<span class="relative text-base font-semibold text-white">Get started</span>
+									<span class="relative text-base font-medium text-white">Get started</span>
 								</a>
 								<a href="#"
 									class="relative flex items-center justify-center w-full px-6 h-11 before:absolute before:inset-0 before:rounded-full before:border before:border-transparent before:bg-blue-600/10 before:bg-gradient-to-b before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 dark:before:border-gray-700 dark:before:bg-gray-800 sm:w-max">
-									<span class="relative text-base font-semibold text-blue-600 dark:text-white">Learn
+									<span class="relative text-base font-medium text-blue-600 dark:text-white">Learn
 										more</span>
 								</a>
 							</div>
@@ -68,16 +61,16 @@
 								<div class="text-center">
 									<h6 class="text-lg font-semibold dark:text-white">Hassle-Free
 									</h6>
-									<p class="mt-2 text-gray-500">Invoicing with zero fluff.</p>
+									<p class="mt-2 text-slate-500">Invoicing with zero fluff.</p>
 								</div>
 								<div class="text-center">
 									<h6 class="text-lg font-semibold dark:text-white">Reports & Analytics
 									</h6>
-									<p class="mt-2 text-gray-500">Track your invoices and fianaces.</p>
+									<p class="mt-2 text-slate-500">Track your invoices and fianaces.</p>
 								</div>
 								<div class="text-center">
 									<h6 class="text-lg font-semibold dark:text-white">Customizable</h6>
-									<p class="mt-2 text-gray-500">Logos, colors and a lot more.</p>
+									<p class="mt-2 text-slate-500">Logos, colors and a lot more.</p>
 								</div>
 							</div>
 						</div>
@@ -86,15 +79,6 @@
 			</div>
 			<div id="features">
 				<div class="px-6 mx-auto max-w-7xl md:px-12 xl:px-6">
-					<div class="md:w-2/3 lg:w-1/2">
-
-						<h2 class="my-8 text-2xl font-bold dark:text-white md:text-4xl">
-							Feature-Packed with Simplicity at Its Core
-						</h2>
-						<p class="dark:text-gray-300">
-							This invoicing app is designed to streamline the workflow for freelancers, offering powerful
-							features without unnecessary complexity.</p>
-					</div>
 					<div
 						class="grid mt-16 overflow-hidden border border-gray-100 divide-x divide-y divide-gray-100 dark:divide-gray-700 rounded-3xl dark:border-gray-700 sm:grid-cols-2 lg:grid-cols-4 lg:divide-y-0 xl:grid-cols-4">
 						<div
@@ -195,51 +179,26 @@
 					</div>
 				</div>
 			</div>
-			<div id="solution">
-				<div class="px-6 mx-auto max-w-7xl md:px-12 xl:px-6">
-					<div
-						class="flex-row-reverse justify-between space-y-6 md:flex md:gap-6 md:space-y-0 lg:gap-24 lg:items-center">
-						<div class="md:5/12 lg:w-1/2">
-							<img src="/images/pie.svg" alt="image" loading="lazy" width="" height="" class="w-full">
-						</div>
-						<div class="md:7/12 lg:w-1/2">
-							<h2 class="text-3xl font-bold text-gray-900 md:text-4xl dark:text-white">
-								Track Invoices and Finances in Real-Time
-							</h2>
-							<p class="my-8 dark:text-gray-300">
-								Stay on top of your financials with real-time tracking of invoices and payments. Monitor
-								outstanding balances, due dates, and payment statuses with ease, giving you a clear
-								picture of your cash flow at any moment.
-							</p>
-						</div>
-					</div>
-				</div>
-			</div>
 
 			<div id="cta" class="relative py-16">
-				<div aria-hidden="true"
-					class="absolute inset-0 grid w-full grid-cols-2 m-auto h-max -space-x-52 opacity-20 dark:opacity-20">
-					<div class="blur-[106px] h-56 bg-gradient-to-br from-blue-300 to-purple-400 dark:from-blue-700">
-					</div>
-					<div class="blur-[106px] h-32 bg-gradient-to-r from-cyan-400 to-sky-300 dark:to-indigo-600"></div>
-				</div>
+
 				<div class="px-6 mx-auto max-w-7xl md:px-12 xl:px-6">
 					<div class="relative">
 						<div class="m-auto mt-6 space-y-6 md:w-8/12 lg:w-7/12">
 							<h1 class="text-4xl font-bold text-center text-gray-800 dark:text-white md:text-5xl">Get
 								Started now</h1>
-							<p class="text-xl text-center dark:text-gray-300">
+							<p class="text-center dark:text-gray-300">
 								Lorem ipsum dolor sit amet consectetur adipisicing elit.
 							</p>
 							<div class="flex flex-wrap justify-center gap-6">
 								<a href="#"
 									class="relative flex items-center justify-center w-full h-12 px-8 before:absolute before:inset-0 before:rounded-full before:bg-blue-600 before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 sm:w-max">
-									<span class="relative text-base font-semibold text-white dark:text-dark">Get
+									<span class="relative text-base font-medium text-white dark:text-dark">Get
 										Started</span>
 								</a>
 								<a href="#"
 									class="relative flex items-center justify-center w-full h-12 px-8 before:absolute before:inset-0 before:rounded-full before:border before:border-transparent before:bg-blue-600/10 before:bg-gradient-to-b before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 dark:before:border-gray-700 dark:before:bg-gray-800 sm:w-max">
-									<span class="relative text-base font-semibold text-blue-600 dark:text-white">More
+									<span class="relative text-base font-medium text-blue-600 dark:text-white">More
 										about</span>
 								</a>
 							</div>
