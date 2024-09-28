@@ -148,59 +148,57 @@
 					</div>
 				</div>
 
+				<!-- Paid Invoices Total -->
 				<div
 					class="flex flex-col bg-white border shadow-sm rounded-xl dark:bg-neutral-900 dark:border-neutral-800">
 					<div class="flex flex-col gap-4 p-4 lg:items-center md:p-6 lg:flex-row">
 						<div
-							class="shrink-0 flex justify-center items-center size-[46px] bg-gray-100 rounded-lg dark:bg-neutral-800">
-							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-								fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-								stroke-linejoin="round" class="text-gray-600 shrink-0 size-6 dark:text-neutral-400">
+							class="flex items-center justify-center w-12 h-12 bg-indigo-100 rounded-lg shrink-0 dark:bg-neutral-800">
+							<svg xmlns="http://www.w3.org/2000/svg"
+								class="w-6 h-6 text-indigo-800 dark:text-neutral-400" fill="none" stroke="currentColor"
+								stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 								<line x1="12" x2="12" y1="2" y2="22" />
 								<path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
 							</svg>
 						</div>
-
 						<div class="grow">
 							<p class="text-xs tracking-wide text-gray-600 uppercase dark:text-neutral-500">
 								Paid Invoices Total
 							</p>
-							<div class="mt-2">
-								<h3
-									class="text-xl font-medium text-gray-700 sm:text-2xl lg:text-4xl dark:text-neutral-200">
-									{{ Illuminate\Support\Number::abbreviate($paidInvoicesTotal) }}
-								</h3>
-							</div>
+							<h3
+								class="mt-2 text-xl font-medium text-gray-700 sm:text-2xl lg:text-3xl dark:text-neutral-200">
+								{{ Illuminate\Support\Number::abbreviate($paidInvoicesTotal) }}
+							</h3>
 						</div>
 					</div>
 				</div>
 
+				<!-- Current Invoices Total -->
 				<div
 					class="flex flex-col bg-white border shadow-sm rounded-xl dark:bg-neutral-900 dark:border-neutral-800">
 					<div class="flex flex-col gap-4 p-4 lg:items-center md:p-6 lg:flex-row">
 						<div
-							class="shrink-0 flex justify-center items-center size-[46px] bg-gray-100 rounded-lg dark:bg-neutral-800">
-							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-								fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-								stroke-linejoin="round" class="text-gray-600 shrink-0 size-6 dark:text-neutral-400">
+							class="flex items-center justify-center w-12 h-12 bg-indigo-100 rounded-lg shrink-0 dark:bg-neutral-800">
+							<svg xmlns="http://www.w3.org/2000/svg"
+								class="w-6 h-6 text-indigo-800 dark:text-neutral-400" fill="none" stroke="currentColor"
+								stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 								<line x1="12" x2="12" y1="2" y2="22" />
 								<path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
 							</svg>
 						</div>
-
 						<div class="grow">
 							<p class="text-xs tracking-wide text-gray-600 uppercase dark:text-neutral-500">
 								Current Invoices Total
 							</p>
-							<div class="mt-2">
-								<h3
-									class="text-xl font-medium text-gray-700 sm:text-2xl lg:text-4xl dark:text-neutral-200">
-									{{ Illuminate\Support\Number::abbreviate($currentInvoicesTotal) }}
-								</h3>
-							</div>
+							<h3
+								class="mt-2 text-xl font-medium text-gray-700 sm:text-2xl lg:text-3xl dark:text-neutral-200">
+								{{ Illuminate\Support\Number::abbreviate($currentInvoicesTotal) }}
+							</h3>
 						</div>
 					</div>
 				</div>
+
+
 			</div>
 
 
