@@ -18,7 +18,8 @@
 				<div class="lg:col-span-4">
 					<div>
 						<!-- Card -->
-						<div class="flex flex-col p-4 bg-white shadow-md sm:p-10 rounded-xl dark:bg-neutral-800">
+						<div
+							class="flex flex-col p-4 bg-white border border-gray-200 sm:p-10 rounded-xl dark:bg-neutral-800">
 							<!-- Grid -->
 							<div class="flex justify-between">
 								<div>
@@ -249,7 +250,8 @@
 						</div>
 					</form>
 					<x-link class="block" href="{{ route('customers.show', $invoice->customer) }}">
-						<div class="flex items-center gap-4 p-6 bg-white shadow dark:bg-gray-800 sm:rounded-lg">
+						<div
+							class="flex items-center gap-4 p-6 bg-white border border-gray-200 dark:bg-gray-800 sm:rounded-lg">
 							<x-avatar :customer="$invoice->customer" class="size-14" />
 							<div>
 								<div>{{ $invoice->customer->name }}</div>

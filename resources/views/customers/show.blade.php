@@ -19,7 +19,7 @@
 	</x-slot>
 	<div class="py-12">
 		<div class="mx-auto space-y-6 max-w-7xl sm:px-6 lg:px-8">
-			<div class="p-4 bg-white shadow sm:p-8 dark:bg-gray-800 sm:rounded-lg">
+			<div class="p-4 bg-white border border-gray-200 sm:p-8 dark:bg-gray-800 sm:rounded-lg">
 				<div class="flex flex-col justify-between gap-6 lg:flex-row">
 
 					<div class="flex flex-col justify-between gap-6">

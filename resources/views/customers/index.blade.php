@@ -20,11 +20,11 @@
 	<div class="py-12">
 		<div class="mx-auto space-y-6 max-w-7xl sm:px-6 lg:px-8">
 
-			<div class="space-y-3">
-				<div class="grid gap-3 lg:grid-cols-3">
+			<div class="space-y-4">
+				<div class="grid gap-4 lg:grid-cols-3">
 					@foreach ($customers as $customer)
 						<x-link class="block" href="{{ route('customers.show', $customer) }}">
-							<div class="p-4 bg-white shadow sm:p-8 dark:bg-gray-800 sm:rounded-lg">
+							<div class="p-4 bg-white border border-gray-200 sm:p-8 dark:bg-gray-800 sm:rounded-2xl">
 								<div class="grid items-center gap-4">
 									<div class="flex items-center flex-1 gap-4">
 										<x-avatar :customer="$customer" />

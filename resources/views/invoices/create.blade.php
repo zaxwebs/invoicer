@@ -18,7 +18,7 @@
 					</ul>
 				</div>
 			@endif
-			<div class="p-4 bg-white shadow sm:p-8 dark:bg-gray-800 sm:rounded-lg">
+			<div class="p-4 bg-white border border-gray-200 sm:p-8 dark:bg-gray-800 sm:rounded-lg">
 				<div>
 					<section>
 						<header>

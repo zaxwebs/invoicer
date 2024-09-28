@@ -1,7 +1,7 @@
 @props(['invoice'])
 
 <x-link class="block" href="{{ route('invoices.show', $invoice->invoice_number) }}">
-	<div class="p-4 bg-white shadow sm:p-8 dark:bg-gray-800 sm:rounded-lg">
+	<div class="p-4 bg-white border border-gray-200 sm:p-8 dark:bg-gray-800 sm:rounded-2xl">
 		<div class="grid items-center gap-4 md:grid-cols-3 lg:grid-cols-5">
 			<div class="flex flex-col flex-1 gap-2">
 				<div class="text-sm text-gray-500">Number</div>

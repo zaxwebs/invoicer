@@ -1,4 +1,4 @@
-<div class="bg-white shadow dark:bg-gray-800 sm:rounded-lg">
+<div class="bg-white border border-gray-200 dark:bg-gray-800 sm:rounded-lg">
 	<div class="p-6 py-2 border-b">
 		<div class="flex items-center justify-between">
 			<h3 class="text-base font-medium text-gray-900 dark:text-gray-100">Notes</h3>
@@ -45,7 +45,7 @@
 					</div>
 				</div>
 				<button wire:click="edit({{ $note->id }})" type="button"
-					class="flex items-center justify-center text-sm font-semibold text-gray-500 bg-white border border-gray-200 rounded-lg shadow-sm size-8 hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-800 dark:focus:bg-neutral-800">
+					class="flex items-center justify-center text-sm font-semibold text-gray-500 bg-white border border-gray-200 rounded-lg size-8 hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-800 dark:focus:bg-neutral-800">
 					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
 						stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
 						class="shrink-0 size-4">
