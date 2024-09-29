@@ -25,7 +25,7 @@
 			<div x-bind:class="{'translate-x-0': sidebarOpen, '-translate-x-full': !sidebarOpen}"
 				class="fixed inset-y-0 left-0 z-30 h-screen text-white transition-transform transform w-72 bg-slate-950 lg:translate-x-0 lg:z-auto lg:w-72 lg:fixed"
 				x-cloak>
-				<div class="px-8 py-6 pb-3">
+				<div class="pt-5 pb-3 pl-8">
 					<img class="w-24" src="{{ asset('images/logo.svg') }}" alt="logo" />
 				</div>
 				<div class="p-4">
