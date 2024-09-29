@@ -29,8 +29,7 @@
 					<h1 class="mb-6 ml-5 text-xl font-semibold">Invoicer</h1>
 					<ul class="flex flex-col space-y-1">
 						<li>
-							<a class="flex items-center gap-x-3.5 py-3 px-4 text-white rounded-lg hover:bg-white/10 focus:outline-none focus:bg-white/10 dark:bg-neutral-700 dark:text-white"
-								href="{{ route('dashboard') }}">
+							<a @class(['bg-white/10' => request()->routeIs('dashboard'), 'flex items-center gap-x-3.5 py-3 px-4 text-white rounded-lg hover:bg-white/10 focus:outline-none focus:bg-white/10 dark:bg-neutral-700 dark:text-white']) href="{{ route('dashboard') }}">
 								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
 									fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
 									stroke-linejoin="round" class="size-5">
@@ -42,7 +41,7 @@
 							</a>
 						</li>
 						<li>
-							<a class="flex items-center gap-x-3.5 py-3 px-4 text-white rounded-lg hover:bg-white/10 focus:outline-none focus:bg-white/10 dark:bg-neutral-700 dark:text-white"
+							<a @class(['bg-white/10' => request()->routeIs(patterns: 'invoices.index'), 'flex items-center gap-x-3.5 py-3 px-4 text-white rounded-lg hover:bg-white/10 focus:outline-none focus:bg-white/10 dark:bg-neutral-700 dark:text-white'])
 								href="{{ route('invoices.index') }}">
 								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
 									fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -58,7 +57,7 @@
 							</a>
 						</li>
 						<li>
-							<a class="flex items-center gap-x-3.5 py-3 px-4 text-white rounded-lg hover:bg-white/10 focus:outline-none focus:bg-white/10 dark:bg-neutral-700 dark:text-white"
+							<a @class(['bg-white/10' => request()->routeIs('customers.index'), 'flex items-center gap-x-3.5 py-3 px-4 text-white rounded-lg hover:bg-white/10 focus:outline-none focus:bg-white/10 dark:bg-neutral-700 dark:text-white'])
 								href="{{ route('customers.index') }}">
 								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
 									fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -72,8 +71,7 @@
 							</a>
 						</li>
 						<li>
-							<a class="flex items-center gap-x-3.5 py-3 px-4 text-white rounded-lg hover:bg-white/10 focus:outline-none focus:bg-white/10 dark:bg-neutral-700 dark:text-white"
-								href="{{ route('settings.edit') }}">
+							<a @class(['bg-white/10' => request()->routeIs('settings.edit'), 'flex items-center gap-x-3.5 py-3 px-4 text-white rounded-lg hover:bg-white/10 focus:outline-none focus:bg-white/10 dark:bg-neutral-700 dark:text-white']) href="{{ route('settings.edit') }}">
 								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
 									fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
 									stroke-linejoin="round" class="size-5">
