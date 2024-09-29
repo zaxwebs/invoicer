@@ -25,8 +25,11 @@
 			<div x-bind:class="{'translate-x-0': sidebarOpen, '-translate-x-full': !sidebarOpen}"
 				class="fixed inset-y-0 left-0 z-30 h-screen text-white transition-transform transform w-72 bg-slate-950 lg:translate-x-0 lg:z-auto lg:w-72 lg:fixed"
 				x-cloak>
-				<div class="p-5">
-					<h1 class="mb-6 ml-5 text-xl font-semibold">Invoicer</h1>
+				<div class="px-8 py-6 pb-3">
+					<img class="w-24" src="{{ asset('images/logo.svg') }}" alt="logo" />
+				</div>
+				<div class="p-4">
+
 					<ul class="flex flex-col space-y-1">
 						<li>
 							<a @class(['bg-white/10' => request()->routeIs('dashboard'), 'flex items-center gap-x-3.5 py-3 px-4 text-white rounded-lg hover:bg-white/10 focus:outline-none focus:bg-white/10 dark:bg-neutral-700 dark:text-white']) href="{{ route('dashboard') }}">
