@@ -22,7 +22,7 @@
 		<div class="flex">
 
 			{{-- Sidebar (overlay on mobile, fixed on larger screens) --}}
-			<div ::class="{'translate-x-0': sidebarOpen, '-translate-x-full': !sidebarOpen}"
+			<div :class="{'translate-x-0': sidebarOpen, '-translate-x-full': !sidebarOpen}"
 				class="fixed inset-y-0 left-0 z-30 w-64 h-screen text-white transition-transform transform bg-slate-950 lg:translate-x-0 lg:z-auto lg:w-72 lg:fixed"
 				x-cloak>
 				<div class="p-5">
@@ -88,7 +88,7 @@
 			</div>
 
 			{{-- Overlay (for small screens) --}}
-			<div @click="sidebarOpen = false" ::class="{'block': sidebarOpen, 'hidden': !sidebarOpen}"
+			<div @click="sidebarOpen = false" :class="{'block': sidebarOpen, 'hidden': !sidebarOpen}"
 				class="fixed inset-0 z-20 bg-black bg-opacity-50 lg:hidden" x-cloak>
 			</div>
 
