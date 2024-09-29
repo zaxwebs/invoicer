@@ -22,8 +22,8 @@
 		<div class="flex">
 
 			{{-- Sidebar (overlay on mobile, fixed on larger screens) --}}
-			<div :class="{'translate-x-0': sidebarOpen, '-translate-x-full': !sidebarOpen}"
-				class="fixed inset-y-0 left-0 z-30 w-64 h-screen text-white transition-transform transform bg-slate-950 lg:translate-x-0 lg:z-auto lg:w-72 lg:fixed"
+			<div x-bind:class="{'translate-x-0': sidebarOpen, '-translate-x-full': !sidebarOpen}"
+				class="fixed inset-y-0 left-0 z-30 h-screen text-white transition-transform transform w-72 bg-slate-950 lg:translate-x-0 lg:z-auto lg:w-72 lg:fixed"
 				x-cloak>
 				<div class="p-5">
 					<h1 class="mb-6 ml-5 text-xl font-semibold">Invoicer</h1>
@@ -88,7 +88,7 @@
 			</div>
 
 			{{-- Overlay (for small screens) --}}
-			<div @click="sidebarOpen = false" :class="{'block': sidebarOpen, 'hidden': !sidebarOpen}"
+			<div @click="sidebarOpen = false" x-bind:class="{'block': sidebarOpen, 'hidden': !sidebarOpen}"
 				class="fixed inset-0 z-20 bg-black bg-opacity-50 lg:hidden" x-cloak>
 			</div>
 
@@ -96,13 +96,53 @@
 			<div class="flex-1 lg:ml-72">
 				{{-- Offset content by the sidebar width on larger screens --}}
 				{{-- Toggle Button (visible on small screens) --}}
-				<header class="flex items-center justify-between p-4 bg-white shadow dark:bg-gray-800">
-					<h1 class="text-xl font-medium">{{ __('Dashboard') }}</h1>
-					{{-- Show toggle button only on small screens --}}
-					<button @click="sidebarOpen = !sidebarOpen"
-						class="px-4 py-2 text-white bg-gray-700 rounded lg:hidden">
-						Toggle Sidebar
-					</button>
+				<header
+					class="flex items-center justify-between px-4 py-2 bg-white border-b border-gray-200 shadow dark:bg-gray-800">
+					<div>
+						{{-- Show toggle button only on small screens --}}
+						<button @click="sidebarOpen = !sidebarOpen" class="p-2 text-gray-500 rounded lg:hidden">
+							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+								fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+								stroke-linejoin="round" class="size-6">
+								<rect width="18" height="18" x="3" y="3" rx="2" />
+								<path d="M9 3v18" />
+								<path d="m14 9 3 3-3 3" />
+							</svg>
+						</button>
+					</div>
+					<x-dropdown align="right" width="48">
+						<x-slot name="trigger">
+							<button
+								class="inline-flex items-center px-3 py-2 text-sm font-medium leading-4 text-gray-500 transition duration-150 ease-in-out bg-white border border-transparent rounded-md dark:text-gray-400 dark:bg-gray-800 hover:text-gray-700 dark:hover:text-gray-300 focus:outline-none">
+								<div>{{ Auth::user()->name }}</div>
+
+								<div class="ms-1">
+									<svg class="w-4 h-4 fill-current" xmlns="http://www.w3.org/2000/svg"
+										viewBox="0 0 20 20">
+										<path fill-rule="evenodd"
+											d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+											clip-rule="evenodd" />
+									</svg>
+								</div>
+							</button>
+						</x-slot>
+
+						<x-slot name="content">
+							<x-dropdown-link :href="route('profile.edit')">
+								{{ __('Profile') }}
+							</x-dropdown-link>
+
+							<!-- Authentication -->
+							<form method="POST" action="{{ route('logout') }}">
+								@csrf
+
+								<x-dropdown-link :href="route('logout')" onclick="event.preventDefault();
+                                                this.closest('form').submit();">
+									{{ __('Log Out') }}
+								</x-dropdown-link>
+							</form>
+						</x-slot>
+					</x-dropdown>
 				</header>
 				@isset($header)
 					<header class="bg-white border-b border-gray-100 dark:bg-gray-800">
