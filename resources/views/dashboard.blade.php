@@ -8,7 +8,7 @@
 				<!-- Net Invoices -->
 				<div
 					class="flex flex-col bg-white border shadow-sm rounded-xl dark:bg-neutral-900 dark:border-neutral-800">
-					<div class="flex flex-col gap-4 p-4 lg:items-center md:p-6 lg:flex-row">
+					<div class="flex flex-col gap-4 p-4 md:p-6">
 						<div
 							class="flex items-center justify-center w-12 h-12 bg-indigo-100 rounded-lg shrink-0 dark:bg-neutral-800">
 							<svg xmlns="http://www.w3.org/2000/svg"
@@ -54,7 +54,7 @@
 				<!-- Paid Invoices -->
 				<x-link :href="route('invoices.index', ['status' => 'paid'])"
 					class="flex flex-col bg-white border shadow-sm rounded-xl dark:bg-neutral-900 dark:border-neutral-800">
-					<div class="flex flex-col gap-4 p-4 lg:items-center md:p-6 lg:flex-row">
+					<div class="flex flex-col gap-4 p-4 md:p-6">
 						<div
 							class="flex items-center justify-center w-12 h-12 bg-teal-100 rounded-lg shrink-0 dark:bg-neutral-800">
 							<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-green-600" fill="none"
@@ -78,7 +78,7 @@
 				<!-- Current Invoices -->
 				<div
 					class="flex flex-col bg-white border shadow-sm rounded-xl dark:bg-neutral-900 dark:border-neutral-800">
-					<div class="flex flex-col gap-4 p-4 lg:items-center md:p-6 lg:flex-row">
+					<div class="flex flex-col gap-4 p-4 md:p-6">
 						<div
 							class="flex items-center justify-center w-12 h-12 bg-indigo-100 rounded-lg shrink-0 dark:bg-neutral-800">
 							<svg xmlns="http://www.w3.org/2000/svg"
@@ -102,7 +102,7 @@
 				<!-- Overdue Invoices -->
 				<x-link :href="route('invoices.index', ['status' => 'overdue'])"
 					class="flex flex-col bg-white border shadow-sm rounded-xl dark:bg-neutral-900 dark:border-neutral-800">
-					<div class="flex flex-col gap-4 p-4 lg:items-center md:p-6 lg:flex-row">
+					<div class="flex flex-col gap-4 p-4 md:p-6">
 						<div
 							class="flex items-center justify-center w-12 h-12 rounded-lg shrink-0 bg-fuchsia-100 dark:bg-neutral-800">
 							<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-pink-600 dark:text-neutral-400"
@@ -126,7 +126,7 @@
 				<!-- Total Customers -->
 				<div
 					class="flex flex-col bg-white border shadow-sm rounded-xl dark:bg-neutral-900 dark:border-neutral-800">
-					<div class="flex flex-col gap-4 p-4 lg:items-center md:p-6 lg:flex-row">
+					<div class="flex flex-col gap-4 p-4 md:p-6">
 						<div
 							class="flex items-center justify-center w-12 h-12 bg-indigo-100 rounded-lg shrink-0 dark:bg-neutral-800">
 							<svg xmlns="http://www.w3.org/2000/svg"
@@ -152,7 +152,7 @@
 				<!-- Paid Invoices Total -->
 				<div
 					class="flex flex-col bg-white border shadow-sm rounded-xl dark:bg-neutral-900 dark:border-neutral-800">
-					<div class="flex flex-col gap-4 p-4 lg:items-center md:p-6 lg:flex-row">
+					<div class="flex flex-col gap-4 p-4 md:p-6">
 						<div
 							class="flex items-center justify-center w-12 h-12 bg-indigo-100 rounded-lg shrink-0 dark:bg-neutral-800">
 							<svg xmlns="http://www.w3.org/2000/svg"
@@ -177,7 +177,7 @@
 				<!-- Current Invoices Total -->
 				<div
 					class="flex flex-col bg-white border shadow-sm rounded-xl dark:bg-neutral-900 dark:border-neutral-800">
-					<div class="flex flex-col gap-4 p-4 lg:items-center md:p-6 lg:flex-row">
+					<div class="flex flex-col gap-4 p-4 md:p-6">
 						<div
 							class="flex items-center justify-center w-12 h-12 bg-indigo-100 rounded-lg shrink-0 dark:bg-neutral-800">
 							<svg xmlns="http://www.w3.org/2000/svg"
@@ -210,11 +210,11 @@
 		<div class="mx-auto space-y-6 max-w-7xl sm:px-6 lg:px-8">
 			<div class="flex items-center justify-between">
 				<h2 class="text-lg font-medium text-gray-900 dark:text-gray-100">
-					{{ __('Invoices') }}
+					{{ __('Recent Invoices') }}
 				</h2>
-				<x-secondary-button href="{{ route('invoices.index') }}">
+				<x-primary-button href="{{ route('invoices.index') }}">
 					View All
-				</x-secondary-button>
+				</x-primary-button>
 			</div>
 
 			<div class="space-y-3">
