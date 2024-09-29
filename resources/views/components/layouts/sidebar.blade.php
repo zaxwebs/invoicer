@@ -28,13 +28,30 @@
 				x-cloak
 			>
 				<div class="p-4">
-					<h1 class="mb-4 ml-4 text-xl font-semibold">Invoicer</h1>
-					<ul>
-						<li><a href="#" class="block px-4 py-2 hover:bg-gray-800">Dashboard</a></li>
-						<li><a href="#" class="block px-4 py-2 hover:bg-gray-800">Profile</a></li>
-						<li><a href="#" class="block px-4 py-2 hover:bg-gray-800">Settings</a></li>
-						<li><a href="#" class="block px-4 py-2 hover:bg-gray-800">Logout</a></li>
+					<h1 class="mb-6 ml-4 text-xl font-semibold">Invoicer</h1>
+					<ul class="flex flex-col space-y-1">
+						<li>
+							<a class="flex items-center gap-x-3.5 py-3 px-4 text-sm text-white rounded-lg hover:bg-white/10 focus:outline-none focus:bg-white/10 dark:bg-neutral-700 dark:text-white" href="#" target="_parent">
+								Dashboard
+							</a>
+						</li>
+						<li>
+							<a class="flex items-center gap-x-3.5 py-3 px-4 text-sm text-white rounded-lg hover:bg-white/10 focus:outline-none focus:bg-white/10 dark:bg-neutral-700 dark:text-white" href="#" target="_parent">
+								Invoices
+							</a>
+						</li>
+						<li>
+							<a class="flex items-center gap-x-3.5 py-3 px-4 text-sm text-white rounded-lg hover:bg-white/10 focus:outline-none focus:bg-white/10 dark:bg-neutral-700 dark:text-white" href="#" target="_parent">
+								Customers
+							</a>
+						</li>
+						<li>
+							<a class="flex items-center gap-x-3.5 py-3 px-4 text-sm text-white rounded-lg hover:bg-white/10 focus:outline-none focus:bg-white/10 dark:bg-neutral-700 dark:text-white" href="#" target="_parent">
+								Settings
+							</a>
+						</li>
 					</ul>
+
 				</div>
 			</div>
 
