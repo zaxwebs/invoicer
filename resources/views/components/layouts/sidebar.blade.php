@@ -104,6 +104,15 @@
 						Toggle Sidebar
 					</button>
 				</header>
+				@isset($header)
+					<header class="bg-white border-b border-gray-100 dark:bg-gray-800">
+						<div class="px-4 py-6 mx-auto max-w-7xl sm:px-6 lg:px-8">
+							{{ $header }}
+						</div>
+					</header>
+				@endisset
+
+				<x-alert class="border-t-0 border-b rounded-none border-x-0 border-r-none" />
 
 				<main>
 					{{ $slot }}
