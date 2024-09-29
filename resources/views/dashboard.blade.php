@@ -1,5 +1,5 @@
 <x-layouts.sidebar>
-	<section class="py-20 bg-indigo-500 bg-center bg-cover" style="background-image: url('/images/cover.png');">
+	<section class="py-16 bg-indigo-500 bg-center bg-cover" style="background-image: url('/images/cover.png');">
 
 		<div class="mx-auto space-y-12 max-w-7xl sm:px-6 lg:px-8">
 
