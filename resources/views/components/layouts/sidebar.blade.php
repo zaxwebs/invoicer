@@ -15,9 +15,6 @@
 	<!-- Scripts -->
 	@livewireStyles
 	@vite(['resources/css/app.css', 'resources/js/app.js'])
-
-	<!-- Add Alpine.js -->
-	<script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </head>
 
 <body class="font-sans antialiased" x-data="{ sidebarOpen: false }">
@@ -47,10 +44,12 @@
 				:class="{'block': sidebarOpen, 'hidden': !sidebarOpen}" 
 				class="fixed inset-0 z-20 bg-black bg-opacity-50 lg:hidden"
 				x-cloak
-			></div>
+			>
+		</div>
 
 			<!-- Content -->
-			<div class="flex-1 lg:ml-64"> <!-- Offset content by the sidebar width on larger screens -->
+			<div class="flex-1 lg:ml-64">
+				<!-- Offset content by the sidebar width on larger screens -->
 				<!-- Toggle Button (visible on small screens) -->
 				<header class="flex items-center justify-between p-4 bg-white shadow dark:bg-gray-800">
 					<h1 class="text-xl font-medium">{{ __('Dashboard') }}</h1>
@@ -67,8 +66,7 @@
 
 		</div>
 	</div>
-
-	@livewireScripts
+	@livewireScriptConfig
 </body>
 
 </html>
