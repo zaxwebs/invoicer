@@ -1,14 +1,24 @@
 <x-layouts.sidebar>
 	<section class="py-20 bg-indigo-500 bg-center bg-cover" style="background-image: url('/images/cover.png');">
 
-		<div class="mx-auto space-y-6 max-w-7xl sm:px-6 lg:px-8">
+		<div class="mx-auto space-y-12 max-w-7xl sm:px-6 lg:px-8">
+
+
+			<div class="text-white">
+				<div class="mb-2 text-3xl md:text-4xl">
+					Hello there, {{ Auth::user()->name }}
+				</div>
+				<p>Here's a quick summary of your latest stats.</p>
+			</div>
+
+
 
 			<div class="grid grid-cols-2 gap-4 lg:grid-cols-4">
 
 				<!-- Net Invoices -->
 				<div
 					class="flex flex-col bg-white border shadow-sm rounded-xl dark:bg-neutral-900 dark:border-neutral-800">
-					<div class="flex flex-col gap-4 p-4 md:p-6">
+					<div class="flex flex-col gap-4 p-4 md:p-6 lg:flex-row lg:items-center">
 						<div
 							class="flex items-center justify-center w-12 h-12 bg-indigo-100 rounded-lg shrink-0 dark:bg-neutral-800">
 							<svg xmlns="http://www.w3.org/2000/svg"
@@ -54,7 +64,7 @@
 				<!-- Paid Invoices -->
 				<x-link :href="route('invoices.index', ['status' => 'paid'])"
 					class="flex flex-col bg-white border shadow-sm rounded-xl dark:bg-neutral-900 dark:border-neutral-800">
-					<div class="flex flex-col gap-4 p-4 md:p-6">
+					<div class="flex flex-col gap-4 p-4 md:p-6 lg:flex-row lg:items-center">
 						<div
 							class="flex items-center justify-center w-12 h-12 bg-teal-100 rounded-lg shrink-0 dark:bg-neutral-800">
 							<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-green-600" fill="none"
@@ -78,7 +88,7 @@
 				<!-- Current Invoices -->
 				<div
 					class="flex flex-col bg-white border shadow-sm rounded-xl dark:bg-neutral-900 dark:border-neutral-800">
-					<div class="flex flex-col gap-4 p-4 md:p-6">
+					<div class="flex flex-col gap-4 p-4 md:p-6 lg:flex-row lg:items-center">
 						<div
 							class="flex items-center justify-center w-12 h-12 bg-indigo-100 rounded-lg shrink-0 dark:bg-neutral-800">
 							<svg xmlns="http://www.w3.org/2000/svg"
@@ -102,7 +112,7 @@
 				<!-- Overdue Invoices -->
 				<x-link :href="route('invoices.index', ['status' => 'overdue'])"
 					class="flex flex-col bg-white border shadow-sm rounded-xl dark:bg-neutral-900 dark:border-neutral-800">
-					<div class="flex flex-col gap-4 p-4 md:p-6">
+					<div class="flex flex-col gap-4 p-4 md:p-6 lg:flex-row lg:items-center">
 						<div
 							class="flex items-center justify-center w-12 h-12 rounded-lg shrink-0 bg-fuchsia-100 dark:bg-neutral-800">
 							<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-pink-600 dark:text-neutral-400"
@@ -126,7 +136,7 @@
 				<!-- Total Customers -->
 				<div
 					class="flex flex-col bg-white border shadow-sm rounded-xl dark:bg-neutral-900 dark:border-neutral-800">
-					<div class="flex flex-col gap-4 p-4 md:p-6">
+					<div class="flex flex-col gap-4 p-4 md:p-6 lg:flex-row lg:items-center">
 						<div
 							class="flex items-center justify-center w-12 h-12 bg-indigo-100 rounded-lg shrink-0 dark:bg-neutral-800">
 							<svg xmlns="http://www.w3.org/2000/svg"
@@ -152,7 +162,7 @@
 				<!-- Paid Invoices Total -->
 				<div
 					class="flex flex-col bg-white border shadow-sm rounded-xl dark:bg-neutral-900 dark:border-neutral-800">
-					<div class="flex flex-col gap-4 p-4 md:p-6">
+					<div class="flex flex-col gap-4 p-4 md:p-6 lg:flex-row lg:items-center">
 						<div
 							class="flex items-center justify-center w-12 h-12 bg-indigo-100 rounded-lg shrink-0 dark:bg-neutral-800">
 							<svg xmlns="http://www.w3.org/2000/svg"
@@ -168,7 +178,7 @@
 							</p>
 							<h3
 								class="mt-2 text-xl font-medium text-gray-700 sm:text-2xl lg:text-3xl dark:text-neutral-200">
-								{{ Illuminate\Support\Number::abbreviate($paidInvoicesTotal) }}
+								${{ Illuminate\Support\Number::abbreviate($paidInvoicesTotal) }}
 							</h3>
 						</div>
 					</div>
@@ -177,7 +187,7 @@
 				<!-- Current Invoices Total -->
 				<div
 					class="flex flex-col bg-white border shadow-sm rounded-xl dark:bg-neutral-900 dark:border-neutral-800">
-					<div class="flex flex-col gap-4 p-4 md:p-6">
+					<div class="flex flex-col gap-4 p-4 md:p-6 lg:flex-row lg:items-center">
 						<div
 							class="flex items-center justify-center w-12 h-12 bg-indigo-100 rounded-lg shrink-0 dark:bg-neutral-800">
 							<svg xmlns="http://www.w3.org/2000/svg"
@@ -193,7 +203,7 @@
 							</p>
 							<h3
 								class="mt-2 text-xl font-medium text-gray-700 sm:text-2xl lg:text-3xl dark:text-neutral-200">
-								{{ Illuminate\Support\Number::abbreviate($currentInvoicesTotal) }}
+								${{ Illuminate\Support\Number::abbreviate($currentInvoicesTotal) }}
 							</h3>
 						</div>
 					</div>

@@ -2,7 +2,7 @@
 
 @props(['status'])
 
-<div {{ $attributes->class(['text-blue-800 bg-blue-100' => $status === InvoiceStatus::ISSUED, 'text-green-800 bg-teal-100' => $status === InvoiceStatus::PAID, 'text-sky-800 bg-sky-100' => $status === InvoiceStatus::PARTIALLY_PAID, 'text-red-800 bg-fuchsia-100' => $status === InvoiceStatus::OVERDUE, 'text-gray-800 bg-gray-100' => $status === InvoiceStatus::REFUNDED || $status === InvoiceStatus::CANCELLED])->merge(['class' => 'inline-flex items-center gap-x-1.5 py-1.5 px-3 rounded-full text-sm font-medium whitespace-nowrap']) }}>
+<div {{ $attributes->class(['text-blue-700 bg-blue-100' => $status === InvoiceStatus::ISSUED, 'text-green-700 bg-teal-100' => $status === InvoiceStatus::PAID, 'text-sky-700 bg-sky-100' => $status === InvoiceStatus::PARTIALLY_PAID, 'text-pink-700 bg-fuchsia-100' => $status === InvoiceStatus::OVERDUE, 'text-gray-700 bg-gray-100' => $status === InvoiceStatus::REFUNDED || $status === InvoiceStatus::CANCELLED])->merge(['class' => 'inline-flex items-center gap-x-1.5 py-1.5 px-3 rounded-full text-sm font-medium whitespace-nowrap']) }}>
 	@if ($status === InvoiceStatus::ISSUED)
 		<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
 			stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 size-4">
