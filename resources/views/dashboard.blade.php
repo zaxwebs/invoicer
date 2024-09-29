@@ -1,5 +1,6 @@
 <x-layouts.sidebar>
-	<section class="py-20 bg-indigo-500">
+	<section class="py-20 bg-indigo-500 bg-center bg-cover" style="background-image: url('/images/cover.png');">
+
 		<div class="mx-auto space-y-6 max-w-7xl sm:px-6 lg:px-8">
 
 			<div class="grid grid-cols-2 gap-4 lg:grid-cols-4">
@@ -11,7 +12,7 @@
 						<div
 							class="flex items-center justify-center w-12 h-12 bg-indigo-100 rounded-lg shrink-0 dark:bg-neutral-800">
 							<svg xmlns="http://www.w3.org/2000/svg"
-								class="w-6 h-6 text-indigo-800 dark:text-neutral-400" fill="none" stroke="currentColor"
+								class="w-6 h-6 text-indigo-600 dark:text-neutral-400" fill="none" stroke="currentColor"
 								stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 								<path
 									d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z" />
@@ -56,7 +57,7 @@
 					<div class="flex flex-col gap-4 p-4 lg:items-center md:p-6 lg:flex-row">
 						<div
 							class="flex items-center justify-center w-12 h-12 bg-teal-100 rounded-lg shrink-0 dark:bg-neutral-800">
-							<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-green-800" fill="none"
+							<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-green-600" fill="none"
 								stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 								<path
 									d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z" />
@@ -81,7 +82,7 @@
 						<div
 							class="flex items-center justify-center w-12 h-12 bg-indigo-100 rounded-lg shrink-0 dark:bg-neutral-800">
 							<svg xmlns="http://www.w3.org/2000/svg"
-								class="w-6 h-6 text-indigo-800 dark:text-neutral-400" fill="none" stroke="currentColor"
+								class="w-6 h-6 text-indigo-600 dark:text-neutral-400" fill="none" stroke="currentColor"
 								stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 								<path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
 								<path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
@@ -104,7 +105,7 @@
 					<div class="flex flex-col gap-4 p-4 lg:items-center md:p-6 lg:flex-row">
 						<div
 							class="flex items-center justify-center w-12 h-12 rounded-lg shrink-0 bg-fuchsia-100 dark:bg-neutral-800">
-							<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-red-800 dark:text-neutral-400"
+							<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-pink-600 dark:text-neutral-400"
 								fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
 								stroke-linejoin="round">
 								<circle cx="12" cy="12" r="10" />
@@ -127,10 +128,10 @@
 					class="flex flex-col bg-white border shadow-sm rounded-xl dark:bg-neutral-900 dark:border-neutral-800">
 					<div class="flex flex-col gap-4 p-4 lg:items-center md:p-6 lg:flex-row">
 						<div
-							class="flex items-center justify-center w-12 h-12 bg-gray-100 rounded-lg shrink-0 dark:bg-neutral-800">
-							<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-gray-600 dark:text-neutral-400"
-								fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-								stroke-linejoin="round">
+							class="flex items-center justify-center w-12 h-12 bg-indigo-100 rounded-lg shrink-0 dark:bg-neutral-800">
+							<svg xmlns="http://www.w3.org/2000/svg"
+								class="w-6 h-6 text-indigo-600 dark:text-neutral-400" fill="none" stroke="currentColor"
+								stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 								<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
 								<circle cx="9" cy="7" r="4"></circle>
 								<path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
@@ -155,7 +156,7 @@
 						<div
 							class="flex items-center justify-center w-12 h-12 bg-indigo-100 rounded-lg shrink-0 dark:bg-neutral-800">
 							<svg xmlns="http://www.w3.org/2000/svg"
-								class="w-6 h-6 text-indigo-800 dark:text-neutral-400" fill="none" stroke="currentColor"
+								class="w-6 h-6 text-indigo-600 dark:text-neutral-400" fill="none" stroke="currentColor"
 								stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 								<line x1="12" x2="12" y1="2" y2="22" />
 								<path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
@@ -180,7 +181,7 @@
 						<div
 							class="flex items-center justify-center w-12 h-12 bg-indigo-100 rounded-lg shrink-0 dark:bg-neutral-800">
 							<svg xmlns="http://www.w3.org/2000/svg"
-								class="w-6 h-6 text-indigo-800 dark:text-neutral-400" fill="none" stroke="currentColor"
+								class="w-6 h-6 text-indigo-600 dark:text-neutral-400" fill="none" stroke="currentColor"
 								stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 								<line x1="12" x2="12" y1="2" y2="22" />
 								<path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />

@@ -96,7 +96,7 @@
 			<div class="flex-1 lg:ml-72">
 				{{-- Offset content by the sidebar width on larger screens --}}
 				{{-- Toggle Button (visible on small screens) --}}
-				<header
+				<div
 					class="flex items-center justify-between px-4 py-2 bg-white border-b border-gray-200 shadow dark:bg-gray-800">
 					<div>
 						{{-- Show toggle button only on small screens --}}
@@ -143,10 +143,10 @@
 							</form>
 						</x-slot>
 					</x-dropdown>
-				</header>
+				</div>
 				@isset($header)
-					<header class="bg-white border-b border-gray-100 dark:bg-gray-800">
-						<div class="px-4 py-6 mx-auto max-w-7xl sm:px-6 lg:px-8">
+					<header class="bg-white border-b border-gray-200 dark:bg-gray-800">
+						<div class="px-4 py-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
 							{{ $header }}
 						</div>
 					</header>
