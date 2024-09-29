@@ -1,4 +1,4 @@
-<x-app-layout>
+<x-layouts.sidebar>
 	<x-slot name="header">
 
 		<div class="flex items-center justify-between">
@@ -102,4 +102,4 @@
 			{{ $invoices->links() }}
 		</div>
 	</div>
-</x-app-layout>
+</x-layouts.sidebar>
