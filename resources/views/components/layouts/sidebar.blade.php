@@ -23,32 +23,64 @@
 
 			{{-- Sidebar (overlay on mobile, fixed on larger screens) --}}
 			<div ::class="{'translate-x-0': sidebarOpen, '-translate-x-full': !sidebarOpen}"
-				class="fixed inset-y-0 left-0 z-30 w-64 h-screen text-white transition-transform transform bg-slate-950 lg:translate-x-0 lg:z-auto lg:w-64 lg:fixed"
+				class="fixed inset-y-0 left-0 z-30 w-64 h-screen text-white transition-transform transform bg-slate-950 lg:translate-x-0 lg:z-auto lg:w-72 lg:fixed"
 				x-cloak>
-				<div class="p-4">
-					<h1 class="mb-6 ml-4 text-xl font-semibold">Invoicer</h1>
+				<div class="p-5">
+					<h1 class="mb-6 ml-5 text-xl font-semibold">Invoicer</h1>
 					<ul class="flex flex-col space-y-1">
 						<li>
-							<a class="flex items-center gap-x-3.5 py-3 px-4 text-sm text-white rounded-lg hover:bg-white/10 focus:outline-none focus:bg-white/10 dark:bg-neutral-700 dark:text-white"
-								href="#" target="_parent">
+							<a class="flex items-center gap-x-3.5 py-3 px-4 text-white rounded-lg hover:bg-white/10 focus:outline-none focus:bg-white/10 dark:bg-neutral-700 dark:text-white"
+								href="{{ route('dashboard') }}">
+								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+									fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+									stroke-linejoin="round" class="size-5">
+									<path d="M15.6 2.7a10 10 0 1 0 5.7 5.7" />
+									<circle cx="12" cy="12" r="2" />
+									<path d="M13.4 10.6 19 5" />
+								</svg>
 								Dashboard
 							</a>
 						</li>
 						<li>
-							<a class="flex items-center gap-x-3.5 py-3 px-4 text-sm text-white rounded-lg hover:bg-white/10 focus:outline-none focus:bg-white/10 dark:bg-neutral-700 dark:text-white"
-								href="#" target="_parent">
+							<a class="flex items-center gap-x-3.5 py-3 px-4 text-white rounded-lg hover:bg-white/10 focus:outline-none focus:bg-white/10 dark:bg-neutral-700 dark:text-white"
+								href="{{ route('invoices.index') }}">
+								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+									fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+									stroke-linejoin="round" class="size-5">
+									<path
+										d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z" />
+									<path
+										d="m6.08 9.5-3.5 1.6a1 1 0 0 0 0 1.81l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9a1 1 0 0 0 0-1.83l-3.5-1.59" />
+									<path
+										d="m6.08 14.5-3.5 1.6a1 1 0 0 0 0 1.81l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9a1 1 0 0 0 0-1.83l-3.5-1.59" />
+								</svg>
 								Invoices
 							</a>
 						</li>
 						<li>
-							<a class="flex items-center gap-x-3.5 py-3 px-4 text-sm text-white rounded-lg hover:bg-white/10 focus:outline-none focus:bg-white/10 dark:bg-neutral-700 dark:text-white"
-								href="#" target="_parent">
+							<a class="flex items-center gap-x-3.5 py-3 px-4 text-white rounded-lg hover:bg-white/10 focus:outline-none focus:bg-white/10 dark:bg-neutral-700 dark:text-white"
+								href="{{ route('customers.index') }}">
+								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+									fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+									stroke-linejoin="round" class="size-5">
+									<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+									<circle cx="9" cy="7" r="4" />
+									<path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+									<path d="M16 3.13a4 4 0 0 1 0 7.75" />
+								</svg>
 								Customers
 							</a>
 						</li>
 						<li>
-							<a class="flex items-center gap-x-3.5 py-3 px-4 text-sm text-white rounded-lg hover:bg-white/10 focus:outline-none focus:bg-white/10 dark:bg-neutral-700 dark:text-white"
-								href="#" target="_parent">
+							<a class="flex items-center gap-x-3.5 py-3 px-4 text-white rounded-lg hover:bg-white/10 focus:outline-none focus:bg-white/10 dark:bg-neutral-700 dark:text-white"
+								href="{{ route('settings.edit') }}">
+								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+									fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+									stroke-linejoin="round" class="size-5">
+									<path
+										d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z" />
+									<circle cx="12" cy="12" r="3" />
+								</svg>
 								Settings
 							</a>
 						</li>
@@ -63,7 +95,7 @@
 			</div>
 
 			{{-- Content --}}
-			<div class="flex-1 lg:ml-64">
+			<div class="flex-1 lg:ml-72">
 				{{-- Offset content by the sidebar width on larger screens --}}
 				{{-- Toggle Button (visible on small screens) --}}
 				<header class="flex items-center justify-between p-4 bg-white shadow dark:bg-gray-800">
