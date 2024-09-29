@@ -8,11 +8,11 @@
 
 	<title>{{ config('app.name', 'Laravel') }}</title>
 
-	<!-- Fonts -->
+	{{-- Fonts --}}
 	<link rel="preconnect" href="https://fonts.bunny.net">
 	<link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
-	<!-- Scripts -->
+	{{-- Scripts --}}
 	@livewireStyles
 	@vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
@@ -21,32 +21,34 @@
 	<div class="min-h-screen bg-cool dark:bg-gray-900">
 		<div class="flex">
 
-			<!-- Sidebar (overlay on mobile, fixed on larger screens) -->
-			<div
-				:class="{'translate-x-0': sidebarOpen, '-translate-x-full': !sidebarOpen}" 
+			{{-- Sidebar (overlay on mobile, fixed on larger screens) --}}
+			<div ::class="{'translate-x-0': sidebarOpen, '-translate-x-full': !sidebarOpen}"
 				class="fixed inset-y-0 left-0 z-30 w-64 h-screen text-white transition-transform transform bg-slate-950 lg:translate-x-0 lg:z-auto lg:w-64 lg:fixed"
-				x-cloak
-			>
+				x-cloak>
 				<div class="p-4">
 					<h1 class="mb-6 ml-4 text-xl font-semibold">Invoicer</h1>
 					<ul class="flex flex-col space-y-1">
 						<li>
-							<a class="flex items-center gap-x-3.5 py-3 px-4 text-sm text-white rounded-lg hover:bg-white/10 focus:outline-none focus:bg-white/10 dark:bg-neutral-700 dark:text-white" href="#" target="_parent">
+							<a class="flex items-center gap-x-3.5 py-3 px-4 text-sm text-white rounded-lg hover:bg-white/10 focus:outline-none focus:bg-white/10 dark:bg-neutral-700 dark:text-white"
+								href="#" target="_parent">
 								Dashboard
 							</a>
 						</li>
 						<li>
-							<a class="flex items-center gap-x-3.5 py-3 px-4 text-sm text-white rounded-lg hover:bg-white/10 focus:outline-none focus:bg-white/10 dark:bg-neutral-700 dark:text-white" href="#" target="_parent">
+							<a class="flex items-center gap-x-3.5 py-3 px-4 text-sm text-white rounded-lg hover:bg-white/10 focus:outline-none focus:bg-white/10 dark:bg-neutral-700 dark:text-white"
+								href="#" target="_parent">
 								Invoices
 							</a>
 						</li>
 						<li>
-							<a class="flex items-center gap-x-3.5 py-3 px-4 text-sm text-white rounded-lg hover:bg-white/10 focus:outline-none focus:bg-white/10 dark:bg-neutral-700 dark:text-white" href="#" target="_parent">
+							<a class="flex items-center gap-x-3.5 py-3 px-4 text-sm text-white rounded-lg hover:bg-white/10 focus:outline-none focus:bg-white/10 dark:bg-neutral-700 dark:text-white"
+								href="#" target="_parent">
 								Customers
 							</a>
 						</li>
 						<li>
-							<a class="flex items-center gap-x-3.5 py-3 px-4 text-sm text-white rounded-lg hover:bg-white/10 focus:outline-none focus:bg-white/10 dark:bg-neutral-700 dark:text-white" href="#" target="_parent">
+							<a class="flex items-center gap-x-3.5 py-3 px-4 text-sm text-white rounded-lg hover:bg-white/10 focus:outline-none focus:bg-white/10 dark:bg-neutral-700 dark:text-white"
+								href="#" target="_parent">
 								Settings
 							</a>
 						</li>
@@ -55,23 +57,20 @@
 				</div>
 			</div>
 
-			<!-- Overlay (for small screens) -->
-			<div 
-				@click="sidebarOpen = false" 
-				:class="{'block': sidebarOpen, 'hidden': !sidebarOpen}" 
-				class="fixed inset-0 z-20 bg-black bg-opacity-50 lg:hidden"
-				x-cloak
-			>
-		</div>
+			{{-- Overlay (for small screens) --}}
+			<div @click="sidebarOpen = false" ::class="{'block': sidebarOpen, 'hidden': !sidebarOpen}"
+				class="fixed inset-0 z-20 bg-black bg-opacity-50 lg:hidden" x-cloak>
+			</div>
 
-			<!-- Content -->
+			{{-- Content --}}
 			<div class="flex-1 lg:ml-64">
-				<!-- Offset content by the sidebar width on larger screens -->
-				<!-- Toggle Button (visible on small screens) -->
+				{{-- Offset content by the sidebar width on larger screens --}}
+				{{-- Toggle Button (visible on small screens) --}}
 				<header class="flex items-center justify-between p-4 bg-white shadow dark:bg-gray-800">
 					<h1 class="text-xl font-medium">{{ __('Dashboard') }}</h1>
-					<!-- Show toggle button only on small screens -->
-					<button @click="sidebarOpen = !sidebarOpen" class="px-4 py-2 text-white bg-gray-700 rounded lg:hidden">
+					{{-- Show toggle button only on small screens --}}
+					<button @click="sidebarOpen = !sidebarOpen"
+						class="px-4 py-2 text-white bg-gray-700 rounded lg:hidden">
 						Toggle Sidebar
 					</button>
 				</header>
@@ -80,7 +79,6 @@
 					{{ $slot }}
 				</main>
 			</div>
-
 		</div>
 	</div>
 	@livewireScriptConfig
