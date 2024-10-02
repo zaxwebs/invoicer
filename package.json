@@ -17,6 +17,7 @@
     },
     "dependencies": {
         "@marcreichel/alpine-timeago": "^1.5.2",
-        "preline": "^2.4.1"
+        "preline": "^2.4.1",
+        "puppeteer": "^23.4.1"
     }
 }

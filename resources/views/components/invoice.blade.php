@@ -161,17 +161,17 @@
 			use
 			the following contact information:</p>
 		<div class="mt-2">
-			<p class="block text-sm font-medium text-gray-800 dark:text-neutral-200">
+			<p class="block font-medium text-gray-800 dark:text-neutral-200">
 				{{ $invoice->issuer_details['email'] }}
 			</p>
-			<p class="block text-sm font-medium text-gray-800 dark:text-neutral-200">
+			<p class="block mt-1 font-medium text-gray-800 dark:text-neutral-200">
 				{{ $invoice->issuer_details['phone'] }}
 			</p>
 		</div>
 	</div>
 
 	<p class="mt-5 text-sm text-gray-500 dark:text-neutral-500">© 2024
-		{{ $invoice->issuer_details['name'] }}.
+		{{ $invoice->issuer_details['name'] }}
 	</p>
 </div>
 <!-- End Card -->

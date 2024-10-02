@@ -5,9 +5,10 @@ use App\Http\Controllers\NoteController;
 use App\Http\Controllers\TinkerController;
 use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\DownloadInvoiceController;
 
 if (app()->environment('local')) {
 	Route::get('/tinker', [TinkerController::class, 'index'])->name('tinker');
@@ -29,6 +30,7 @@ Route::middleware('auth')->group(function () {
 	Route::get('/invoices/create', [InvoiceController::class, 'create'])->name('invoices.create');
 	Route::post('/invoices', [InvoiceController::class, 'store'])->name('invoices.store');
 	Route::get('/invoices/{invoice:invoice_number}', [InvoiceController::class, 'show'])->name('invoices.show');
+	Route::get('/invoices/download/{invoice:invoice_number}', DownloadInvoiceController::class);
 	Route::patch('/invoices/{invoice}/status', [InvoiceController::class, 'updateStatus'])
 		->name('invoices.update-status');
 	Route::get('/customers', [CustomerController::class, 'index'])->name('customers.index');
