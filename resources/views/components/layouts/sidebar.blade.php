@@ -27,7 +27,7 @@
 
 				<div class="flex flex-col justify-between h-screen p-4">
 					<div>
-						<div class="pt-1 pb-6 pl-8">
+						<div class="pt-3 pb-6 pl-6">
 							<img class="w-24" src="{{ asset('images/logo.svg') }}" alt="logo" />
 						</div>
 
@@ -91,8 +91,9 @@
 						</ul>
 					</div>
 
-					<div class="text-gray-400">
-						Version 0.1
+					<div class="p-4 text-gray-500 rounded-lg bg-slate-900">
+						<div>Development Build</div>
+						<div>Version 0.1</div>
 					</div>
 
 				</div>

@@ -24,13 +24,15 @@ class DownloadInvoiceController extends Controller
 
 		// return response($image)->header('Content-Type', 'image/png');
 
-		$base65Pdf = Browsershot::url('https://example.com/')
-			->setNodeBinary('C:\Program Files\nodejs\node')
-			->setNpmBinary('C:\Program Files\nodejs\npm')
-			->newHeadless()
-			->base64pdf();
+		return Browsershot::url('https://example.com')->setNodeBinary('C:\Program Files\nodejs\node')->pdf();
 
-		return response($base65Pdf)->header('Content-Type', 'application/pdf');
+		// $base65Pdf = Browsershot::url('https://example.com/')
+		// 	->setNodeBinary('C:\Program Files\nodejs\node')
+		// 	->setNpmBinary('C:\Program Files\nodejs\npm')
+		// 	->newHeadless()
+		// 	->base64pdf();
+
+		// return response($base65Pdf)->header('Content-Type', 'application/pdf');
 
 		// return pdf()
 		// 	->view('components.invoice', compact('invoice', 'settings'))
