@@ -3,41 +3,34 @@
 namespace App\Http\Controllers;
 
 use App\Models\Invoice;
-use Illuminate\Http\Request;
+use function Spatie\LaravelPdf\Support\pdf;
 use Spatie\Browsershot\Browsershot;
 use Illuminate\Support\Facades\Auth;
-use function Spatie\LaravelPdf\Support\pdf;
+use Illuminate\Support\Facades\Response;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 class DownloadInvoiceController extends Controller
 {
 	use AuthorizesRequests;
-	//
+
 	public function __invoke(Invoice $invoice)
 	{
+		// Authorize the user to view the invoice
 		$this->authorize('view', $invoice);
+
+		// Get user settings
 		$settings = Auth::user()->settings;
 
-		// $image = Browsershot::url('https://example.com/')
-		// 	->setNodeBinary('C:\Program Files\nodejs\node')
-		// 	->screenshot();
-
-		// return response($image)->header('Content-Type', 'image/png');
-
-		return Browsershot::url('https://example.com')->setNodeBinary('C:\Program Files\nodejs\node')->pdf();
-
-		// $base65Pdf = Browsershot::url('https://example.com/')
-		// 	->setNodeBinary('C:\Program Files\nodejs\node')
-		// 	->setNpmBinary('C:\Program Files\nodejs\npm')
-		// 	->newHeadless()
-		// 	->base64pdf();
-
-		// return response($base65Pdf)->header('Content-Type', 'application/pdf');
-
-		// return pdf()
-		// 	->view('components.invoice', compact('invoice', 'settings'))
-		// 	->name('invoice.pdf')->withBrowsershot(function (Browsershot $browsershot) {
-		// 		$browsershot->setNodeBinary('C:\Program Files\nodejs\node.exe');
-		// 	});
+		// Generate PDF using spatie/laravel-pdf
+		return pdf()
+			->view('invoices.pdf', compact('invoice', 'settings'))
+			->withBrowsershot(function (Browsershot $browsershot) {
+				$browsershot->setNodeBinary('C:\Program Files\nodejs\node');
+				$browsershot->setNpmBinary('C:\Users\username\AppData\Roaming\npm\npm');
+				$browsershot->setChromePath('C:\Program Files\Google\Chrome\Application\chrome.exe');
+				$browsershot->setOption('args', ['--no-sandbox', '--disable-setuid-sandbox']);
+				$browsershot->setDebug(true);
+			})
+			->name('invoice.pdf');
 	}
 }

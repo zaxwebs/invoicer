@@ -1,7 +1,7 @@
 @props(['invoice', 'settings'])
 
 <!-- Card -->
-<div class="flex flex-col p-4 bg-white border border-gray-200 sm:p-10 rounded-xl dark:bg-neutral-800">
+<div class="flex flex-col p-4 bg-white sm:p-10 dark:bg-neutral-800">
 	<!-- Header Section -->
 	<div class="flex items-start justify-between mb-4">
 		<div>
