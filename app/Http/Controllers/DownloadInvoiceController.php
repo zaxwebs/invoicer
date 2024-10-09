@@ -22,6 +22,7 @@ class DownloadInvoiceController extends Controller
 		$settings = Auth::user()->settings;
 
 		// Generate PDF using spatie/laravel-pdf
+		// TODO: Use environment variables
 		return pdf()
 			->view('invoices.pdf', compact('invoice', 'settings'))
 			->withBrowsershot(function (Browsershot $browsershot) {
