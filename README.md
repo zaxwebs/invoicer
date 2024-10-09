@@ -14,6 +14,7 @@ This application is currently under active development. Some features may not be
 - **Create Invoices**: Easily generate new invoices with detailed itemized lists.
 - **View Invoices**: Access comprehensive views of all invoices with search and filter options.
 - **Invoice Status**: Track the status of each invoice (e.g. Paid, Unpaid, Overdue).
+- **Invoice PDFs**: Download invoices as PDF.
 
 ### Customer Management
 - **Add Customers**: Register new customers with essential details such as name, email, phone, and address.
