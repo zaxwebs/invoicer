@@ -39,7 +39,12 @@ class InvoiceFactory extends Factory
 			'invoice_date' => $invoiceDate,
 			'due_date' => $dueDate,
 			'total' => $this->faker->randomFloat(2, 100, 1000),
-			'status' => $this->faker->randomElement(InvoiceStatus::fillableStatuses()),
+			'status' => $this->faker->randomElement(
+				[
+					...array_fill(0, 10, InvoiceStatus::PAID),
+					...InvoiceStatus::fillableStatuses()
+				]
+			),
 			'items' => $items,
 		];
 	}

@@ -2,7 +2,7 @@
 	<section class="py-16 bg-indigo-500 bg-center bg-cover" style="background-image: url('/images/cover.png');">
 
 		<div class="mx-auto space-y-12 max-w-7xl sm:px-6 lg:px-8">
-
+			<div class="text-white"></div>
 
 			<div class="text-white">
 				<div class="mb-2 text-3xl md:text-4xl">
