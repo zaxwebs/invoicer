@@ -55,7 +55,6 @@ class Invoice extends Model
 			$status = 'all';
 		}
 
-
 		if ($status === 'all') {
 			return $query;
 		}
@@ -67,7 +66,7 @@ class Invoice extends Model
 		return $query->where('status', $status);
 	}
 
-	public function scopeSortBy(Builder $query, $field = 'name', $direction = 'desc'): Builder
+	public function scopeSortBy(Builder $query, string $field = 'name', string $direction = 'desc'): Builder
 	{
 		$validSortFields = ['created_at', 'due_date', 'total'];
 		$validDirections = ['asc', 'desc'];
